@@ -4,9 +4,13 @@ export type SimulationErrorCode =
   | "INVALID_CONTEXT";
 
 export class SimulationError extends Error {
-  constructor(readonly code: SimulationErrorCode, readonly stage: string, message: string) {
+  readonly code: SimulationErrorCode;
+  readonly stage: string;
+  constructor(code: SimulationErrorCode, stage: string, message: string) {
     super(`${code} [${stage}]: ${message}`);
     this.name = "SimulationError";
+    this.code = code;
+    this.stage = stage;
   }
 }
 
