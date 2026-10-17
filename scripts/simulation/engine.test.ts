@@ -128,6 +128,9 @@ describe("real-data single-trial integration and truthful provenance", () => {
     await expect(runSingleTrial({ ...data, dataset: { ...data.dataset, events: data.dataset.events.slice(1) } }, request, context, sha256)).rejects.toThrow(/SOURCE_ORDER/);
     const changed = { ...data, dataset: { ...data.dataset, events: [{ ...data.dataset.events[0], observed_at: "invented" }, ...data.dataset.events.slice(1)] } };
     await expect(runSingleTrial(changed as unknown as ObservationData, request, context, sha256)).rejects.toThrow(/DATA_UNKNOWN/);
+    const alteredTreatment = copy(data);
+    (alteredTreatment.dataset.events[0] as { treatment: Treatment }).treatment = "Heat";
+    await expect(runSingleTrial(alteredTreatment, request, context, sha256)).rejects.toThrow(/INVALID_CONTEXT.*events.json/);
     const failure = new dataEntry.DataValidationError("ARTIFACT_HASH", "explicit loader failure");
     const loader = vi.spyOn(dataEntry, "loadObservationData").mockRejectedValue(failure);
     try { await expect(runObservationSimulation(request, context)).rejects.toBe(failure); }

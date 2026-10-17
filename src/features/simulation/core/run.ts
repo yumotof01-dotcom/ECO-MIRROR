@@ -6,7 +6,7 @@ import { requireSimulation } from "./errors.ts";
 import { fraction } from "./fraction.ts";
 import { normalizeRequest } from "./inputs.ts";
 import { selectScope } from "./scope.ts";
-import { canonicalJson } from "./serialization.ts";
+import { canonicalJson, digestText } from "./serialization.ts";
 import { simulateTrial } from "./trial.ts";
 import type { RunContext, RunResult, Sha256 } from "./types.ts";
 
@@ -19,6 +19,15 @@ export async function runSingleTrial(data: ObservationData, requestInput: unknow
   validateContext(context);
   // Snapshot caller-owned metadata before awaiting hashes.
   const metadata = structuredClone(context);
+  // Phase 4's fixed-property-order format, distinct from the result's canonical format.
+  // Audit totals alone cannot detect, for example, a changed Treatment with the same counts.
+  for (const [name, value, expected] of [
+    ["events.json", validated.dataset, metadata.data_identity.normalized_events_sha256],
+    ["taxa.json", validated.taxa, metadata.data_identity.taxa_sha256],
+  ] as const) {
+    const actual = await digestText(`${JSON.stringify(value, null, 2)}\n`, sha256);
+    requireSimulation(actual === expected, "INVALID_CONTEXT", "full-source", `${name}: full snapshot differs from the verified phase-4 artifact; use loadObservationData() without changing data or its fixed serialization`);
+  }
   const selected = await selectScope(validated.dataset.events, request.selection, sha256);
   const N = selected.events.length;
   const result = N > 0 ? await simulateTrial(selected.events, request.rate_percent, request.master_seed, 0, sha256) : null;
