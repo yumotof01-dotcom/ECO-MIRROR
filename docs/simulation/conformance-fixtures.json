@@ -1,0 +1,600 @@
+{
+  "fixture_version": "1.0.0",
+  "purpose": "Synthetic specification checks only; never research data or UI content.",
+  "toy_records": [
+    {
+      "id": 1,
+      "plant": "A",
+      "visitor": "X"
+    },
+    {
+      "id": 2,
+      "plant": "A",
+      "visitor": "X"
+    },
+    {
+      "id": 3,
+      "plant": "A",
+      "visitor": "Y"
+    },
+    {
+      "id": 4,
+      "plant": "B",
+      "visitor": "X"
+    },
+    {
+      "id": 5,
+      "plant": "B",
+      "visitor": "Y"
+    },
+    {
+      "id": 6,
+      "plant": "B",
+      "visitor": "Y"
+    },
+    {
+      "id": 7,
+      "plant": "C",
+      "visitor": "Y"
+    },
+    {
+      "id": 8,
+      "plant": "C",
+      "visitor": "Z"
+    },
+    {
+      "id": 9,
+      "plant": "C",
+      "visitor": "Z"
+    },
+    {
+      "id": 10,
+      "plant": "C",
+      "visitor": "Z"
+    }
+  ],
+  "reference": {
+    "event_count": 10,
+    "plant_label_count": 3,
+    "visitor_label_count": 3,
+    "pair_count": 6,
+    "connectance_fixed": {
+      "numerator": "2",
+      "denominator": "3"
+    },
+    "plant_partner_counts": {
+      "A": 2,
+      "B": 2,
+      "C": 2
+    },
+    "visitor_partner_counts": {
+      "X": 2,
+      "Y": 3,
+      "Z": 1
+    },
+    "pair_weights": [
+      [
+        "A",
+        "X",
+        2
+      ],
+      [
+        "A",
+        "Y",
+        1
+      ],
+      [
+        "B",
+        "X",
+        1
+      ],
+      [
+        "B",
+        "Y",
+        2
+      ],
+      [
+        "C",
+        "Y",
+        1
+      ],
+      [
+        "C",
+        "Z",
+        3
+      ]
+    ]
+  },
+  "main_sample": {
+    "rate_percent": 50,
+    "master_seed": 42,
+    "trial_index": 0,
+    "initseq": 54,
+    "sampled_ids": [
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
+    "random_word_count": 5,
+    "expected": {
+      "event_count": 5,
+      "plant_label_count": 2,
+      "visitor_label_count": 2,
+      "pair_count": 4,
+      "lost_pair_count": 2,
+      "pair_retention_pct": {
+        "numerator": "200",
+        "denominator": "3"
+      },
+      "connectance_fixed": {
+        "numerator": "4",
+        "denominator": "9"
+      },
+      "plant_partner_counts": {
+        "A": 2,
+        "B": 2,
+        "C": 0
+      },
+      "visitor_partner_counts": {
+        "X": 2,
+        "Y": 2,
+        "Z": 0
+      },
+      "pair_weights": [
+        [
+          "A",
+          "X",
+          1
+        ],
+        [
+          "A",
+          "Y",
+          1
+        ],
+        [
+          "B",
+          "X",
+          1
+        ],
+        [
+          "B",
+          "Y",
+          2
+        ],
+        [
+          "C",
+          "Y",
+          0
+        ],
+        [
+          "C",
+          "Z",
+          0
+        ]
+      ]
+    }
+  },
+  "pcg32_reference": {
+    "initstate": 42,
+    "initseq": 54,
+    "state_after_initialization_hex": "185706b82c2e03f8",
+    "increment_hex": "000000000000006d",
+    "words_hex": [
+      "a15c02b7",
+      "7b47f409",
+      "ba1d3330",
+      "83d2f293",
+      "bfa4784b",
+      "cbed606e"
+    ],
+    "words_decimal": [
+      2707161783,
+      2068313097,
+      3122475824,
+      2211639955,
+      3215226955,
+      3421331566
+    ]
+  },
+  "forward_exchange_trace": [
+    {
+      "i": 0,
+      "bound": 10,
+      "threshold": 6,
+      "offset": 3,
+      "j": 3,
+      "prefix": [
+        4
+      ]
+    },
+    {
+      "i": 1,
+      "bound": 9,
+      "threshold": 4,
+      "offset": 3,
+      "j": 4,
+      "prefix": [
+        4,
+        5
+      ]
+    },
+    {
+      "i": 2,
+      "bound": 8,
+      "threshold": 0,
+      "offset": 0,
+      "j": 2,
+      "prefix": [
+        4,
+        5,
+        3
+      ]
+    },
+    {
+      "i": 3,
+      "bound": 7,
+      "threshold": 4,
+      "offset": 0,
+      "j": 3,
+      "prefix": [
+        4,
+        5,
+        3,
+        1
+      ]
+    },
+    {
+      "i": 4,
+      "bound": 6,
+      "threshold": 4,
+      "offset": 1,
+      "j": 5,
+      "prefix": [
+        4,
+        5,
+        3,
+        1,
+        6
+      ]
+    }
+  ],
+  "rounding_cases": [
+    {
+      "N": 100,
+      "p": 50,
+      "k": 50
+    },
+    {
+      "N": 3882,
+      "p": 50,
+      "k": 1941
+    },
+    {
+      "N": 1687,
+      "p": 50,
+      "k": 844
+    },
+    {
+      "N": 2195,
+      "p": 50,
+      "k": 1098
+    },
+    {
+      "N": 1,
+      "p": 0,
+      "k": 0
+    },
+    {
+      "N": 1,
+      "p": 49,
+      "k": 0
+    },
+    {
+      "N": 1,
+      "p": 50,
+      "k": 1
+    },
+    {
+      "N": 1,
+      "p": 100,
+      "k": 1
+    },
+    {
+      "N": 3,
+      "p": 50,
+      "k": 2
+    },
+    {
+      "N": 7,
+      "p": 99,
+      "k": 7
+    },
+    {
+      "N": 10,
+      "p": 0,
+      "k": 0
+    },
+    {
+      "N": 10,
+      "p": 100,
+      "k": 10
+    },
+    {
+      "N": 0,
+      "p": 50,
+      "k": 0
+    }
+  ],
+  "zero_rate": {
+    "N": 10,
+    "p": 0,
+    "status": "success",
+    "sampled_ids": [],
+    "event_count": 0,
+    "plant_label_count": 0,
+    "visitor_label_count": 0,
+    "pair_count": 0,
+    "lost_pair_count": 6,
+    "pair_retention_pct": {
+      "numerator": "0",
+      "denominator": "1"
+    },
+    "connectance_fixed": {
+      "numerator": "0",
+      "denominator": "1"
+    },
+    "random_word_count": 0
+  },
+  "full_rate": {
+    "N": 10,
+    "p": 100,
+    "sampled_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "pair_count": 6,
+    "lost_pair_count": 0,
+    "pair_retention_pct": {
+      "numerator": "100",
+      "denominator": "1"
+    },
+    "connectance_fixed": {
+      "numerator": "2",
+      "denominator": "3"
+    },
+    "random_word_count": 0
+  },
+  "empty_scope": {
+    "N": 0,
+    "status": "empty_scope",
+    "sample_record_count": null,
+    "reference": null,
+    "trials": [],
+    "summary": null,
+    "pair_retention_pct_if_evaluated": null,
+    "connectance_fixed_if_evaluated": null
+  },
+  "bounded_test_doubles": [
+    {
+      "m": 3,
+      "supplied_words": [
+        0,
+        1
+      ],
+      "expected_output": 1,
+      "consumed_words": 2
+    },
+    {
+      "m": 10,
+      "supplied_words": [
+        5,
+        16
+      ],
+      "expected_output": 6,
+      "consumed_words": 2
+    },
+    {
+      "m": 1,
+      "supplied_words": [],
+      "expected_output": 0,
+      "consumed_words": 0
+    }
+  ],
+  "stream_cases": [
+    {
+      "master_seed": 42,
+      "trial_index": 0,
+      "initstate": 42,
+      "initseq": 54,
+      "increment": 109
+    },
+    {
+      "master_seed": 42,
+      "trial_index": 1,
+      "initstate": 42,
+      "initseq": 55,
+      "increment": 111
+    },
+    {
+      "master_seed": 42,
+      "trial_index": 999,
+      "initstate": 42,
+      "initseq": 1053,
+      "increment": 2107
+    }
+  ],
+  "statistics_fixture": {
+    "not_prng_generated": true,
+    "sampled_ids": [
+      [
+        1,
+        2,
+        3,
+        5,
+        6
+      ],
+      [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        1,
+        3,
+        4,
+        7,
+        8
+      ]
+    ],
+    "pair_counts": [
+      3,
+      4,
+      5
+    ],
+    "expected_pair_summary": {
+      "mean": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "sample_variance": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "sample_sd": {
+        "radicand": {
+          "numerator": "1",
+          "denominator": "1"
+        }
+      },
+      "quantiles": [
+        {
+          "numerator": "61",
+          "denominator": "20"
+        },
+        {
+          "numerator": "4",
+          "denominator": "1"
+        },
+        {
+          "numerator": "99",
+          "denominator": "20"
+        }
+      ]
+    },
+    "expected_retention_summary": {
+      "mean": {
+        "numerator": "200",
+        "denominator": "3"
+      },
+      "sample_variance": {
+        "numerator": "2500",
+        "denominator": "9"
+      },
+      "sample_sd": {
+        "radicand": {
+          "numerator": "2500",
+          "denominator": "9"
+        }
+      },
+      "quantiles": [
+        {
+          "numerator": "305",
+          "denominator": "6"
+        },
+        {
+          "numerator": "200",
+          "denominator": "3"
+        },
+        {
+          "numerator": "165",
+          "denominator": "2"
+        }
+      ]
+    }
+  },
+  "one_trial_summary": {
+    "values": [
+      4
+    ],
+    "mean": {
+      "numerator": "4",
+      "denominator": "1"
+    },
+    "sample_variance": null,
+    "sample_sd": null,
+    "undefined_reason": "insufficient_trials",
+    "quantiles": [
+      {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      {
+        "numerator": "4",
+        "denominator": "1"
+      }
+    ]
+  },
+  "two_zero_trials_summary": {
+    "values": [
+      0,
+      0
+    ],
+    "mean": {
+      "numerator": "0",
+      "denominator": "1"
+    },
+    "sample_variance": {
+      "numerator": "0",
+      "denominator": "1"
+    },
+    "sample_sd": {
+      "radicand": {
+        "numerator": "0",
+        "denominator": "1"
+      }
+    },
+    "quantiles": [
+      {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      {
+        "numerator": "0",
+        "denominator": "1"
+      },
+      {
+        "numerator": "0",
+        "denominator": "1"
+      }
+    ]
+  },
+  "exact_combinatorial_check": {
+    "N": 10,
+    "k": 5,
+    "subset_count": 252,
+    "expected_pair_count": {
+      "numerator": "143",
+      "denominator": "36"
+    },
+    "expected_retention_pct": {
+      "numerator": "3575",
+      "denominator": "54"
+    }
+  }
+}
