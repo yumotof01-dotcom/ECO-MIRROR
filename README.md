@@ -4,9 +4,11 @@
 
 観測不足によって、生態系の状態を誤って判断するリスクを減らすことを目指します。生成AIによる予測は行わず、実データと再現可能な数理計算を使う方針です。
 
-## 現在の範囲：工程1・2
+## 現在の範囲：画面基盤と第3工程のデータ調査
 
-この版は**開発基盤**です。公開データの取得・接続、サンプリング、乱数生成、指標計算、結果生成は実装していません。分析結果を装った数値やグラフもありません。
+この版は**開発基盤**です。アプリ側の公開データの取得・接続、サンプリング、乱数生成、指標計算、結果生成は実装していません。分析結果を装った数値やグラフもありません。
+
+工程3では指定のCC-plant-pollinator実CSVを調査し、3,882行・7列、大学保管v1のCC BY 4.0、GitHub版との改行以外の一致を確認しました。英国の実験記録を使う観測条件の教材として、原分類ラベルを保持して採用します。調査結果は [データ調査報告](docs/data/cc-plant-pollinator/README.md) にあります。原CSVのアプリへの取り込み・正規化はまだ行っていません。
 
 | 画面             | URL           | 現在できること                                 |
 | ---------------- | ------------- | ---------------------------------------------- |
@@ -22,7 +24,7 @@
 Node.js 24系とnpmを推奨します（`.nvmrc` を用意）。この変更がmainにマージされる前は、次のブランチを取得してください。新しいGitHubリポジトリの作成は不要です。
 
 ```bash
-git clone --branch feat/foundation-phase-1-2 https://github.com/yumotof01-dotcom/ECO-MIRROR.git
+git clone --branch docs/phase-3-data-assessment https://github.com/yumotof01-dotcom/ECO-MIRROR.git
 cd ECO-MIRROR
 npm ci
 npm run dev
@@ -34,7 +36,7 @@ npm run dev
 
 ```bash
 git fetch origin
-git switch feat/foundation-phase-1-2
+git switch docs/phase-3-data-assessment
 npm ci
 npm run dev
 ```
@@ -76,8 +78,13 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [12工程のロードマップ](docs/roadmap.md)
 - [科学的な注意事項](docs/scientific-notes.md)
 - [データ選定・出典管理の方針](docs/data-policy.md)
+- [第3工程のデータ調査・採用判断](docs/data/cc-plant-pollinator/README.md)
+- [年・区画・調査回別の記録数](docs/data/cc-plant-pollinator/counts.md)
+- [取り込み・正規化の設計](docs/data/cc-plant-pollinator/normalization.md)
 - [Codexへの引き継ぎ](docs/codex-handoff.md)
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程3：公開データの調査・選定**です。まずデータの出典、利用条件、対象分類群、記録単位、欠測の扱いを確認し、採用理由を文書化します。計算実装へ先に進まないでください。
+次は**工程4：データ取得・正規化・品質検証**です。固定版のハッシュと利用条件を確認し、全3,882行を保持して取り込みます。重複行の一律削除、分類名の推測修正、記録のない調査単位への0補完をしないでください。数理仕様は工程5、計算実装は工程6以降です。
+
+第3工程のブランチは未マージの基盤PR #1を継承しています。PR #1や第3工程のPRを無断でmainへマージせず、引き継ぎ時に状態を確認してください。

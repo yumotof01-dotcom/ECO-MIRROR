@@ -1,0 +1,141 @@
+# 原綴りの分類ラベル一覧
+
+自動名寄せ・学名修正を行う前の一覧。`_sp`、複合名、`_sl`はラベル上の注意フラグで、標本の再同定結果ではない。すべての学名を分類データベースで確認済みと解釈しない。
+
+## 植物（Plant）
+
+| 元ラベル | 2014 | 2015 | 計 | Basic_Type | ラベル上の注意 |
+| --- | --- | --- | --- | --- | --- |
+| Agrostemma_githago | 2 | 0 | 2 | — | — |
+| Capsella_bursapastoris | 11 | 4 | 15 | — | — |
+| Centaurea_cyanus | 600 | 245 | 845 | — | — |
+| Chenopodium_album | 9 | 0 | 9 | — | — |
+| Chrysanthemum_segetum | 803 | 1834 | 2637 | — | — |
+| Fallopia_convolvulus | 9 | 0 | 9 | — | — |
+| Lamium_purpureum | 29 | 62 | 91 | — | — |
+| Matricaria_discoidea | 3 | 0 | 3 | — | — |
+| Papaver_rhoeas | 0 | 1 | 1 | — | — |
+| Persicaria_maculosa | 6 | 0 | 6 | — | — |
+| Senecio_vulgaris | 6 | 0 | 6 | — | — |
+| Sisymbrium_officinale | 1 | 0 | 1 | — | — |
+| Solanum_sp | 1 | 1 | 2 | — | unresolved_sp_label |
+| Sonchus_arvensis | 8 | 0 | 8 | — | — |
+| Sonchus_asper | 1 | 0 | 1 | — | — |
+| Sonchus_oleraceus | 5 | 0 | 5 | — | — |
+| Spergula_arvensis | 7 | 0 | 7 | — | — |
+| Stellaria_media | 23 | 7 | 30 | — | — |
+| Tripleurospermum_inodorum | 88 | 34 | 122 | — | — |
+| Veronica_persica | 75 | 7 | 82 | — | — |
+
+## 昆虫（Specimen_ID）
+
+| 元ラベル | 2014 | 2015 | 計 | Basic_Type | ラベル上の注意 |
+| --- | --- | --- | --- | --- | --- |
+| Aglais_io | 0 | 1 | 1 | Butterfly | — |
+| Aglais_urticae | 3 | 54 | 57 | Butterfly | — |
+| Andrena_bicolor | 2 | 3 | 5 | Solitary_Bee | — |
+| Andrena_haemorrhoa | 0 | 2 | 2 | Solitary_Bee | — |
+| Andrena_nigroaenea | 0 | 2 | 2 | Solitary_Bee | — |
+| Andrena_nitida | 0 | 1 | 1 | Solitary_Bee | — |
+| Andrena_semilaevis | 1 | 0 | 1 | Solitary_Bee | — |
+| Anthomyiidae_sp | 74 | 53 | 127 | Fly | unresolved_sp_label |
+| Anthophora_furcata | 0 | 1 | 1 | Solitary_Bee | — |
+| Aphantopus_hyperantus | 0 | 1 | 1 | Butterfly | — |
+| Apis_mellifera | 228 | 704 | 932 | Honeybee | — |
+| Autographa_gamma | 0 | 1 | 1 | Moth | — |
+| Bellardia_vulgaris_viarum | 8 | 6 | 14 | Fly | combined_label_requires_review |
+| Bombus_hortorum | 8 | 24 | 32 | Bumblebee | — |
+| Bombus_hypnorum | 0 | 1 | 1 | Bumblebee | — |
+| Bombus_lapidarius | 82 | 454 | 536 | Bumblebee | — |
+| Bombus_pascuorum | 20 | 33 | 53 | Bumblebee | — |
+| Bombus_pratorum | 2 | 8 | 10 | Bumblebee | — |
+| Bombus_terrestris_lucorum | 57 | 103 | 160 | Bumblebee | combined_label_requires_review |
+| Calliphora_vicina | 1 | 2 | 3 | Fly | — |
+| Calliphora_vomitoria | 3 | 5 | 8 | Fly | — |
+| Ceonosia_trigrina | 1 | 0 | 1 | Fly | — |
+| Cheilosia_bergenstammi | 1 | 0 | 1 | Hoverfly | — |
+| Cheilosia_pagana | 3 | 0 | 3 | Hoverfly | — |
+| Cheilosia_sp | 2 | 1 | 3 | Hoverfly | unresolved_sp_label |
+| Cheilosia_vernalis | 6 | 2 | 8 | Hoverfly | — |
+| Chrysops_relictus | 1 | 0 | 1 | Fly | — |
+| Chrysotoxum_bicinctum | 2 | 0 | 2 | Hoverfly | — |
+| Coenosia_pumila | 1 | 0 | 1 | Fly | — |
+| Colletes_daviesanus | 6 | 0 | 6 | Solitary_Bee | — |
+| Dasysyrphus_albostriatus | 1 | 0 | 1 | Hoverfly | — |
+| Delia_radicum | 0 | 4 | 4 | Fly | — |
+| Diadromus_collaris | 1 | 0 | 1 | Parasitoid | — |
+| Dolichovespula_sylvestris | 1 | 0 | 1 | Social_Wasp | — |
+| Drosophila_sp | 2 | 0 | 2 | Fly | unresolved_sp_label |
+| Empididae_sp | 0 | 1 | 1 | Fly | unresolved_sp_label |
+| Empis_livida | 73 | 48 | 121 | Fly | — |
+| Episyrphus_balteatus | 235 | 174 | 409 | Hoverfly | — |
+| Eriothrix_rufomaculata | 17 | 3 | 20 | Fly | — |
+| Eristalinus_sepulchralis | 6 | 1 | 7 | Hoverfly | — |
+| Eristalis_abusivus | 10 | 0 | 10 | Hoverfly | — |
+| Eristalis_arbustorum | 224 | 11 | 235 | Hoverfly | — |
+| Eristalis_interruptus | 5 | 0 | 5 | Hoverfly | — |
+| Eristalis_pertinax | 1 | 0 | 1 | Hoverfly | — |
+| Eristalis_similis | 2 | 0 | 2 | Hoverfly | — |
+| Eristalis_sp | 0 | 1 | 1 | Hoverfly | unresolved_sp_label |
+| Eristalis_tenax | 97 | 157 | 254 | Hoverfly | — |
+| Eupeodes_corollae | 19 | 62 | 81 | Hoverfly | — |
+| Eupeodes_latifasciatus | 0 | 6 | 6 | Hoverfly | — |
+| Eupeodes_lundbecki | 0 | 1 | 1 | Hoverfly | — |
+| Eupeodes_luniger | 18 | 23 | 41 | Hoverfly | — |
+| Halictus_rubicundus | 4 | 5 | 9 | Solitary_Bee | — |
+| Halictus_tumulorum | 1 | 0 | 1 | Solitary_Bee | — |
+| Helophilus_hybridus | 6 | 0 | 6 | Hoverfly | — |
+| Helophilus_pendulus | 34 | 2 | 36 | Hoverfly | — |
+| Helophilus_trivittatus | 7 | 0 | 7 | Hoverfly | — |
+| Hylaeus_communis | 1 | 0 | 1 | Solitary_Bee | — |
+| Inachis_io | 2 | 0 | 2 | Butterfly | — |
+| Lasioglossum_calceatum | 5 | 1 | 6 | Solitary_Bee | — |
+| Lasioglossum_morio | 1 | 0 | 1 | Solitary_Bee | — |
+| Lucilia_ceasar | 4 | 4 | 8 | Fly | — |
+| Lucilia_illustris | 5 | 3 | 8 | Fly | — |
+| Lucilia_richardsii | 0 | 1 | 1 | Fly | — |
+| Lucilia_sericata | 9 | 4 | 13 | Fly | — |
+| Lucilia_silvarum | 5 | 21 | 26 | Fly | — |
+| Maniola_jurtina | 0 | 1 | 1 | Butterfly | — |
+| Megachile_centuncularis | 0 | 3 | 3 | Solitary_Bee | — |
+| Megachile_sp | 0 | 1 | 1 | Solitary_Bee | unresolved_sp_label |
+| Meigenia_mutabalis | 1 | 0 | 1 | Fly | — |
+| Melanostoma_mellinum | 16 | 10 | 26 | Hoverfly | — |
+| Melanostoma_scalare | 2 | 0 | 2 | Hoverfly | — |
+| Melinda_viridicyanea | 6 | 1 | 7 | Fly | — |
+| Meredon_equestris | 1 | 1 | 2 | Hoverfly | — |
+| Muscidae_sp | 0 | 1 | 1 | Fly | unresolved_sp_label |
+| Neoascia_podagrica | 4 | 0 | 4 | Hoverfly | — |
+| Odontomyia_angulata | 2 | 0 | 2 | Fly | — |
+| Osmia_sp | 0 | 1 | 1 | Solitary_Bee | unresolved_sp_label |
+| Passaloecus_sp | 0 | 1 | 1 | Solitary_Wasp | unresolved_sp_label |
+| Phaonia_incarna | 1 | 1 | 2 | Fly | — |
+| Phaonia_sp | 0 | 1 | 1 | Fly | unresolved_sp_label |
+| Pieris_napi | 1 | 0 | 1 | Butterfly | — |
+| Pieris_rapae | 3 | 0 | 3 | Butterfly | — |
+| Platycheirus_albimanus | 47 | 38 | 85 | Hoverfly | — |
+| Platycheirus_ambiguus | 0 | 1 | 1 | Hoverfly | — |
+| Platycheirus_manicatus | 5 | 1 | 6 | Hoverfly | — |
+| Platycheirus_occultus | 0 | 2 | 2 | Hoverfly | — |
+| Platycheirus_scutatus_sl | 1 | 0 | 1 | Hoverfly | broad_sense_label_requires_review |
+| Pollenia_angustigena | 0 | 1 | 1 | Fly | — |
+| Pollenia_pallida | 5 | 1 | 6 | Fly | — |
+| Pollenia_pediculata | 5 | 6 | 11 | Fly | — |
+| Sarcophaga_sp | 4 | 0 | 4 | Fly | unresolved_sp_label |
+| Sarcophagini_sp | 10 | 5 | 15 | Fly | unresolved_sp_label |
+| Scaeva_pyrastri | 1 | 11 | 12 | Hoverfly | — |
+| Siphona_geniculata | 2 | 0 | 2 | Fly | — |
+| Sphaerophoria_interrupta | 2 | 0 | 2 | Hoverfly | — |
+| Sphaerophoria_scripta | 47 | 8 | 55 | Hoverfly | — |
+| Sphaerophoria_sp | 24 | 4 | 28 | Hoverfly | unresolved_sp_label |
+| Syritta_pipiens | 138 | 62 | 200 | Hoverfly | — |
+| Syrphus_rectus | 1 | 0 | 1 | Hoverfly | — |
+| Syrphus_ribesii | 41 | 16 | 57 | Hoverfly | — |
+| Syrphus_torvus | 1 | 0 | 1 | Hoverfly | — |
+| Syrphus_vitripennis_rectus | 5 | 22 | 27 | Hoverfly | combined_label_requires_review |
+| Tachinidae_sp | 1 | 0 | 1 | Fly | unresolved_sp_label |
+| Thymelicus_sylvestris | 2 | 0 | 2 | Butterfly | — |
+
+学名の異名・綴り・同定粒度の評価はREADME.mdの分類名の節を参照。
+
+出典：Ellen Moss and Darren Evans (2022), [Climate change impacts on plant-pollinator interactions and functioning - experiment data, v1](https://doi.org/10.25405/data.ncl.17430548.v1), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。変更内容：元ラベルの年別件数と注意フラグを付した一覧へ変換。学名の修正・統合は未実施。取得元・ハッシュはmanifest.jsonを参照。
