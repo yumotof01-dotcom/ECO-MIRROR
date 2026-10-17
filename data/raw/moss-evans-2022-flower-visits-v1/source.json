@@ -1,0 +1,26 @@
+{
+  "dataset_id": "moss-evans-2022-flower-visits-v1",
+  "title": "Climate change impacts on plant-pollinator interactions and functioning - experiment data",
+  "creators": [
+    "Ellen Moss",
+    "Darren Evans"
+  ],
+  "doi": "10.25405/data.ncl.17430548.v1",
+  "version": 1,
+  "file_id": 34178859,
+  "download_url": "https://ndownloader.figshare.com/files/34178859",
+  "retrieved_at_utc": "2026-10-17T07:54:48.151Z",
+  "size": 254165,
+  "sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+  "md5": "6f083ca81e9bc14c3bbd5806aecb62e8",
+  "line_endings": "CRLF",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "metadata_url": "https://api.figshare.com/v2/articles/17430548/versions/1",
+  "metadata_sha256": "97a07ff4cfa94cfdb7a4a52ad2e4f28f710c84e1c1953dace5476c19661a5994",
+  "changes_to_source_csv": "None; original bytes retained.",
+  "attribution": "Ellen Moss and Darren Evans (2022), Climate change impacts on plant-pollinator interactions and functioning - experiment data, version 1, https://doi.org/10.25405/data.ncl.17430548.v1. CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. No endorsement is implied.",
+  "retrieval_command": "npm run data:fetch"
+}

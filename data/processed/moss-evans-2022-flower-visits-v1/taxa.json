@@ -1,0 +1,1372 @@
+{
+  "dataset_id": "moss-evans-2022-flower-visits-v1",
+  "source_sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+  "schema_version": "1.0.0",
+  "transform_version": "ccpp-verbatim-v1",
+  "plants": [
+    {
+      "label_id": "plant:Agrostemma_githago",
+      "raw_label": "Agrostemma_githago",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Capsella_bursapastoris",
+      "raw_label": "Capsella_bursapastoris",
+      "record_count": 15,
+      "year_2014": 11,
+      "year_2015": 4,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Centaurea_cyanus",
+      "raw_label": "Centaurea_cyanus",
+      "record_count": 845,
+      "year_2014": 600,
+      "year_2015": 245,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Chenopodium_album",
+      "raw_label": "Chenopodium_album",
+      "record_count": 9,
+      "year_2014": 9,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Chrysanthemum_segetum",
+      "raw_label": "Chrysanthemum_segetum",
+      "record_count": 2637,
+      "year_2014": 803,
+      "year_2015": 1834,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Fallopia_convolvulus",
+      "raw_label": "Fallopia_convolvulus",
+      "record_count": 9,
+      "year_2014": 9,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Lamium_purpureum",
+      "raw_label": "Lamium_purpureum",
+      "record_count": 91,
+      "year_2014": 29,
+      "year_2015": 62,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Matricaria_discoidea",
+      "raw_label": "Matricaria_discoidea",
+      "record_count": 3,
+      "year_2014": 3,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Papaver_rhoeas",
+      "raw_label": "Papaver_rhoeas",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Persicaria_maculosa",
+      "raw_label": "Persicaria_maculosa",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Senecio_vulgaris",
+      "raw_label": "Senecio_vulgaris",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Sisymbrium_officinale",
+      "raw_label": "Sisymbrium_officinale",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Solanum_sp",
+      "raw_label": "Solanum_sp",
+      "record_count": 2,
+      "year_2014": 1,
+      "year_2015": 1,
+      "basic_types": [],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "plant:Sonchus_arvensis",
+      "raw_label": "Sonchus_arvensis",
+      "record_count": 8,
+      "year_2014": 8,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Sonchus_asper",
+      "raw_label": "Sonchus_asper",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Sonchus_oleraceus",
+      "raw_label": "Sonchus_oleraceus",
+      "record_count": 5,
+      "year_2014": 5,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Spergula_arvensis",
+      "raw_label": "Spergula_arvensis",
+      "record_count": 7,
+      "year_2014": 7,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Stellaria_media",
+      "raw_label": "Stellaria_media",
+      "record_count": 30,
+      "year_2014": 23,
+      "year_2015": 7,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Tripleurospermum_inodorum",
+      "raw_label": "Tripleurospermum_inodorum",
+      "record_count": 122,
+      "year_2014": 88,
+      "year_2015": 34,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "label_id": "plant:Veronica_persica",
+      "raw_label": "Veronica_persica",
+      "record_count": 82,
+      "year_2014": 75,
+      "year_2015": 7,
+      "basic_types": [],
+      "label_flags": []
+    }
+  ],
+  "visitors": [
+    {
+      "label_id": "visitor:Aglais_io",
+      "raw_label": "Aglais_io",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Aglais_urticae",
+      "raw_label": "Aglais_urticae",
+      "record_count": 57,
+      "year_2014": 3,
+      "year_2015": 54,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Andrena_bicolor",
+      "raw_label": "Andrena_bicolor",
+      "record_count": 5,
+      "year_2014": 2,
+      "year_2015": 3,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Andrena_haemorrhoa",
+      "raw_label": "Andrena_haemorrhoa",
+      "record_count": 2,
+      "year_2014": 0,
+      "year_2015": 2,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Andrena_nigroaenea",
+      "raw_label": "Andrena_nigroaenea",
+      "record_count": 2,
+      "year_2014": 0,
+      "year_2015": 2,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Andrena_nitida",
+      "raw_label": "Andrena_nitida",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Andrena_semilaevis",
+      "raw_label": "Andrena_semilaevis",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Anthomyiidae_sp",
+      "raw_label": "Anthomyiidae_sp",
+      "record_count": 127,
+      "year_2014": 74,
+      "year_2015": 53,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Anthophora_furcata",
+      "raw_label": "Anthophora_furcata",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Aphantopus_hyperantus",
+      "raw_label": "Aphantopus_hyperantus",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Apis_mellifera",
+      "raw_label": "Apis_mellifera",
+      "record_count": 932,
+      "year_2014": 228,
+      "year_2015": 704,
+      "basic_types": [
+        "Honeybee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Autographa_gamma",
+      "raw_label": "Autographa_gamma",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Moth"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Bellardia_vulgaris_viarum",
+      "raw_label": "Bellardia_vulgaris_viarum",
+      "record_count": 14,
+      "year_2014": 8,
+      "year_2015": 6,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "combined_label_requires_review"
+      ]
+    },
+    {
+      "label_id": "visitor:Bombus_hortorum",
+      "raw_label": "Bombus_hortorum",
+      "record_count": 32,
+      "year_2014": 8,
+      "year_2015": 24,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Bombus_hypnorum",
+      "raw_label": "Bombus_hypnorum",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Bombus_lapidarius",
+      "raw_label": "Bombus_lapidarius",
+      "record_count": 536,
+      "year_2014": 82,
+      "year_2015": 454,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Bombus_pascuorum",
+      "raw_label": "Bombus_pascuorum",
+      "record_count": 53,
+      "year_2014": 20,
+      "year_2015": 33,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Bombus_pratorum",
+      "raw_label": "Bombus_pratorum",
+      "record_count": 10,
+      "year_2014": 2,
+      "year_2015": 8,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Bombus_terrestris_lucorum",
+      "raw_label": "Bombus_terrestris_lucorum",
+      "record_count": 160,
+      "year_2014": 57,
+      "year_2015": 103,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": [
+        "combined_label_requires_review"
+      ]
+    },
+    {
+      "label_id": "visitor:Calliphora_vicina",
+      "raw_label": "Calliphora_vicina",
+      "record_count": 3,
+      "year_2014": 1,
+      "year_2015": 2,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Calliphora_vomitoria",
+      "raw_label": "Calliphora_vomitoria",
+      "record_count": 8,
+      "year_2014": 3,
+      "year_2015": 5,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Ceonosia_trigrina",
+      "raw_label": "Ceonosia_trigrina",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Cheilosia_bergenstammi",
+      "raw_label": "Cheilosia_bergenstammi",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Cheilosia_pagana",
+      "raw_label": "Cheilosia_pagana",
+      "record_count": 3,
+      "year_2014": 3,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Cheilosia_sp",
+      "raw_label": "Cheilosia_sp",
+      "record_count": 3,
+      "year_2014": 2,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Cheilosia_vernalis",
+      "raw_label": "Cheilosia_vernalis",
+      "record_count": 8,
+      "year_2014": 6,
+      "year_2015": 2,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Chrysops_relictus",
+      "raw_label": "Chrysops_relictus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Chrysotoxum_bicinctum",
+      "raw_label": "Chrysotoxum_bicinctum",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Coenosia_pumila",
+      "raw_label": "Coenosia_pumila",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Colletes_daviesanus",
+      "raw_label": "Colletes_daviesanus",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Dasysyrphus_albostriatus",
+      "raw_label": "Dasysyrphus_albostriatus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Delia_radicum",
+      "raw_label": "Delia_radicum",
+      "record_count": 4,
+      "year_2014": 0,
+      "year_2015": 4,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Diadromus_collaris",
+      "raw_label": "Diadromus_collaris",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Parasitoid"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Dolichovespula_sylvestris",
+      "raw_label": "Dolichovespula_sylvestris",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Social_Wasp"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Drosophila_sp",
+      "raw_label": "Drosophila_sp",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Empididae_sp",
+      "raw_label": "Empididae_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Empis_livida",
+      "raw_label": "Empis_livida",
+      "record_count": 121,
+      "year_2014": 73,
+      "year_2015": 48,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Episyrphus_balteatus",
+      "raw_label": "Episyrphus_balteatus",
+      "record_count": 409,
+      "year_2014": 235,
+      "year_2015": 174,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eriothrix_rufomaculata",
+      "raw_label": "Eriothrix_rufomaculata",
+      "record_count": 20,
+      "year_2014": 17,
+      "year_2015": 3,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalinus_sepulchralis",
+      "raw_label": "Eristalinus_sepulchralis",
+      "record_count": 7,
+      "year_2014": 6,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalis_abusivus",
+      "raw_label": "Eristalis_abusivus",
+      "record_count": 10,
+      "year_2014": 10,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalis_arbustorum",
+      "raw_label": "Eristalis_arbustorum",
+      "record_count": 235,
+      "year_2014": 224,
+      "year_2015": 11,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalis_interruptus",
+      "raw_label": "Eristalis_interruptus",
+      "record_count": 5,
+      "year_2014": 5,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalis_pertinax",
+      "raw_label": "Eristalis_pertinax",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalis_similis",
+      "raw_label": "Eristalis_similis",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eristalis_sp",
+      "raw_label": "Eristalis_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Eristalis_tenax",
+      "raw_label": "Eristalis_tenax",
+      "record_count": 254,
+      "year_2014": 97,
+      "year_2015": 157,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eupeodes_corollae",
+      "raw_label": "Eupeodes_corollae",
+      "record_count": 81,
+      "year_2014": 19,
+      "year_2015": 62,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eupeodes_latifasciatus",
+      "raw_label": "Eupeodes_latifasciatus",
+      "record_count": 6,
+      "year_2014": 0,
+      "year_2015": 6,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eupeodes_lundbecki",
+      "raw_label": "Eupeodes_lundbecki",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Eupeodes_luniger",
+      "raw_label": "Eupeodes_luniger",
+      "record_count": 41,
+      "year_2014": 18,
+      "year_2015": 23,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Halictus_rubicundus",
+      "raw_label": "Halictus_rubicundus",
+      "record_count": 9,
+      "year_2014": 4,
+      "year_2015": 5,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Halictus_tumulorum",
+      "raw_label": "Halictus_tumulorum",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Helophilus_hybridus",
+      "raw_label": "Helophilus_hybridus",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Helophilus_pendulus",
+      "raw_label": "Helophilus_pendulus",
+      "record_count": 36,
+      "year_2014": 34,
+      "year_2015": 2,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Helophilus_trivittatus",
+      "raw_label": "Helophilus_trivittatus",
+      "record_count": 7,
+      "year_2014": 7,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Hylaeus_communis",
+      "raw_label": "Hylaeus_communis",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Inachis_io",
+      "raw_label": "Inachis_io",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lasioglossum_calceatum",
+      "raw_label": "Lasioglossum_calceatum",
+      "record_count": 6,
+      "year_2014": 5,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lasioglossum_morio",
+      "raw_label": "Lasioglossum_morio",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lucilia_ceasar",
+      "raw_label": "Lucilia_ceasar",
+      "record_count": 8,
+      "year_2014": 4,
+      "year_2015": 4,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lucilia_illustris",
+      "raw_label": "Lucilia_illustris",
+      "record_count": 8,
+      "year_2014": 5,
+      "year_2015": 3,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lucilia_richardsii",
+      "raw_label": "Lucilia_richardsii",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lucilia_sericata",
+      "raw_label": "Lucilia_sericata",
+      "record_count": 13,
+      "year_2014": 9,
+      "year_2015": 4,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Lucilia_silvarum",
+      "raw_label": "Lucilia_silvarum",
+      "record_count": 26,
+      "year_2014": 5,
+      "year_2015": 21,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Maniola_jurtina",
+      "raw_label": "Maniola_jurtina",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Megachile_centuncularis",
+      "raw_label": "Megachile_centuncularis",
+      "record_count": 3,
+      "year_2014": 0,
+      "year_2015": 3,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Megachile_sp",
+      "raw_label": "Megachile_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Meigenia_mutabalis",
+      "raw_label": "Meigenia_mutabalis",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Melanostoma_mellinum",
+      "raw_label": "Melanostoma_mellinum",
+      "record_count": 26,
+      "year_2014": 16,
+      "year_2015": 10,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Melanostoma_scalare",
+      "raw_label": "Melanostoma_scalare",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Melinda_viridicyanea",
+      "raw_label": "Melinda_viridicyanea",
+      "record_count": 7,
+      "year_2014": 6,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Meredon_equestris",
+      "raw_label": "Meredon_equestris",
+      "record_count": 2,
+      "year_2014": 1,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Muscidae_sp",
+      "raw_label": "Muscidae_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Neoascia_podagrica",
+      "raw_label": "Neoascia_podagrica",
+      "record_count": 4,
+      "year_2014": 4,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Odontomyia_angulata",
+      "raw_label": "Odontomyia_angulata",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Osmia_sp",
+      "raw_label": "Osmia_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Passaloecus_sp",
+      "raw_label": "Passaloecus_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Wasp"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Phaonia_incarna",
+      "raw_label": "Phaonia_incarna",
+      "record_count": 2,
+      "year_2014": 1,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Phaonia_sp",
+      "raw_label": "Phaonia_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Pieris_napi",
+      "raw_label": "Pieris_napi",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Pieris_rapae",
+      "raw_label": "Pieris_rapae",
+      "record_count": 3,
+      "year_2014": 3,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Platycheirus_albimanus",
+      "raw_label": "Platycheirus_albimanus",
+      "record_count": 85,
+      "year_2014": 47,
+      "year_2015": 38,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Platycheirus_ambiguus",
+      "raw_label": "Platycheirus_ambiguus",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Platycheirus_manicatus",
+      "raw_label": "Platycheirus_manicatus",
+      "record_count": 6,
+      "year_2014": 5,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Platycheirus_occultus",
+      "raw_label": "Platycheirus_occultus",
+      "record_count": 2,
+      "year_2014": 0,
+      "year_2015": 2,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Platycheirus_scutatus_sl",
+      "raw_label": "Platycheirus_scutatus_sl",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "broad_sense_label_requires_review"
+      ]
+    },
+    {
+      "label_id": "visitor:Pollenia_angustigena",
+      "raw_label": "Pollenia_angustigena",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Pollenia_pallida",
+      "raw_label": "Pollenia_pallida",
+      "record_count": 6,
+      "year_2014": 5,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Pollenia_pediculata",
+      "raw_label": "Pollenia_pediculata",
+      "record_count": 11,
+      "year_2014": 5,
+      "year_2015": 6,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Sarcophaga_sp",
+      "raw_label": "Sarcophaga_sp",
+      "record_count": 4,
+      "year_2014": 4,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Sarcophagini_sp",
+      "raw_label": "Sarcophagini_sp",
+      "record_count": 15,
+      "year_2014": 10,
+      "year_2015": 5,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Scaeva_pyrastri",
+      "raw_label": "Scaeva_pyrastri",
+      "record_count": 12,
+      "year_2014": 1,
+      "year_2015": 11,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Siphona_geniculata",
+      "raw_label": "Siphona_geniculata",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Sphaerophoria_interrupta",
+      "raw_label": "Sphaerophoria_interrupta",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Sphaerophoria_scripta",
+      "raw_label": "Sphaerophoria_scripta",
+      "record_count": 55,
+      "year_2014": 47,
+      "year_2015": 8,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Sphaerophoria_sp",
+      "raw_label": "Sphaerophoria_sp",
+      "record_count": 28,
+      "year_2014": 24,
+      "year_2015": 4,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Syritta_pipiens",
+      "raw_label": "Syritta_pipiens",
+      "record_count": 200,
+      "year_2014": 138,
+      "year_2015": 62,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Syrphus_rectus",
+      "raw_label": "Syrphus_rectus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Syrphus_ribesii",
+      "raw_label": "Syrphus_ribesii",
+      "record_count": 57,
+      "year_2014": 41,
+      "year_2015": 16,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Syrphus_torvus",
+      "raw_label": "Syrphus_torvus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "label_id": "visitor:Syrphus_vitripennis_rectus",
+      "raw_label": "Syrphus_vitripennis_rectus",
+      "record_count": 27,
+      "year_2014": 5,
+      "year_2015": 22,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "combined_label_requires_review"
+      ]
+    },
+    {
+      "label_id": "visitor:Tachinidae_sp",
+      "raw_label": "Tachinidae_sp",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "label_id": "visitor:Thymelicus_sylvestris",
+      "raw_label": "Thymelicus_sylvestris",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    }
+  ]
+}

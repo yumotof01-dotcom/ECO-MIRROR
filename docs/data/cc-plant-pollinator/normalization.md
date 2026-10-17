@@ -1,6 +1,6 @@
-# 工程4に向けた取り込み・正規化設計
+# 取り込み・正規化設計と工程4での具体化
 
-**設計のみ。取り込み処理、正規化済みイベント、シミュレーションは未実装。** 対象・採用条件は[調査報告](README.md)、固定出典とハッシュは[manifest.json](manifest.json)に従う。
+**第3工程で作成した設計を基に、第4工程で取得・正規化・品質検証を実装した。** 実装済みの配置・型・コマンド・来歴管理の詳細は [implementation.md](implementation.md)、結果は [phase4-validation.md](phase4-validation.md)。シミュレーションは未実装。 対象・採用条件は[調査報告](README.md)、固定出典とハッシュは[manifest.json](manifest.json)に従う。
 
 ## 1. 原本と管理単位
 
@@ -17,7 +17,7 @@
 | `data/processed/<dataset-id>/quality.json` | 欠測・重複同値パターン・未解決ラベル等の検査結果 |
 | `data/processed/<dataset-id>/provenance.json` | schema/transform/taxonomyの版、変換コードのコミット、入出力ハッシュ |
 
-まだこれらのディレクトリ・データを作成しない。原本をGit管理する工程4では、対象パスに改行変換を適用しない `.gitattributes` 等の設定も検討・検証する。正本CRLFをGitの自動処理でLFへ変えた後、元ハッシュのまま扱うことを防ぐ。
+第4工程で上記配置を実装し、公式API応答と成果物ハッシュmanifestも追加した。原本の対象パスに `.gitattributes` の `-text` を設定し、Git indexのバイト列も検証する。共通のdataset_id/source_sha256はevents.jsonのコンテナへ置き、全イベントを対応付ける。正本CRLFをGitの自動処理でLFへ変えた後、元ハッシュのまま扱うことを防ぐ。
 
 ## 2. 変換ルール案 `ccpp-verbatim-v1`
 

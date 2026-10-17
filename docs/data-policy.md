@@ -2,7 +2,7 @@
 
 ## 現在の状態
 
-第3工程でCC-plant-pollinatorの指定CSVを調査し、用途を限定して採用した。3,882行・7列、大学保管v1のCC BY 4.0、指定GitHub版と大学版の記録内容・行順の一致を確認した。調査のため2配布版を取得して照合したが、**原CSVのリポジトリ同梱、アプリへの取り込み・正規化・接続はまだない。** 元データを装うサンプルや架空の種名は画面に用意しない。
+第3工程でCC-plant-pollinatorの指定CSVを調査し、用途を限定して採用した。3,882行・7列、大学保管v1のCC BY 4.0、指定GitHub版と大学版の記録内容・行順の一致を確認した。第4工程で大学保管v1の原CSVを無変更で同梱し、取得情報・ライセンス証拠・全行の正規化・監査・型安全なローダーを実装した。**画面への接続と計算はまだない。** 元データを装うサンプルや架空の種名は画面に用意しない。
 
 採用条件と監査結果は [調査報告](data/cc-plant-pollinator/README.md)、出典・版・ハッシュ・利用条件は [manifest.json](data/cc-plant-pollinator/manifest.json)、工程4の処理規則は [normalization.md](data/cc-plant-pollinator/normalization.md) に記録する。原名モードで全行を保持し、分類名・重複・未確認の調査実施情報を暗黙に修正しない。
 
@@ -28,4 +28,4 @@ Web of Lifeは候補の入口。個別のデータID、植物・昆虫の対象�
 
 0と欠測の変換、重複の統合、分類名の変更、行列の転置などは暗黙に行わない。入力から利用可能なデータへ至る処理を再実行できるようにする。
 
-指定CSVの具体的なフィールド・配置・正規化ルールは、実物の確認に基づく設計としてnormalization.mdにまとめた。工程4で型・スキーマと取り込み処理を実装し、今回の監査期待値で検証する。設計を実装済みと扱わない。
+指定CSVの具体的なフィールド・配置・正規化ルールは、実物の確認に基づく設計としてnormalization.mdにまとめた。工程4の具体的な型・CLI・検証・再現性の規則は [implementation.md](data/cc-plant-pollinator/implementation.md)、結果は [phase4-validation.md](data/cc-plant-pollinator/phase4-validation.md) に記録した。未確認の努力量・同定・実施情報は補完しない。

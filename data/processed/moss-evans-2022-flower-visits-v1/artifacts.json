@@ -1,0 +1,20 @@
+{
+  "dataset_id": "moss-evans-2022-flower-visits-v1",
+  "source_sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+  "schema_version": "1.0.0",
+  "transform_version": "ccpp-verbatim-v1",
+  "outputs": {
+    "events.json": {
+      "sha256": "17c87b30f3f66f8d3537123c75ea29a8d3193f9f1f0381a8e48460fd3f73d58c",
+      "bytes": 2608118
+    },
+    "taxa.json": {
+      "sha256": "10d4fc491c12718d21e4fb2ee9d65876084bbf7e2d122a63e31f33e1d441453d",
+      "bytes": 30826
+    },
+    "quality.json": {
+      "sha256": "2e43927c07f7c3b7b2b3926454050902f15ab15d8eb4bdeee8c06df0833afa2a",
+      "bytes": 66793
+    }
+  }
+}

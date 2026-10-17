@@ -1,0 +1,3 @@
+# University source bytes (including CRLF) are part of its verified identity.
+data/raw/moss-evans-2022-flower-visits-v1/Raw_InteractionData_BothYears.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+data/**/*.json text eol=lf

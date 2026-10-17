@@ -1,0 +1,3825 @@
+{
+  "dataset_id": "moss-evans-2022-flower-visits-v1",
+  "source_sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+  "schema_version": "1.0.0",
+  "transform_version": "ccpp-verbatim-v1",
+  "record_count": 3882,
+  "columns": [
+    {
+      "name": "Year",
+      "type": "integer",
+      "distinct_count": 2,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    },
+    {
+      "name": "Plot",
+      "type": "integer",
+      "distinct_count": 24,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    },
+    {
+      "name": "Round",
+      "type": "integer",
+      "distinct_count": 9,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    },
+    {
+      "name": "Plant",
+      "type": "string",
+      "distinct_count": 20,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    },
+    {
+      "name": "Specimen_ID",
+      "type": "string",
+      "distinct_count": 104,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    },
+    {
+      "name": "Basic_Type",
+      "type": "string",
+      "distinct_count": 10,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    },
+    {
+      "name": "Treatment",
+      "type": "string",
+      "distinct_count": 4,
+      "empty_cell_count": 0,
+      "missing_marker_count": 0,
+      "outer_whitespace_count": 0
+    }
+  ],
+  "exact_row_repeats": {
+    "unique_seven_column_rows": 1952,
+    "repeated_groups": 708,
+    "rows_in_repeated_groups": 2638,
+    "excess_if_deduplicated": 1930,
+    "maximum_multiplicity": 18,
+    "policy": "retain_all_rows"
+  },
+  "plant_label_count": 20,
+  "visitor_label_count": 104,
+  "observed_pair_count": 257,
+  "basic_type_conflicts": {},
+  "year_plot_treatment_conflicts": [],
+  "treatment_changes_between_years": [],
+  "year_summary": [
+    {
+      "Year": 2014,
+      "record_count": 1687,
+      "plant_label_count": 19,
+      "visitor_label_count": 80,
+      "observed_pair_count": 208,
+      "plot_count": 24,
+      "round_labels": [
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9
+      ],
+      "plot_round_cells_with_records": 163
+    },
+    {
+      "Year": 2015,
+      "record_count": 2195,
+      "plant_label_count": 9,
+      "visitor_label_count": 68,
+      "observed_pair_count": 111,
+      "plot_count": 24,
+      "round_labels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "plot_round_cells_with_records": 158
+    }
+  ],
+  "year_treatment_counts": [
+    {
+      "Year": 2014,
+      "Treatment": "Control",
+      "record_count": 513
+    },
+    {
+      "Year": 2014,
+      "Treatment": "Heat",
+      "record_count": 357
+    },
+    {
+      "Year": 2014,
+      "Treatment": "Heat+Water",
+      "record_count": 366
+    },
+    {
+      "Year": 2014,
+      "Treatment": "Water",
+      "record_count": 451
+    },
+    {
+      "Year": 2015,
+      "Treatment": "Control",
+      "record_count": 513
+    },
+    {
+      "Year": 2015,
+      "Treatment": "Heat",
+      "record_count": 586
+    },
+    {
+      "Year": 2015,
+      "Treatment": "Heat+Water",
+      "record_count": 557
+    },
+    {
+      "Year": 2015,
+      "Treatment": "Water",
+      "record_count": 539
+    }
+  ],
+  "year_plot_counts": [
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Treatment": "Control",
+      "record_count": 68
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Treatment": "Heat+Water",
+      "record_count": 79
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Treatment": "Water",
+      "record_count": 67
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Treatment": "Water",
+      "record_count": 59
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Treatment": "Control",
+      "record_count": 83
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Treatment": "Water",
+      "record_count": 77
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Treatment": "Heat+Water",
+      "record_count": 43
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Treatment": "Heat",
+      "record_count": 35
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Treatment": "Water",
+      "record_count": 89
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Treatment": "Heat+Water",
+      "record_count": 52
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Treatment": "Heat",
+      "record_count": 46
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Treatment": "Heat+Water",
+      "record_count": 70
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Treatment": "Heat+Water",
+      "record_count": 51
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Treatment": "Heat",
+      "record_count": 68
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Treatment": "Heat",
+      "record_count": 92
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Treatment": "Control",
+      "record_count": 90
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Treatment": "Heat+Water",
+      "record_count": 71
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Treatment": "Heat",
+      "record_count": 65
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Treatment": "Water",
+      "record_count": 88
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Treatment": "Control",
+      "record_count": 87
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Treatment": "Control",
+      "record_count": 79
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Treatment": "Heat",
+      "record_count": 51
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Treatment": "Control",
+      "record_count": 106
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Treatment": "Water",
+      "record_count": 71
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Treatment": "Control",
+      "record_count": 53
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Treatment": "Heat+Water",
+      "record_count": 61
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Treatment": "Water",
+      "record_count": 112
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Treatment": "Water",
+      "record_count": 103
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Treatment": "Control",
+      "record_count": 100
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Treatment": "Water",
+      "record_count": 79
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Treatment": "Heat+Water",
+      "record_count": 72
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Treatment": "Heat",
+      "record_count": 91
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Treatment": "Water",
+      "record_count": 84
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Treatment": "Heat+Water",
+      "record_count": 110
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Treatment": "Heat",
+      "record_count": 130
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Treatment": "Heat+Water",
+      "record_count": 83
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Treatment": "Heat+Water",
+      "record_count": 102
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Treatment": "Heat",
+      "record_count": 76
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Treatment": "Heat",
+      "record_count": 82
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Treatment": "Control",
+      "record_count": 71
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Treatment": "Heat+Water",
+      "record_count": 129
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Treatment": "Heat",
+      "record_count": 93
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Treatment": "Water",
+      "record_count": 65
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Treatment": "Control",
+      "record_count": 99
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Treatment": "Control",
+      "record_count": 85
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Treatment": "Heat",
+      "record_count": 114
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Treatment": "Control",
+      "record_count": 105
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Treatment": "Water",
+      "record_count": 96
+    }
+  ],
+  "year_round_counts": [
+    {
+      "Year": 2014,
+      "Round": 1,
+      "record_count": 43
+    },
+    {
+      "Year": 2014,
+      "Round": 3,
+      "record_count": 124
+    },
+    {
+      "Year": 2014,
+      "Round": 4,
+      "record_count": 161
+    },
+    {
+      "Year": 2014,
+      "Round": 5,
+      "record_count": 238
+    },
+    {
+      "Year": 2014,
+      "Round": 7,
+      "record_count": 525
+    },
+    {
+      "Year": 2014,
+      "Round": 8,
+      "record_count": 362
+    },
+    {
+      "Year": 2014,
+      "Round": 9,
+      "record_count": 234
+    },
+    {
+      "Year": 2015,
+      "Round": 1,
+      "record_count": 48
+    },
+    {
+      "Year": 2015,
+      "Round": 2,
+      "record_count": 69
+    },
+    {
+      "Year": 2015,
+      "Round": 3,
+      "record_count": 154
+    },
+    {
+      "Year": 2015,
+      "Round": 4,
+      "record_count": 377
+    },
+    {
+      "Year": 2015,
+      "Round": 5,
+      "record_count": 412
+    },
+    {
+      "Year": 2015,
+      "Round": 6,
+      "record_count": 555
+    },
+    {
+      "Year": 2015,
+      "Round": 7,
+      "record_count": 580
+    }
+  ],
+  "year_plot_round_counts": [
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 3,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 4,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 5,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 7,
+      "record_count": 33
+    },
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 8,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 1,
+      "Round": 9,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 3,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 4,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 5,
+      "record_count": 18
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 7,
+      "record_count": 22
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 8,
+      "record_count": 16
+    },
+    {
+      "Year": 2014,
+      "Plot": 2,
+      "Round": 9,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 3,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 5,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 7,
+      "record_count": 28
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 8,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 9,
+      "record_count": 14
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 3,
+      "record_count": 7
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 4,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 5,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 7,
+      "record_count": 22
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 8,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 4,
+      "Round": 9,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 1,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 3,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 4,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 5,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 7,
+      "record_count": 25
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 8,
+      "record_count": 27
+    },
+    {
+      "Year": 2014,
+      "Plot": 5,
+      "Round": 9,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 3,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 4,
+      "record_count": 2
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 5,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 7,
+      "record_count": 32
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 8,
+      "record_count": 14
+    },
+    {
+      "Year": 2014,
+      "Plot": 6,
+      "Round": 9,
+      "record_count": 19
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 3,
+      "record_count": 7
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 4,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 5,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 7,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 8,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 7,
+      "Round": 9,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 3,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 4,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 5,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 7,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 8,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 9,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 3,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 4,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 5,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 7,
+      "record_count": 21
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 8,
+      "record_count": 32
+    },
+    {
+      "Year": 2014,
+      "Plot": 9,
+      "Round": 9,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 3,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 4,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 5,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 7,
+      "record_count": 14
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 8,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 10,
+      "Round": 9,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 3,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 4,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 5,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 7,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 8,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 11,
+      "Round": 9,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 1,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 3,
+      "record_count": 7
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 4,
+      "record_count": 19
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 5,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 7,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 8,
+      "record_count": 15
+    },
+    {
+      "Year": 2014,
+      "Plot": 12,
+      "Round": 9,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 1,
+      "record_count": 7
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 3,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 5,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 7,
+      "record_count": 15
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 8,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 13,
+      "Round": 9,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 1,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 3,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 5,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 7,
+      "record_count": 18
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 8,
+      "record_count": 17
+    },
+    {
+      "Year": 2014,
+      "Plot": 14,
+      "Round": 9,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 3,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 4,
+      "record_count": 12
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 5,
+      "record_count": 20
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 7,
+      "record_count": 29
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 8,
+      "record_count": 15
+    },
+    {
+      "Year": 2014,
+      "Plot": 15,
+      "Round": 9,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 3,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 5,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 7,
+      "record_count": 31
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 8,
+      "record_count": 25
+    },
+    {
+      "Year": 2014,
+      "Plot": 16,
+      "Round": 9,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 3,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 4,
+      "record_count": 4
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 5,
+      "record_count": 7
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 7,
+      "record_count": 20
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 8,
+      "record_count": 24
+    },
+    {
+      "Year": 2014,
+      "Plot": 17,
+      "Round": 9,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 4,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 5,
+      "record_count": 12
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 7,
+      "record_count": 25
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 8,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 9,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 1,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 3,
+      "record_count": 1
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 5,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 7,
+      "record_count": 34
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 8,
+      "record_count": 12
+    },
+    {
+      "Year": 2014,
+      "Plot": 19,
+      "Round": 9,
+      "record_count": 21
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 1,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 3,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 4,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 5,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 7,
+      "record_count": 27
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 8,
+      "record_count": 26
+    },
+    {
+      "Year": 2014,
+      "Plot": 20,
+      "Round": 9,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 3,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 4,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 5,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 7,
+      "record_count": 27
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 8,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 21,
+      "Round": 9,
+      "record_count": 10
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 3,
+      "record_count": 2
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 5,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 7,
+      "record_count": 13
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 8,
+      "record_count": 14
+    },
+    {
+      "Year": 2014,
+      "Plot": 22,
+      "Round": 9,
+      "record_count": 5
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 1,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 3,
+      "record_count": 9
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 4,
+      "record_count": 11
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 5,
+      "record_count": 18
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 7,
+      "record_count": 26
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 8,
+      "record_count": 25
+    },
+    {
+      "Year": 2014,
+      "Plot": 23,
+      "Round": 9,
+      "record_count": 14
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 3,
+      "record_count": 8
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 4,
+      "record_count": 7
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 5,
+      "record_count": 3
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 7,
+      "record_count": 25
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 8,
+      "record_count": 12
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 9,
+      "record_count": 16
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 2,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 4,
+      "record_count": 5
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 5,
+      "record_count": 7
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 6,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 7,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 2,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 3,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 4,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 5,
+      "record_count": 11
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 6,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 7,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 1,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 2,
+      "record_count": 7
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 3,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 4,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 5,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 6,
+      "record_count": 23
+    },
+    {
+      "Year": 2015,
+      "Plot": 3,
+      "Round": 7,
+      "record_count": 37
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 1,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 2,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 3,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 4,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 5,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 6,
+      "record_count": 28
+    },
+    {
+      "Year": 2015,
+      "Plot": 4,
+      "Round": 7,
+      "record_count": 22
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 2,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 3,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 4,
+      "record_count": 18
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 5,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 6,
+      "record_count": 27
+    },
+    {
+      "Year": 2015,
+      "Plot": 5,
+      "Round": 7,
+      "record_count": 36
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 1,
+      "record_count": 5
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 2,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 3,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 4,
+      "record_count": 11
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 5,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 6,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 6,
+      "Round": 7,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 2,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 3,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 4,
+      "record_count": 11
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 5,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 6,
+      "record_count": 11
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 7,
+      "record_count": 29
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 1,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 2,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 3,
+      "record_count": 12
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 4,
+      "record_count": 10
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 5,
+      "record_count": 16
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 6,
+      "record_count": 24
+    },
+    {
+      "Year": 2015,
+      "Plot": 8,
+      "Round": 7,
+      "record_count": 21
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 1,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 2,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 3,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 4,
+      "record_count": 7
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 5,
+      "record_count": 12
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 6,
+      "record_count": 32
+    },
+    {
+      "Year": 2015,
+      "Plot": 9,
+      "Round": 7,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 2,
+      "record_count": 5
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 3,
+      "record_count": 11
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 4,
+      "record_count": 26
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 5,
+      "record_count": 23
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 6,
+      "record_count": 18
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 7,
+      "record_count": 27
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 2,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 3,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 4,
+      "record_count": 28
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 5,
+      "record_count": 25
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 6,
+      "record_count": 28
+    },
+    {
+      "Year": 2015,
+      "Plot": 11,
+      "Round": 7,
+      "record_count": 36
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 2,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 3,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 4,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 5,
+      "record_count": 16
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 6,
+      "record_count": 30
+    },
+    {
+      "Year": 2015,
+      "Plot": 12,
+      "Round": 7,
+      "record_count": 25
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 2,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 3,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 4,
+      "record_count": 18
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 5,
+      "record_count": 33
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 6,
+      "record_count": 22
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 7,
+      "record_count": 18
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 2,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 3,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 4,
+      "record_count": 15
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 5,
+      "record_count": 16
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 6,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 14,
+      "Round": 7,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 2,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 3,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 4,
+      "record_count": 16
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 5,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 6,
+      "record_count": 29
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 7,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 3,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 4,
+      "record_count": 7
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 5,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 6,
+      "record_count": 27
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 7,
+      "record_count": 26
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 3,
+      "record_count": 24
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 4,
+      "record_count": 39
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 5,
+      "record_count": 25
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 6,
+      "record_count": 22
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 7,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 2,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 3,
+      "record_count": 7
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 4,
+      "record_count": 11
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 5,
+      "record_count": 19
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 6,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 18,
+      "Round": 7,
+      "record_count": 32
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 3,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 4,
+      "record_count": 8
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 5,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 6,
+      "record_count": 17
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 7,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 2,
+      "record_count": 3
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 3,
+      "record_count": 5
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 4,
+      "record_count": 24
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 5,
+      "record_count": 22
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 6,
+      "record_count": 26
+    },
+    {
+      "Year": 2015,
+      "Plot": 20,
+      "Round": 7,
+      "record_count": 18
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 1,
+      "record_count": 4
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 2,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 3,
+      "record_count": 2
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 4,
+      "record_count": 10
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 5,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 6,
+      "record_count": 28
+    },
+    {
+      "Year": 2015,
+      "Plot": 21,
+      "Round": 7,
+      "record_count": 20
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 2,
+      "record_count": 7
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 3,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 4,
+      "record_count": 23
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 5,
+      "record_count": 24
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 6,
+      "record_count": 22
+    },
+    {
+      "Year": 2015,
+      "Plot": 22,
+      "Round": 7,
+      "record_count": 28
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 1,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 2,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 3,
+      "record_count": 6
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 4,
+      "record_count": 27
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 5,
+      "record_count": 21
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 6,
+      "record_count": 24
+    },
+    {
+      "Year": 2015,
+      "Plot": 23,
+      "Round": 7,
+      "record_count": 25
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 1,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 2,
+      "record_count": 1
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 3,
+      "record_count": 9
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 4,
+      "record_count": 15
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 5,
+      "record_count": 14
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 6,
+      "record_count": 22
+    },
+    {
+      "Year": 2015,
+      "Plot": 24,
+      "Round": 7,
+      "record_count": 26
+    }
+  ],
+  "plot_round_cells_without_records": [
+    {
+      "Year": 2014,
+      "Plot": 3,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2014,
+      "Plot": 8,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2014,
+      "Plot": 18,
+      "Round": 3,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2014,
+      "Plot": 24,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 1,
+      "Round": 3,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 2,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 7,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 10,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 13,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 15,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 16,
+      "Round": 2,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 1,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 17,
+      "Round": 2,
+      "status": "no_record_effort_unknown"
+    },
+    {
+      "Year": 2015,
+      "Plot": 19,
+      "Round": 2,
+      "status": "no_record_effort_unknown"
+    }
+  ],
+  "basic_type_counts": [
+    {
+      "Basic_Type": "Bumblebee",
+      "record_count": 792
+    },
+    {
+      "Basic_Type": "Butterfly",
+      "record_count": 68
+    },
+    {
+      "Basic_Type": "Fly",
+      "record_count": 413
+    },
+    {
+      "Basic_Type": "Honeybee",
+      "record_count": 932
+    },
+    {
+      "Basic_Type": "Hoverfly",
+      "record_count": 1632
+    },
+    {
+      "Basic_Type": "Moth",
+      "record_count": 1
+    },
+    {
+      "Basic_Type": "Parasitoid",
+      "record_count": 1
+    },
+    {
+      "Basic_Type": "Social_Wasp",
+      "record_count": 1
+    },
+    {
+      "Basic_Type": "Solitary_Bee",
+      "record_count": 41
+    },
+    {
+      "Basic_Type": "Solitary_Wasp",
+      "record_count": 1
+    }
+  ],
+  "plant_inventory": [
+    {
+      "raw_label": "Agrostemma_githago",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Capsella_bursapastoris",
+      "record_count": 15,
+      "year_2014": 11,
+      "year_2015": 4,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Centaurea_cyanus",
+      "record_count": 845,
+      "year_2014": 600,
+      "year_2015": 245,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Chenopodium_album",
+      "record_count": 9,
+      "year_2014": 9,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Chrysanthemum_segetum",
+      "record_count": 2637,
+      "year_2014": 803,
+      "year_2015": 1834,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Fallopia_convolvulus",
+      "record_count": 9,
+      "year_2014": 9,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lamium_purpureum",
+      "record_count": 91,
+      "year_2014": 29,
+      "year_2015": 62,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Matricaria_discoidea",
+      "record_count": 3,
+      "year_2014": 3,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Papaver_rhoeas",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Persicaria_maculosa",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Senecio_vulgaris",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sisymbrium_officinale",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Solanum_sp",
+      "record_count": 2,
+      "year_2014": 1,
+      "year_2015": 1,
+      "basic_types": [],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Sonchus_arvensis",
+      "record_count": 8,
+      "year_2014": 8,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sonchus_asper",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sonchus_oleraceus",
+      "record_count": 5,
+      "year_2014": 5,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Spergula_arvensis",
+      "record_count": 7,
+      "year_2014": 7,
+      "year_2015": 0,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Stellaria_media",
+      "record_count": 30,
+      "year_2014": 23,
+      "year_2015": 7,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Tripleurospermum_inodorum",
+      "record_count": 122,
+      "year_2014": 88,
+      "year_2015": 34,
+      "basic_types": [],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Veronica_persica",
+      "record_count": 82,
+      "year_2014": 75,
+      "year_2015": 7,
+      "basic_types": [],
+      "label_flags": []
+    }
+  ],
+  "visitor_inventory": [
+    {
+      "raw_label": "Aglais_io",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Aglais_urticae",
+      "record_count": 57,
+      "year_2014": 3,
+      "year_2015": 54,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Andrena_bicolor",
+      "record_count": 5,
+      "year_2014": 2,
+      "year_2015": 3,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Andrena_haemorrhoa",
+      "record_count": 2,
+      "year_2014": 0,
+      "year_2015": 2,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Andrena_nigroaenea",
+      "record_count": 2,
+      "year_2014": 0,
+      "year_2015": 2,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Andrena_nitida",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Andrena_semilaevis",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Anthomyiidae_sp",
+      "record_count": 127,
+      "year_2014": 74,
+      "year_2015": 53,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Anthophora_furcata",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Aphantopus_hyperantus",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Apis_mellifera",
+      "record_count": 932,
+      "year_2014": 228,
+      "year_2015": 704,
+      "basic_types": [
+        "Honeybee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Autographa_gamma",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Moth"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Bellardia_vulgaris_viarum",
+      "record_count": 14,
+      "year_2014": 8,
+      "year_2015": 6,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "combined_label_requires_review"
+      ]
+    },
+    {
+      "raw_label": "Bombus_hortorum",
+      "record_count": 32,
+      "year_2014": 8,
+      "year_2015": 24,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Bombus_hypnorum",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Bombus_lapidarius",
+      "record_count": 536,
+      "year_2014": 82,
+      "year_2015": 454,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Bombus_pascuorum",
+      "record_count": 53,
+      "year_2014": 20,
+      "year_2015": 33,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Bombus_pratorum",
+      "record_count": 10,
+      "year_2014": 2,
+      "year_2015": 8,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Bombus_terrestris_lucorum",
+      "record_count": 160,
+      "year_2014": 57,
+      "year_2015": 103,
+      "basic_types": [
+        "Bumblebee"
+      ],
+      "label_flags": [
+        "combined_label_requires_review"
+      ]
+    },
+    {
+      "raw_label": "Calliphora_vicina",
+      "record_count": 3,
+      "year_2014": 1,
+      "year_2015": 2,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Calliphora_vomitoria",
+      "record_count": 8,
+      "year_2014": 3,
+      "year_2015": 5,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Ceonosia_trigrina",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Cheilosia_bergenstammi",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Cheilosia_pagana",
+      "record_count": 3,
+      "year_2014": 3,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Cheilosia_sp",
+      "record_count": 3,
+      "year_2014": 2,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Cheilosia_vernalis",
+      "record_count": 8,
+      "year_2014": 6,
+      "year_2015": 2,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Chrysops_relictus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Chrysotoxum_bicinctum",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Coenosia_pumila",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Colletes_daviesanus",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Dasysyrphus_albostriatus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Delia_radicum",
+      "record_count": 4,
+      "year_2014": 0,
+      "year_2015": 4,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Diadromus_collaris",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Parasitoid"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Dolichovespula_sylvestris",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Social_Wasp"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Drosophila_sp",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Empididae_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Empis_livida",
+      "record_count": 121,
+      "year_2014": 73,
+      "year_2015": 48,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Episyrphus_balteatus",
+      "record_count": 409,
+      "year_2014": 235,
+      "year_2015": 174,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eriothrix_rufomaculata",
+      "record_count": 20,
+      "year_2014": 17,
+      "year_2015": 3,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalinus_sepulchralis",
+      "record_count": 7,
+      "year_2014": 6,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalis_abusivus",
+      "record_count": 10,
+      "year_2014": 10,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalis_arbustorum",
+      "record_count": 235,
+      "year_2014": 224,
+      "year_2015": 11,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalis_interruptus",
+      "record_count": 5,
+      "year_2014": 5,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalis_pertinax",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalis_similis",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eristalis_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Eristalis_tenax",
+      "record_count": 254,
+      "year_2014": 97,
+      "year_2015": 157,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eupeodes_corollae",
+      "record_count": 81,
+      "year_2014": 19,
+      "year_2015": 62,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eupeodes_latifasciatus",
+      "record_count": 6,
+      "year_2014": 0,
+      "year_2015": 6,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eupeodes_lundbecki",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Eupeodes_luniger",
+      "record_count": 41,
+      "year_2014": 18,
+      "year_2015": 23,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Halictus_rubicundus",
+      "record_count": 9,
+      "year_2014": 4,
+      "year_2015": 5,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Halictus_tumulorum",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Helophilus_hybridus",
+      "record_count": 6,
+      "year_2014": 6,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Helophilus_pendulus",
+      "record_count": 36,
+      "year_2014": 34,
+      "year_2015": 2,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Helophilus_trivittatus",
+      "record_count": 7,
+      "year_2014": 7,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Hylaeus_communis",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Inachis_io",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lasioglossum_calceatum",
+      "record_count": 6,
+      "year_2014": 5,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lasioglossum_morio",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lucilia_ceasar",
+      "record_count": 8,
+      "year_2014": 4,
+      "year_2015": 4,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lucilia_illustris",
+      "record_count": 8,
+      "year_2014": 5,
+      "year_2015": 3,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lucilia_richardsii",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lucilia_sericata",
+      "record_count": 13,
+      "year_2014": 9,
+      "year_2015": 4,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Lucilia_silvarum",
+      "record_count": 26,
+      "year_2014": 5,
+      "year_2015": 21,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Maniola_jurtina",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Megachile_centuncularis",
+      "record_count": 3,
+      "year_2014": 0,
+      "year_2015": 3,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Megachile_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Meigenia_mutabalis",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Melanostoma_mellinum",
+      "record_count": 26,
+      "year_2014": 16,
+      "year_2015": 10,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Melanostoma_scalare",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Melinda_viridicyanea",
+      "record_count": 7,
+      "year_2014": 6,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Meredon_equestris",
+      "record_count": 2,
+      "year_2014": 1,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Muscidae_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Neoascia_podagrica",
+      "record_count": 4,
+      "year_2014": 4,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Odontomyia_angulata",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Osmia_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Bee"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Passaloecus_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Solitary_Wasp"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Phaonia_incarna",
+      "record_count": 2,
+      "year_2014": 1,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Phaonia_sp",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Pieris_napi",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Pieris_rapae",
+      "record_count": 3,
+      "year_2014": 3,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Platycheirus_albimanus",
+      "record_count": 85,
+      "year_2014": 47,
+      "year_2015": 38,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Platycheirus_ambiguus",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Platycheirus_manicatus",
+      "record_count": 6,
+      "year_2014": 5,
+      "year_2015": 1,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Platycheirus_occultus",
+      "record_count": 2,
+      "year_2014": 0,
+      "year_2015": 2,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Platycheirus_scutatus_sl",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "broad_sense_label_requires_review"
+      ]
+    },
+    {
+      "raw_label": "Pollenia_angustigena",
+      "record_count": 1,
+      "year_2014": 0,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Pollenia_pallida",
+      "record_count": 6,
+      "year_2014": 5,
+      "year_2015": 1,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Pollenia_pediculata",
+      "record_count": 11,
+      "year_2014": 5,
+      "year_2015": 6,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sarcophaga_sp",
+      "record_count": 4,
+      "year_2014": 4,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Sarcophagini_sp",
+      "record_count": 15,
+      "year_2014": 10,
+      "year_2015": 5,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Scaeva_pyrastri",
+      "record_count": 12,
+      "year_2014": 1,
+      "year_2015": 11,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Siphona_geniculata",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sphaerophoria_interrupta",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sphaerophoria_scripta",
+      "record_count": 55,
+      "year_2014": 47,
+      "year_2015": 8,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Sphaerophoria_sp",
+      "record_count": 28,
+      "year_2014": 24,
+      "year_2015": 4,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Syritta_pipiens",
+      "record_count": 200,
+      "year_2014": 138,
+      "year_2015": 62,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Syrphus_rectus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Syrphus_ribesii",
+      "record_count": 57,
+      "year_2014": 41,
+      "year_2015": 16,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Syrphus_torvus",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": []
+    },
+    {
+      "raw_label": "Syrphus_vitripennis_rectus",
+      "record_count": 27,
+      "year_2014": 5,
+      "year_2015": 22,
+      "basic_types": [
+        "Hoverfly"
+      ],
+      "label_flags": [
+        "combined_label_requires_review"
+      ]
+    },
+    {
+      "raw_label": "Tachinidae_sp",
+      "record_count": 1,
+      "year_2014": 1,
+      "year_2015": 0,
+      "basic_types": [
+        "Fly"
+      ],
+      "label_flags": [
+        "unresolved_sp_label"
+      ]
+    },
+    {
+      "raw_label": "Thymelicus_sylvestris",
+      "record_count": 2,
+      "year_2014": 2,
+      "year_2015": 0,
+      "basic_types": [
+        "Butterfly"
+      ],
+      "label_flags": []
+    }
+  ]
+}
