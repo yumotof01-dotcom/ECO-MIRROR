@@ -4,9 +4,11 @@
 
 観測不足によって、生態系の状態を誤って判断するリスクを減らすことを目指します。生成AIによる予測は行わず、実データと再現可能な数理計算を使う方針です。
 
-## 現在の範囲：画面・データ基盤と第5工程の数理仕様
+## 現在の範囲：画面・データ基盤と第6工程の単一試行コア
 
-大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。実データは画面へ未接続です。サンプリング、乱数生成、指標計算、結果生成は実装していません。分析結果を装った数値やグラフもありません。工程5では [観測モデル・指標・乱数・反復の仕様](docs/simulation/README.md) を確定しました。数理設計と手計算例のみで、実行コードは追加していません。
+大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。工程5の [数理仕様](docs/simulation/README.md) に従い、工程6では条件選択、PCG32、非復元抽出、固定分母の指標、既約分数、再現可能な単一試行結果を実装しました。[実装説明](docs/simulation/phase6-implementation.md) と [検証記録](docs/simulation/phase6-validation.md) を参照してください。
+
+計算コアと実データは画面へ未接続です。反復計算・グラフ・結果表示・ユーザー向け出力はまだありません。既存の実行/書き出しボタンは無効、分析画面は未実行のままです。
 
 工程3では指定のCC-plant-pollinator実CSVを調査し、3,882行・7列、大学保管v1のCC BY 4.0、GitHub版との改行以外の一致を確認しました。英国の実験記録を使う観測条件の教材として、原分類ラベルを保持して採用します。調査結果は [データ調査報告](docs/data/cc-plant-pollinator/README.md) にあります。工程4では原CSVのバイト列を保持し、CC BY 4.0の帰属・変更表示を付けて同梱しました。[データ処理の実装仕様](docs/data/cc-plant-pollinator/implementation.md) と [検証記録](docs/data/cc-plant-pollinator/phase4-validation.md) を参照してください。
 
@@ -24,7 +26,7 @@
 Node.js 24.12以上とnpmを使用します（`.nvmrc` を用意）。この変更がmainにマージされる前は、次のブランチを取得してください。新しいGitHubリポジトリの作成は不要です。
 
 ```bash
-git clone --branch docs/phase-5-mathematical-specification https://github.com/yumotof01-dotcom/ECO-MIRROR.git
+git clone --branch feat/phase-6-single-trial-core https://github.com/yumotof01-dotcom/ECO-MIRROR.git
 cd ECO-MIRROR
 npm ci
 npm run dev
@@ -36,7 +38,7 @@ npm run dev
 
 ```bash
 git fetch origin
-git switch docs/phase-5-mathematical-specification
+git switch feat/phase-6-single-trial-core
 npm ci
 npm run dev
 ```
@@ -50,6 +52,7 @@ npm run build     # 型チェックと本番ビルド。出力先はdist/
 npm run data:fetch # 原本があれば検証のみ。取得する場合も版とハッシュを固定
 npm run data:check # 保存済みデータ・来歴・Git内原本をオフライン検証
 npm run check     # データ検証・テスト・本番ビルドをまとめて実行
+node scripts/simulation/verify.ts # 保存済み単一試行の全バイト・来歴を照合（UI・通信なし）
 npm run preview   # ビルド済み成果物をローカル表示
 ```
 
@@ -67,11 +70,12 @@ src/
   components/           共通レイアウト・見出し・SVGイラスト
   content/              研究上の注意事項・参照先
   features/data/        型・実行時検証・型安全な遅延読み込み（画面未接続）
-  features/simulation/  条件の下書きと入力検証（計算処理なし）
+  features/simulation/  UI下書きと、独立したcore/・ハッシュ境界・画面未接続の実行入口
   pages/                4画面と404画面
   styles/               Tailwindとデザイントークン、レスポンシブCSS
   test/                 テストの共通設定
 scripts/data/           原本取得・CSV解析・正規化・品質監査・CLIテスト
+scripts/simulation/     実行コンテキスト・固定再現検証・単一試行のテスト
 data/raw/               大学保管v1の原CSV・取得情報・ライセンス証拠
 data/processed/         決定的なイベント・原ラベル辞書・品質監査・来歴
 docs/                   仕様・設計・ロードマップ・科学的注意事項
@@ -92,10 +96,14 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [第5工程の数理仕様](docs/simulation/README.md)
 - [第5工程の手計算例](docs/simulation/worked-examples.md)
 - [第5工程の検証記録](docs/simulation/validation.md)
+- [第6工程の実装と再現手順](docs/simulation/phase6-implementation.md)
+- [第6工程の検証記録](docs/simulation/phase6-validation.md)
 - [Codexへの引き継ぎ](docs/codex-handoff.md)
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程6：単一試行の再現可能な計算コア**です。確定仕様に従い、条件の正規化・原順の選択・半数切上げ・PCG32と棄却法・前方部分Fisher–Yates・原ラベルの指標・正確な数値と来歴を純粋関数として実装します。反復は工程7、画面接続は工程8・9まで進めません。重複行の削除、分類名の推測修正、実施不明の0補完をしないでください。
+次は**工程7：反復計算とばらつきの集計**です。確定仕様に従い、同じスコープに対するt別系列、全試行保存、Fractionの平均・標本分散、SqrtFraction、type 7分位点を実装します。現時点では単一試行までです。画面接続は工程8・9で行い、重複行の削除、分類名の推測修正、実施不明の0補完をしないでください。
 
 第5工程ブランチ `docs/phase-5-mathematical-specification` はPR #3の先端 `e07f7c0ea52a0b5241f97894a658740b6ab445dd` を継承しています。開始時はPR #1〜#3がすべて未マージのため、第5工程PRのbaseは `feat/phase-4-data-pipeline` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
+
+第6工程はPR #1〜#4が未マージであることを確認し、工程5先端 `3aea5c385cd99a7bb67ab0879c5eb6bab7cbc315` を継承しました。作業ブランチは `feat/phase-6-single-trial-core`、PRのbaseは `docs/phase-5-mathematical-specification` です。
