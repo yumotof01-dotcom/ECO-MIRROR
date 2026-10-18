@@ -1,7 +1,7 @@
 export type SimulationErrorCode =
   | "INVALID_SELECTION" | "INVALID_RATE" | "INVALID_SEED" | "INVALID_TRIAL_INDEX"
   | "INVALID_BOUND" | "SOURCE_ORDER" | "NOT_A_SUBSET" | "INVALID_NUMERIC_RESULT"
-  | "INVALID_CONTEXT";
+  | "INVALID_CONTEXT" | "INVALID_REPETITIONS";
 
 export class SimulationError extends Error {
   readonly code: SimulationErrorCode;

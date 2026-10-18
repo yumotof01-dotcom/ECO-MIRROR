@@ -14,7 +14,7 @@ function git(args: string[]): Buffer {
 async function implementationSnapshot() {
   requireSimulation(git(["rev-parse", "--is-shallow-repository"]).toString().trim() === "false", "INVALID_CONTEXT", "git", "full history required; run git fetch --unshallow");
   const candidates = git(["ls-files", "--cached", "--others", "--exclude-standard", "--",
-    "src/features/simulation/core", "src/features/simulation/run.ts", "src/features/simulation/hash.ts", "scripts/simulation/context.ts", "scripts/simulation/verify.ts",
+    "src/features/simulation/core", "src/features/simulation/run.ts", "src/features/simulation/hash.ts", "scripts/simulation/context.ts", "scripts/simulation/verify.ts", "scripts/simulation/verify-repeated.ts",
     "src/features/data", "package.json", "package-lock.json", "tsconfig.app.json", "tsconfig.node.json", ...SPECIFICATION_PATHS,
   ]).toString().trim().split("\n");
   const paths = [...new Set(candidates.filter(path => path && !path.endsWith(".test.ts")))].sort();
@@ -68,8 +68,10 @@ export function makeRunProvenance(result: RunResult, snapshot: Awaited<ReturnTyp
     attribution: {
       creators: SOURCE.creators, title: SOURCE.title, year: 2022, archive_doi: SOURCE.doi, archive_version: SOURCE.version,
       license: SOURCE.license, source_url: SOURCE.url, source_metadata_path: `${RAW_DIR}/source.json`,
-      changes: "Source and normalized records unchanged. Single-trial event selection without replacement and verbatim-label binary network summaries derived. UK experiment visits, not pollination success or Japanese grassland condition. No endorsement implied.",
+      changes: result.execution_mode === "single_trial"
+        ? "Source and normalized records unchanged. Single-trial event selection without replacement and verbatim-label binary network summaries derived. UK experiment visits, not pollination success or Japanese grassland condition. No endorsement implied."
+        : "Source and normalized records unchanged. Repeated event selection without replacement, verbatim-label networks and exact conditional-model statistics derived. UK experiment visits, not pollination success, ecosystem confidence or Japanese grassland condition. No endorsement implied.",
     },
-    commands: ["npm run data:check", "npm test", "npm run build", "node scripts/simulation/verify.ts"],
+    commands: ["npm run data:check", "npm test", "npm run build", "node scripts/simulation/verify.ts", ...(result.execution_mode === "repeated_trials" ? ["node scripts/simulation/verify-repeated.ts"] : [])],
   };
 }
