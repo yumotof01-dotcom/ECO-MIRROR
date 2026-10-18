@@ -1,0 +1,43 @@
+{
+  "browser": "150.0.7871.100",
+  "input": {
+    "dataset_id": "moss-evans-2022-flower-visits-v1",
+    "result_sha256": "4ca9a993822c3a0c9a6e8cf823cfd0bafc49cb7f18a2dad8315e7cff9b1ece87",
+    "implementation_git_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+    "rate_percent": 50,
+    "trial_index": 0
+  },
+  "desktop": {
+    "width": 1800,
+    "height": 1200,
+    "load_to_two_frames_ms": 640,
+    "dom_elements": 3028,
+    "label_geometry": {
+      "labels": 248,
+      "overlaps": 0,
+      "outside": 0
+    },
+    "page_overflow": false,
+    "stroke_contrast": {
+      "observed": 3.1498583814170953,
+      "missing": 3.5970954749913955
+    }
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "page_overflow": false,
+    "scroll": {
+      "client_width": 345,
+      "scroll_width": 1641,
+      "x": 1281,
+      "y": 2754
+    }
+  },
+  "interactions": {
+    "trial_switch_to_two_frames_ms": 140,
+    "keyboard_nodes_and_links": "passed",
+    "search_filter_reset_trial_and_boundaries": "passed"
+  },
+  "errors": []
+}

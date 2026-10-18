@@ -77,3 +77,9 @@ CIはNode 24、`npm ci`、`npm run check` を実行する。ローカルと同�
 `core/repeated.ts`は全件検証済みデータの同じ選択範囲から既存`simulateTrial`をR回再利用し、全試行をt順に保存する。`core/statistics.ts`が7指標の平均、標本分散、SDの被開平数、min/max、type 7分位点をBigIntの既約分数で計算する。React/DOMと無関係で、既存ページは未接続のまま。
 
 `scripts/simulation/verify-repeated.ts`は実在する実装リビジョンと正規結果を検証する。別実装の`audit-repeated.py`が原CSVから1,000試行を再構築して照合する。詳細は[実装](simulation/phase7-implementation.md)と[検証](simulation/phase7-validation.md)。可視化層への入力は既存の`RunResult`と試行番号であり、描画のために抽出を再実行しない。
+
+## 第8工程で実装した独立した可視化層
+
+`features/visualization/`は既存RunResultの指定試行だけを受け取る。adapterがグラフの整合性を検査し、layoutが基準原IDの安定順から共通座標を計算する。React/SVGで両側を描画し、既存の計算関数を呼ばない。D3/forceを必要としない固定二列配置のため依存追加は行わない。
+
+`dev/network.html`と`src/dev/`はVite開発時の独立入口。工程7の実データチェックポイントだけを読み、通常アプリのルート・Provider・ResultsPageを変更しない。プレビューは通常の本番buildに含めない。表示フィルター・拡大は表示状態だけで、計算結果・論理座標・指標を変えない。詳細は[可視化設計](visualization/README.md)。

@@ -24,7 +24,7 @@ React、TypeScript、Vite、Tailwind CSS、4画面と404、フォーム下書き
 
 工程6では独立した `src/features/simulation/core/` に条件選択、PCG32/棄却法、部分Fisher–Yates、原ラベルの固定基準ネットワーク、Fraction、正式な単一試行結果を実装した。`features/simulation/run.ts`は既存の全件ローダーを呼び、画面からは使われない。`scripts/simulation/`に実在Gitスナップショットの確認・来歴・固定再現検証・テストがある。9規範ファイル・工程4基盤・依存・既存UIは不変。
 
-工程7で反復計算・サマリーを実装した。画面への接続、実行状態のUI、グラフ、ユーザー向け出力、サーバー、公開設定はまだない。実行・書き出しの無効状態は意図的であり、単にボタンを有効にして解消するバグではない。
+工程7で反復計算・サマリーを実装した。工程8で独立したグラフと開発者プレビューを実装した。通常アプリへの接続、実行状態のUI、ユーザー向け出力、サーバー、公開設定はまだない。実行・書き出しの無効状態は意図的であり、単にボタンを有効にして解消するバグではない。
 
 ## 第3工程の成果を読む
 
@@ -76,14 +76,18 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 
 ## 次のCodexに渡す依頼文
 
-> 既存の yumotof01-dotcom/ECO-MIRROR で第7工程「反復計算とばらつきの集計」のみを実装してください。新しいリポジトリを作らず、AGENTS.md、README、docs/simulation/の確定仕様、工程6の実装・検証、全PRの最新状態を確認し、工程6を継承した作業ブランチからPRで提案してください。単一コアと第4工程の基盤を尊重し、t別系列のR試行、正確な平均・標本分散/SD・type 7分位点、全試行と正式な反復結果を実装してください。R変更時のprefix、試行別再現、R=1/同値/0/空範囲/途中失敗を検証し、実在コミットと別来歴を保存してください。画面接続・可視化・ユーザー向け出力・AI・公開には進まず、npm run check、ファイル、GitHubブランチとPR、科学的限界を日本語で報告してください。
+> 既存のyumotof01-dotcom/ECO-MIRRORで工程9の作業を開始する前に、全PRの最新状態、AGENTS.md、数理仕様、工程7/8の実装・検証を読んでください。最新の工程8を継承した作業ブランチで、既存の実行入口とNetworkComparisonの状態管理・結果表示を接続する設計を進めてください。idle/running/error/empty_scope/有効な0%を区別し、原データ・仕様・来歴を維持してください。公開やmainへの直接push/無断マージは行わないでください。具体的な実装範囲は次のユーザー指示を優先してください。
 
 ## 画面を変更する後工程での確認
 
 4画面、条件下書きの保持、リセット、不正な整数入力、未実行表示、404からの復帰を確認する。将来実データと計算を接続するときは、現在の常に未実行のテストを状態遷移と来歴のテストへ更新する。未実行と有効なゼロ結果を区別する原則は維持する。
 
-## 次の作業：保留していた第8工程
+## 完了した第8工程への継承
 
-第7工程ブランチは`feat/phase-7-repeated-simulation`、baseは`feat/phase-6-single-trial-core`。計算版はa55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1。[実装](simulation/phase7-implementation.md)・[検証](simulation/phase7-validation.md)・[計算済み全結果](simulation/phase7-verification/README.md)を読む。第7工程PRとテストが正常に完了した後、そのコードを継承した別ブランチ・別PRで、既にユーザーが依頼した第8工程を再開する。新しい仕様に置き換えず、追加承認を待たない。
+第7工程ブランチは`feat/phase-7-repeated-simulation`、baseは`feat/phase-6-single-trial-core`。計算版はa55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1。[実装](simulation/phase7-implementation.md)・[検証](simulation/phase7-validation.md)・[計算済み全結果](simulation/phase7-verification/README.md)を読む。第7工程PR・テスト・CIが正常に完了したため、そのコードを継承した別ブランチ・別PRで、既にユーザーが依頼した第8工程を実装した。依頼済み仕様に従い、追加承認を待たずに再開した。
 
 第8工程は計算済みRunResultと実在するtrial_indexを受け取る独立した可視化層。左右で同じ基準ノードと座標を使い、元ラベルと全基準ペアを維持する。未確認リンクは消滅と呼ばず、詳細・凡例・検索/フォーカス・キーボード・狭い画面を検証する。開発者用プレビューだけを用意し、本番フローの実行/状態/結果接続と出力UIは工程9に残す。
+
+第7工程は[PR #6](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/6)、先端85c83737de6bc657bda877d176268bc43448a565、218テストとCI成功。第8工程はその先端から`feat/phase-8-network-visualization`を作り、同ブランチだけの差分をPRで提案する。
+
+[可視化設計](visualization/README.md)と[検証結果](visualization/validation.md)を読む。`NetworkComparison`は既存RunResultとtrialIndex/onTrialChangeを受け取る。基準ノード位置を共有し、抽出後の未確認リンクも保持する。`/dev/network.html`は開発者用。次の工程9ではこのコンポーネントを再実装せず、成功した計算結果を渡す状態管理と、指定された出力機能を接続する。既存画面の「未実行」や無効ボタンを、エラーを隠す目的で外さない。

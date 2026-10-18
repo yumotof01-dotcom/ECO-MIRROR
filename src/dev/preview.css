@@ -1,0 +1,13 @@
+body { margin: 0; background: #f6f5ef; color: #172a35; font-family: system-ui, "Noto Sans JP", sans-serif; }
+.em-preview { max-width: 1840px; margin: auto; padding: 0 36px 40px; }
+.em-preview header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 28px 0; border-bottom: 1px solid #cbd5cc; margin-bottom: 22px; }
+.em-preview header h1 { margin: 0; font-size: inherit; }
+.em-brand { text-decoration: none; color: #204b3a; font-weight: 700; letter-spacing: .12em; font-size: 1.3rem; }
+.em-brand span { display: block; font-size: .53rem; margin-top: .3rem; letter-spacing: .15em; }
+.em-dev-badge { font-size: .75rem; border: 1px solid #93a69b; padding: .4rem .8rem; border-radius: 30px; }
+.em-preview-source { margin-bottom: 26px; font-size: .85rem; color: #43574d; }
+.em-preview-source label { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.em-preview-source select { max-width: 100%; min-height: 42px; padding: .5rem; border: 1px solid #93a69b; border-radius: 4px; background: #fff; color: #172a35; font: inherit; }
+.em-preview footer { border-top: 1px solid #cbd5cc; margin-top: 2rem; padding-top: 1rem; font-size: .75rem; line-height: 1.7; color: #43574d; }
+.em-preview footer a { color: #204b3a; }
+@media (max-width: 700px) { .em-preview { padding: 0 14px 24px; } .em-preview header { align-items: start; flex-direction: column; padding: 20px 0; } }

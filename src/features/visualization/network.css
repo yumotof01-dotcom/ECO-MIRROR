@@ -1,0 +1,81 @@
+.em-network-comparison, .em-network-state { color: #172a35; font: 15px/1.65 system-ui, "Noto Sans JP", sans-serif; }
+.em-network-comparison *, .em-network-state * { box-sizing: border-box; }
+.em-network-comparison h2, .em-network-state h2 { font-size: clamp(1.4rem, 2.4vw, 2rem); font-weight: 600; line-height: 1.5; margin: 0 0 .5rem; }
+.em-network-comparison h3 { font-size: 1rem; margin: 0 0 .4rem; }
+.em-network-comparison p { margin: .4rem 0 1rem; }
+.em-eyebrow { color: #204b3a; font-size: .72rem; letter-spacing: .16em; font-weight: 700; }
+.em-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; border: 1px solid #cbd5cc; background: #cbd5cc; margin: 1.5rem 0; }
+.em-metrics > div { background: #fcfcf8; padding: 1rem 1.2rem; }
+.em-metrics dt { font-size: .78rem; color: #43574d; }
+.em-metrics dd { font-size: 2rem; line-height: 1.4; margin: .3rem 0 0; font-variant-numeric: tabular-nums; }
+.em-metrics small { font-size: .85rem; }
+.em-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; border: 1px solid #cbd5cc; border-radius: 6px; padding: 1rem; margin: 1.4rem 0; }
+.em-controls legend { font-size: .85rem; padding: 0 .4rem; }
+.em-controls label { display: flex; flex-direction: column; gap: .3rem; font-size: .8rem; max-width: 100%; }
+.em-network-comparison input, .em-network-comparison select, .em-network-comparison button { font: inherit; color: inherit; accent-color: #204b3a; }
+.em-network-comparison select, .em-network-comparison input[type="search"] { min-height: 42px; max-width: 100%; border: 1px solid #93a69b; background: #fff; border-radius: 4px; padding: .45rem .6rem; }
+.em-network-comparison select { width: 275px; }
+.em-network-comparison button { border: 1px solid #617d6b; background: #f1f5ed; padding: .55rem .8rem; min-height: 42px; border-radius: 4px; cursor: pointer; }
+.em-network-comparison button:disabled { opacity: .55; cursor: default; }
+.em-controls .em-checkbox { flex-direction: row; align-items: center; min-height: 42px; }
+.em-details { padding: 1rem 1.2rem; border-left: 3px solid #204b3a; background: #edf1e8; min-height: 105px; }
+.em-details dl { display: grid; grid-template-columns: minmax(8rem, auto) 1fr; gap: .3rem 1rem; margin: .5rem 0 0; font-size: .85rem; }
+.em-details dd { margin: 0; overflow-wrap: anywhere; }
+.em-details dt { color: #43574d; }
+.em-link-selector { display: block; font-size: .8rem; margin: 1rem 0; }
+.em-link-selector select { display: block; width: min(100%, 700px); margin-top: .3rem; }
+.em-legend { display: flex; gap: .7rem 1.4rem; flex-wrap: wrap; padding: 1rem 0; font-size: .77rem; }
+.em-legend span { display: inline-flex; gap: .5rem; align-items: center; }
+.em-legend i { display: inline-block; flex: none; }
+.em-legend-plant, .em-legend-visitor, .em-legend-empty { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #204b3a; background: #204b3a; }
+.em-legend .em-legend-visitor { background: #82612c; border-color: #82612c; }
+.em-legend .em-legend-empty { background: white; border-color: #687c72; }
+.em-legend-line, .em-legend-dash { width: 28px; border-top: 2px solid #617d6b; }
+.em-legend .em-legend-dash { border-top: 2px dashed #8e9c94; }
+.em-display-count, .em-navigation-help { font-size: .78rem; color: #43574d; }
+.em-network-viewport { overflow: auto; max-height: 680px; border: 1px solid #bdcbc0; background: #fffefa; border-radius: 6px; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.em-network-panels { display: flex; width: max-content; align-items: start; }
+.em-diagram { flex: none; }
+.em-diagram + .em-diagram { border-left: 1px solid #d4ddd2; }
+.em-diagram h3 { position: sticky; top: 0; z-index: 1; background: #f3f5ee; padding: .8rem 1rem; margin: 0; }
+.em-diagram > p { font-size: .8rem; padding: .4rem 1rem; margin: 0; background: #f9faf5; }
+.em-diagram svg { display: block; }
+.em-column-title { fill: #43574d; font-size: 12px; font-weight: 600; }
+.em-link { cursor: pointer; }
+.em-link-hit { stroke: transparent; fill: none; pointer-events: stroke; }
+.em-link-line { stroke: #597966; fill: none; opacity: .78; pointer-events: none; }
+.em-missing .em-link-line { stroke: #697e71; opacity: .9; }
+.em-highlight .em-link-line, .em-link:hover .em-link-line, .em-link:focus .em-link-line, .em-link[aria-pressed="true"] .em-link-line { stroke: #172a35; opacity: 1; }
+.em-link:focus, .em-node:focus { outline: none; }
+.em-link:focus .em-link-hit { stroke: #b98422; stroke-opacity: .3; }
+.em-node { cursor: pointer; }
+.em-node text { font: 12px system-ui, sans-serif; fill: #172a35; }
+.em-node circle { stroke: #204b3a; stroke-width: 2; fill: #204b3a; }
+.em-visitor circle { stroke: #82612c; fill: #82612c; }
+.em-inactive circle { fill: #fffefa; stroke-dasharray: 2 2; }
+.em-inactive text { fill: #68796f; }
+.em-node-hit { fill: transparent; stroke: transparent; }
+.em-node:focus .em-node-hit, .em-node[aria-pressed="true"] .em-node-hit, .em-match .em-node-hit { fill: #f0dfaf; stroke: #82612c; }
+.em-network-comparison :focus-visible { outline: 3px solid #a97418; outline-offset: 3px; }
+.em-network-comparison .em-node:focus-visible, .em-network-comparison .em-link:focus-visible { outline: none; }
+.em-scientific-note { margin-top: 1.2rem; border-top: 1px solid #cbd5cc; padding-top: 1rem; color: #43574d; font-size: .82rem; }
+.em-source { font-size: .75rem; overflow-wrap: anywhere; }
+.em-source a { color: #204b3a; text-decoration: underline; }
+.em-network-state { padding: 1.5rem; border: 1px solid #cbd5cc; background: #f5f5ed; }
+@media (max-width: 700px) {
+  .em-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .em-metrics > div { padding: .8rem; }
+  .em-metrics dd { font-size: 1.7rem; }
+  .em-controls { flex-direction: column; align-items: stretch; }
+  .em-controls select, .em-controls input[type="search"] { width: 100%; }
+  .em-details dl { grid-template-columns: 1fr; gap: .1rem; }
+  .em-details dd { margin-bottom: .5rem; }
+  .em-network-viewport { max-height: 62vh; }
+}
+@media (forced-colors: active) {
+  .em-link-line { stroke: CanvasText; opacity: 1; }
+  .em-node circle { stroke: CanvasText; fill: CanvasText; }
+  .em-inactive circle { fill: Canvas; }
+  .em-node text { fill: CanvasText; }
+  .em-node:focus .em-node-hit, .em-node[aria-pressed="true"] .em-node-hit { fill: Highlight; stroke: Highlight; }
+}
