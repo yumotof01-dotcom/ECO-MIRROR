@@ -1,0 +1,93 @@
+{
+  "data_identity": {
+    "archive_doi": "10.25405/data.ncl.17430548.v1",
+    "archive_version": 1,
+    "data_schema_version": "1.0.0",
+    "dataset_id": "moss-evans-2022-flower-visits-v1",
+    "normalized_events_sha256": "17c87b30f3f66f8d3537123c75ea29a8d3193f9f1f0381a8e48460fd3f73d58c",
+    "source_sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+    "taxa_sha256": "10d4fc491c12718d21e4fb2ee9d65876084bbf7e2d122a63e31f33e1d441453d",
+    "taxonomy_mode": "verbatim-raw-labels-v1",
+    "transform_git_revision": "c286c76e3a6d0e28ae9a22b7efd3686ca4f54f94",
+    "transform_version": "ccpp-verbatim-v1"
+  },
+  "execution_mode": "repeated_trials",
+  "implementation_git_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+  "randomness": {
+    "algorithm": "pcg-xsh-rr-64-32",
+    "master_seed": 42,
+    "stream_offset": 54
+  },
+  "reference": null,
+  "requested_repetitions": 3,
+  "result_schema_version": "1.0.0",
+  "sampling": {
+    "actual_record_pct": null,
+    "algorithm": "partial-fisher-yates-forward",
+    "eligible_record_count": 0,
+    "rate_percent": 50,
+    "replacement": false,
+    "rounding": "nearest-half-up",
+    "sample_record_count": null,
+    "unit": "event"
+  },
+  "scope": {
+    "eligible_ids_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "eligible_source_record_numbers": [],
+    "no_record_groups": [
+      {
+        "plot_id": "3",
+        "round_label": "1",
+        "status": "no_record_effort_unknown",
+        "year": 2014
+      }
+    ],
+    "observation_group_count": 0,
+    "plot_year_count": 0,
+    "records_by_year": [
+      {
+        "record_count": 0,
+        "year": 2014
+      }
+    ],
+    "scope_mode": "single_year_records"
+  },
+  "selection": {
+    "plot_ids": [
+      "3"
+    ],
+    "rounds_by_year": {
+      "2014": [
+        "1"
+      ]
+    },
+    "treatments": [
+      "Water"
+    ],
+    "years": [
+      2014
+    ]
+  },
+  "specification_sha256": {
+    "docs/simulation/conformance-fixtures.json": "24e3ca13542cd3d3a53b83f26e2c80e6aae8372ad72a0d36af0e93ad6aafbf53",
+    "docs/simulation/edge-cases.md": "71607d6127375b7d14936c4d147a04d80e22538fd5427a463fd02419af32b32c",
+    "docs/simulation/metrics.md": "2eda515f6f607c4a99fa3fd01f25958139b762c192cb840710d62641e8b2a3e6",
+    "docs/simulation/model-specification.md": "8426d64a788496337c7ee099e8d8304839d28993eef73be622bd5aa3f1dd5883",
+    "docs/simulation/randomness.md": "a267dcb9fb5c4d9bf41edf7b33773a9152552c004a09a2bced5e583584eb2dd7",
+    "docs/simulation/repetitions.md": "b44e4f319be892d54bb10ff13a05ec9513bdc6f5e9def6c82a0fa39fb5e5cff8",
+    "docs/simulation/reproducibility.md": "5ca85f5705974ded983b060656f969c10f5c4c97ae77107c048e1ec4b643f932",
+    "docs/simulation/scientific-limitations.md": "398b557b7336a4d4136fde1a1a84fde824c88b62c999f24ffc0cdafd2f18baa2",
+    "docs/simulation/worked-examples.md": "2888235fe9f8077742bd6548c1560c34d600e55218fddabe92231765c032d986"
+  },
+  "specification_versions": {
+    "metrics": "1.0.0",
+    "model": "1.0.0",
+    "randomness": "1.0.0",
+    "repetitions": "1.0.0",
+    "serialization": "1.0.0"
+  },
+  "status": "empty_scope",
+  "summary": null,
+  "summary_reason": "empty_scope",
+  "trials": []
+}

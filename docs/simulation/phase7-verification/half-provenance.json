@@ -1,0 +1,71 @@
+{
+  "attribution": {
+    "archive_doi": "10.25405/data.ncl.17430548.v1",
+    "archive_version": 1,
+    "changes": "Source and normalized records unchanged. Repeated event selection without replacement, verbatim-label networks and exact conditional-model statistics derived. UK experiment visits, not pollination success, ecosystem confidence or Japanese grassland condition. No endorsement implied.",
+    "creators": [
+      "Ellen Moss",
+      "Darren Evans"
+    ],
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "source_metadata_path": "data/raw/moss-evans-2022-flower-visits-v1/source.json",
+    "source_url": "https://ndownloader.figshare.com/files/34178859",
+    "title": "Climate change impacts on plant-pollinator interactions and functioning - experiment data",
+    "year": 2022
+  },
+  "code_input_sha256": {
+    "docs/simulation/conformance-fixtures.json": "24e3ca13542cd3d3a53b83f26e2c80e6aae8372ad72a0d36af0e93ad6aafbf53",
+    "docs/simulation/edge-cases.md": "71607d6127375b7d14936c4d147a04d80e22538fd5427a463fd02419af32b32c",
+    "docs/simulation/metrics.md": "2eda515f6f607c4a99fa3fd01f25958139b762c192cb840710d62641e8b2a3e6",
+    "docs/simulation/model-specification.md": "8426d64a788496337c7ee099e8d8304839d28993eef73be622bd5aa3f1dd5883",
+    "docs/simulation/randomness.md": "a267dcb9fb5c4d9bf41edf7b33773a9152552c004a09a2bced5e583584eb2dd7",
+    "docs/simulation/repetitions.md": "b44e4f319be892d54bb10ff13a05ec9513bdc6f5e9def6c82a0fa39fb5e5cff8",
+    "docs/simulation/reproducibility.md": "5ca85f5705974ded983b060656f969c10f5c4c97ae77107c048e1ec4b643f932",
+    "docs/simulation/scientific-limitations.md": "398b557b7336a4d4136fde1a1a84fde824c88b62c999f24ffc0cdafd2f18baa2",
+    "docs/simulation/worked-examples.md": "2888235fe9f8077742bd6548c1560c34d600e55218fddabe92231765c032d986",
+    "package-lock.json": "46d430c7ac36e5e2b8d6f76409d35259c7f1cb718fc717674b728db1acc6c941",
+    "package.json": "4f436c691d28982c1043879dbadbdb7411896820a8b8b80fd2d1a7b1b2fc4be6",
+    "scripts/simulation/context.ts": "999d56cfff56b4090af7afe21e9d38dc12b6162b24e65c08fd113524caf69eda",
+    "scripts/simulation/verify-repeated.ts": "08cbef7d68a480ced9bde118ce02814bafcc8e3e5a21d237aeafcde952616be7",
+    "scripts/simulation/verify.ts": "eb6036512b7f6055c6e46e61fd98d797f28c0cb4529d401064e4f71c5d06b48e",
+    "src/features/data/contract.ts": "4457388b9aff90a8069180850d9f4fa0a25ac17f8655543e31c91d2c50b43fdf",
+    "src/features/data/index.ts": "f8386b3f51b1a20284e3d7dfd88700b921e7284396e9340e311fda226abab26e",
+    "src/features/data/load.ts": "02a1d200879fb4a95036bc78921c60d759b6c2363234571f16d3783c299118d8",
+    "src/features/data/types.ts": "ae5e4c69eee7a04381c76c99ee02e343579192b672e6bb61408f6433bb45cd27",
+    "src/features/data/validate.ts": "ee937fed3dbed7c474312e4aa0dfbbc1b794709810bfc35a071b464dd9c145c1",
+    "src/features/simulation/core/context.ts": "06a53c4663cd2785e21c593dd18e5c040f21356ac48a843698e6b1b970fe8ec1",
+    "src/features/simulation/core/errors.ts": "f33e4149bb28a19b223d7c5313a10d70c19e43d253c1fd27cf539d33790aefcc",
+    "src/features/simulation/core/events.ts": "742f16bc00072159ea5ae34e47d433fc3612d78f1b51e291ec888b097bcb35ac",
+    "src/features/simulation/core/fraction.ts": "f7781ed196ffda7f0d3701b4fdfb64a8d0c743fd8e151924e3ed8b8cb7730eba",
+    "src/features/simulation/core/index.ts": "14e929335c21dee074b33ffca9ba30264bd4cff23428f72f8100cfb20075b712",
+    "src/features/simulation/core/inputs.ts": "07374d1116912a40966f9e769e4e7037be4bfa52d968ad08ecd1506b1331a5be",
+    "src/features/simulation/core/network.ts": "1596a3c07db4a91029bb405ef5dd82ca84d490b082fa0622a1b7ae6a5db42ac8",
+    "src/features/simulation/core/pcg32.ts": "592acd28757a4416b9ca4d69c1123d79d2f9f0fff74f5c27401c6e2841fb41bd",
+    "src/features/simulation/core/repeated.ts": "f4bd66a259c18b73f4eb101cd44fd86235ff65787965485ebf33c54c04267332",
+    "src/features/simulation/core/run.ts": "4ba2516e02a31e4668797c3a61b23fcdc7ba7712bfd9109e1070bb5dc61d83b3",
+    "src/features/simulation/core/sampling.ts": "13bbb6c6ff0664560ad439ed5fc91fe9b6f60769720e259de91ee80861164b5e",
+    "src/features/simulation/core/scope.ts": "de8fc326ecfe1be68c740911f8ec9a5f4a80682cffee766382d7430237a29d3e",
+    "src/features/simulation/core/serialization.ts": "e119a94f1d914f258f7ca84e0d2fbd32a890fcc33bf5e5209ca403d0aabe8ff3",
+    "src/features/simulation/core/statistics.ts": "02f8a59613b26e9c0ae662aa4f29c28b4ad8b0af645c12dbf14a7dd196b7fc12",
+    "src/features/simulation/core/trial.ts": "4829b85e7bee611790653c9d4bd097c97f18d52c917e5677e2567ed7408c8e77",
+    "src/features/simulation/core/types.ts": "edf19a9fb4212777408146e3ce488cce737d531c1b8bda891472ab36bcf374c0",
+    "src/features/simulation/hash.ts": "4651032ece57f647b945e861b4a2674cdde4eddf6fe2a5477e7718277ce9f59c",
+    "src/features/simulation/run.ts": "b39a748c02f1994d7e902de09c6ee122b530c865aff2d8d1a176f0ab65e0706a",
+    "tsconfig.app.json": "0c44558834e6a3ea48f6641854820791dfe62590168ede5e1cce8222506082ab",
+    "tsconfig.node.json": "c418132dc8f20a26fb5186af73ad2f7fa5fd5279cbdc1e2eaf557d90378b425d"
+  },
+  "commands": [
+    "npm run data:check",
+    "npm test",
+    "npm run build",
+    "node scripts/simulation/verify.ts",
+    "node scripts/simulation/verify-repeated.ts"
+  ],
+  "created_at_utc": "2026-10-18T02:32:01.109Z",
+  "data_provenance_sha256": "87179b4e67decc5570a53d48438054706a4ec9d44ffce0f6e3bd856c5b82c473",
+  "result_sha256": "4ca9a993822c3a0c9a6e8cf823cfd0bafc49cb7f18a2dad8315e7cff9b1ece87",
+  "runtime": "Node.js v24.19.0; linux/x64"
+}

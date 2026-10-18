@@ -1,6 +1,7 @@
 // @vitest-environment node
 import { beforeAll, describe, expect, it } from "vitest";
 import { writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { loadObservationData } from "../../src/features/data/index.ts";
 import type { ObservationData } from "../../src/features/data/index.ts";
 import { runRepeatedTrials } from "../../src/features/simulation/core/repeated.ts";
@@ -9,6 +10,7 @@ import { canonicalJson } from "../../src/features/simulation/core/serialization.
 import type { RepeatedRunResult, RunContext } from "../../src/features/simulation/core/types.ts";
 import { readExecutionContext } from "./context.ts";
 import { allSelection, sha256 } from "./test-support.ts";
+import { ROOT } from "../data/io.ts";
 
 describe("repeated full-source data and reproducibility", () => {
   let data: ObservationData, context: RunContext;
@@ -24,6 +26,12 @@ describe("repeated full-source data and reproducibility", () => {
     expect(repeated.summary_reason).toBeNull();
     expect(single.summary_reason).toBe("repetition_not_requested");
     expect(JSON.stringify(data)).toBe(before);
+  });
+  it("preserves every phase-6 historical result field apart from the real implementation revision", async () => {
+    const historical = JSON.parse(execFileSync("git", ["show", "d349f3d0e608fd22b76551198360c661155660a4:docs/simulation/phase6-verification/run-result.json"], { cwd: ROOT, encoding: "utf8" }));
+    const current = await runSingleTrial(data, { selection: base.selection, rate_percent: 50, master_seed: 42 }, context, sha256);
+    historical.implementation_git_revision = current.implementation_git_revision;
+    expect(canonicalJson(current)).toBe(canonicalJson(historical));
   });
   it.each([0, 100])("retains 100 valid real-data results at p=%i and exact zero variances", async rate_percent => {
     const result = await runRepeatedTrials(data, { ...base, rate_percent }, context, sha256);
@@ -57,17 +65,18 @@ describe("repeated full-source data and reproducibility", () => {
       expect(result.trials[999].initseq_u64_hex).toBe("000000000000041d");
       expect(result.summary!.pair_count.valid_count).toBe(1000);
       const bytes = canonicalJson(result);
+      const measurement = { hash: sha256(bytes), bytes: Buffer.byteLength(bytes), elapsed_ms: Math.round(performance.now() - start), rss_mb: Math.round(process.memoryUsage().rss / 1048576) };
       if (process.env.ECO_MIRROR_AUDIT_PATH) {
         writeFileSync(process.env.ECO_MIRROR_AUDIT_PATH, JSON.stringify({
           data_identity: result.data_identity, implementation_git_revision: result.implementation_git_revision,
-          summary: result.summary, trials: result.trials.map(t => ({
+          measurement, summary: result.summary, trials: result.trials.map(t => ({
             trial_index: t.trial_index, sampled_ids_sha256: t.sampled_ids_sha256, random_word_count: t.random_word_count,
             event_count: t.sample.event_count, plant_label_count: t.sample.plant_label_count, visitor_label_count: t.sample.visitor_label_count,
             pair_count: t.sample.pair_count, lost_pair_count: t.lost_pair_count, pair_retention_pct: t.pair_retention_pct, connectance_fixed: t.sample.connectance_fixed,
           })),
         }));
       }
-      return { hash: sha256(bytes), bytes: Buffer.byteLength(bytes), summary: result.summary, elapsed_ms: Math.round(performance.now() - start), rss_mb: Math.round(process.memoryUsage().rss / 1048576) };
+      return { ...measurement, summary: result.summary };
     };
     const a = await run(), b = await run();
     expect(b.hash).toBe(a.hash);

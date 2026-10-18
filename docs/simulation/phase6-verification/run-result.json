@@ -12,7 +12,7 @@
     "transform_version": "ccpp-verbatim-v1"
   },
   "execution_mode": "single_trial",
-  "implementation_git_revision": "0823bc6a278c948cacffbfd2463783083e21fad5",
+  "implementation_git_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
   "randomness": {
     "algorithm": "pcg-xsh-rr-64-32",
     "master_seed": 42,
