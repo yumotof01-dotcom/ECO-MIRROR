@@ -1,0 +1,27 @@
+{
+  "browser": "150.0.7871.100",
+  "result": "比較基準の訪花記録\n3,882件\n抽出後の訪花記録\n1,941件\n全観測ペア\n257組\n抽出後の観測ペア\n183組\n今回の抽出では未確認\n74組\n観測ペア保持率\n71.21%",
+  "verification": "データ・計算版・アプリ来歴を照合済み",
+  "screenshots": [
+    {
+      "width": 390,
+      "height": 844,
+      "path": "results-phone.png"
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "path": "results-tablet-portrait.png"
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "path": "results-tablet-landscape.png"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "path": "results-desktop.png"
+    }
+  ]
+}

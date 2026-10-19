@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-10-19T14:32:47.660704+00:00",
+  "application_git_revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26",
+  "command": "npm run check",
+  "data_check": "passed",
+  "test_files": 23,
+  "passed_tests": 306,
+  "failed_tests": 0,
+  "typecheck": "passed",
+  "production_build": "passed",
+  "code_ci_run": "https://github.com/yumotof01-dotcom/ECO-MIRROR/actions/runs/39269372691",
+  "code_ci_conclusion": "success",
+  "protected_paths_diff_from_phase8": []
+}

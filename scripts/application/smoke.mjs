@@ -1,6 +1,7 @@
 import { createServer } from 'vite';
 import { createRequire } from 'node:module';
-const require = createRequire(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES + '/');
+import { resolve } from 'node:path';
+const require = createRequire(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES ? `${process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES}/` : import.meta.url);
 const { chromium } = require('playwright');
 const server = await createServer({ server: { host: '127.0.0.1', port: 5181, strictPort: true } });
 let browser;
@@ -17,5 +18,5 @@ try {
   await page.getByRole('heading', { name: '試行 0 の結果' }).waitFor({ timeout: 60000 });
   console.log(await page.getByLabel('選択中の試行の主要指標').innerText());
   console.log('STATUS:', await page.locator('.result-toolbar').innerText());
-  await page.screenshot({ path:'/workspace/scratch/d7995ba924c7/phase9-smoke.png', fullPage:true });
+  await page.screenshot({ path:resolve(process.env.ECO_MIRROR_SMOKE_SCREENSHOT ?? 'docs/application/qa/smoke.png'), fullPage:true });
 } finally { await browser?.close(); await server.close(); }

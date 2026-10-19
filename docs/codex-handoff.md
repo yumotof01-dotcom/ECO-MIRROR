@@ -1,5 +1,12 @@
 # Codexへの引き継ぎ
 
+**現在は第9工程の公開前統合版。次は工程10。** 以下の工程別記述は経緯として残す。現在の手順は本節と[第9工程資料](application/README.md)を優先し、依頼された範囲を越えない。
+
+- 第9工程PR：[#8](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/8)。ブランチ：`feat/phase-9-interactive-application`。baseは`feat/phase-8-network-visualization`、継承先端05a732f。開始時にPR #1〜#7とCI成功を確認、未マージの継承を維持した。
+- UI・Worker・出力の実装は実在コミットを先に保存し、検証・来歴は後続コミットに分ける。計算版は既存a55e7e2、数理仕様1.0.0・元データ・正規化・依存を変更していない。
+- [状態遷移](application/state-transitions.md)、[実装/責務](application/README.md)、[出力と再現](application/exports.md)、[ブラウザ/数値検証](application/validation.md)、[性能](application/performance.md)を読む。
+- 次は低メモリ端末/Safari実機、独立した数値照合、読み上げとキーボードの回帰を検証する。公開・既存PRマージは別途依頼がない限り行わない。
+
 ## 作業場所
 
 - 既存リポジトリ：<https://github.com/yumotof01-dotcom/ECO-MIRROR>
@@ -24,7 +31,7 @@ React、TypeScript、Vite、Tailwind CSS、4画面と404、フォーム下書き
 
 工程6では独立した `src/features/simulation/core/` に条件選択、PCG32/棄却法、部分Fisher–Yates、原ラベルの固定基準ネットワーク、Fraction、正式な単一試行結果を実装した。`features/simulation/run.ts`は既存の全件ローダーを呼び、画面からは使われない。`scripts/simulation/`に実在Gitスナップショットの確認・来歴・固定再現検証・テストがある。9規範ファイル・工程4基盤・依存・既存UIは不変。
 
-工程7で反復計算・サマリーを実装した。工程8で独立したグラフと開発者プレビューを実装した。通常アプリへの接続、実行状態のUI、ユーザー向け出力、サーバー、公開設定はまだない。実行・書き出しの無効状態は意図的であり、単にボタンを有効にして解消するバグではない。
+工程7で反復計算・サマリーを実装した。工程8で独立したグラフと開発者プレビューを実装した。工程9で通常アプリへの接続・実行状態・ユーザー出力を実装した。サーバー・公開設定は追加していない。旧段階の無効ボタンという仕様は更新済み。
 
 ## 第3工程の成果を読む
 
@@ -49,7 +56,7 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 
 変換コード・固定契約・依存・参照監査を変更する場合は、作業ブランチへ先にコードをコミットし、`npm run data:normalize` で実在するリビジョンを記録して生成物を次のコミットに保存する。未コミットの処理を来歴へ記載するために検査を迂回しない。原CSVは `.gitattributes` の `-text` を維持し、Git indexのバイト列も検証する。
 
-後工程の入口は `src/features/data/index.ts` の `loadObservationData()`。全イベント・ID・null・監査値・辞書の対応と成果物ハッシュを実行時検証し、ネストを含めfreezeしたreadonlyデータを返す。現段階では画面から呼ばない。Node専用のCSV/crypto/fs処理をブラウザへ持ち込まない。
+後工程の入口は `src/features/data/index.ts` の `loadObservationData()`。全イベント・ID・null・監査値・辞書の対応と成果物ハッシュを実行時検証し、ネストを含めfreezeしたreadonlyデータを返す。現在は計算Workerから呼ぶ。Node専用のCSV/crypto/fs処理をブラウザへ持ち込まない。
 
 ## 工程5の数理仕様を読む
 
@@ -76,11 +83,13 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 
 ## 次のCodexに渡す依頼文
 
-> 既存のyumotof01-dotcom/ECO-MIRRORで工程9の作業を開始する前に、全PRの最新状態、AGENTS.md、数理仕様、工程7/8の実装・検証を読んでください。最新の工程8を継承した作業ブランチで、既存の実行入口とNetworkComparisonの状態管理・結果表示を接続する設計を進めてください。idle/running/error/empty_scope/有効な0%を区別し、原データ・仕様・来歴を維持してください。公開やmainへの直接push/無断マージは行わないでください。具体的な実装範囲は次のユーザー指示を優先してください。
+> 既存yumotof01-dotcom/ECO-MIRRORの第10工程を始める前に、最新の全PR/継承/CI、AGENTS.md、工程9の実装・状態・出力・性能・検証記録と既存数理仕様を読んでください。工程9先端を引き継いだ作業ブランチを作成し、数理・科学・データ・性能の独立検証と必要最小限の修正を進めてください。実際のSafari/iPad・低メモリ・読み上げは未検証なので検証済みと扱わないでください。元データ/数理仕様/PRNG/全試行保存を保持し、mainへの直接push・無断マージ・公開は行わないでください。
 
-## 画面を変更する後工程での確認
+## 第9工程の回帰確認
 
-4画面、条件下書きの保持、リセット、不正な整数入力、未実行表示、404からの復帰を確認する。将来実データと計算を接続するときは、現在の常に未実行のテストを状態遷移と来歴のテストへ更新する。未実行と有効なゼロ結果を区別する原則は維持する。
+`npm run check`を実行する。既存の公式PCG/手計算/実CSV監査に加え、Worker結果の元番号・全summary・正規JSON/CSV・旧要求/取消/URL寿命・条件の取り違えを確認する。ブラウザE2Eは`scripts/application/e2e.mjs`で、別途Playwright/Chromiumと任意のaxe-coreが必要。依存追加で過去の正規化来歴を無効化しない。実在するアプリ実装コミットと実バイトが一致した状態で正式出力の検証を行う。
+
+ページ再読み込みはメモリ内条件・結果を失う。保存ファイルの取り込みは未実装であり、インポートされた未検証データを成功扱いする入口はない。同条件の再実行はメモリ内の実行時条件からできる。出力の再現手順は別来歴に記録する。
 
 ## 完了した第8工程への継承
 
@@ -90,4 +99,4 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 
 第7工程は[PR #6](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/6)、先端85c83737de6bc657bda877d176268bc43448a565、218テストとCI成功。第8工程はその先端から`feat/phase-8-network-visualization`を作り、同ブランチだけの差分をPRで提案する。
 
-[可視化設計](visualization/README.md)と[検証結果](visualization/validation.md)を読む。`NetworkComparison`は既存RunResultとtrialIndex/onTrialChangeを受け取る。基準ノード位置を共有し、抽出後の未確認リンクも保持する。`/dev/network.html`は開発者用。次の工程9ではこのコンポーネントを再実装せず、成功した計算結果を渡す状態管理と、指定された出力機能を接続する。既存画面の「未実行」や無効ボタンを、エラーを隠す目的で外さない。
+[可視化設計](visualization/README.md)と[検証結果](visualization/validation.md)を読む。`NetworkComparison`は既存RunResultとtrialIndex/onTrialChangeを受け取る。基準ノード位置を共有し、抽出後の未確認リンクも保持する。`/dev/network.html`は開発者用。工程9ではこのコンポーネントを再実装せず、成功した計算結果を渡す状態管理と正式出力を接続した。後工程もエラーを隠す目的で成功へ切り替えない。
