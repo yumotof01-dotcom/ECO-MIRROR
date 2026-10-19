@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import { initialDraft } from "./model";
+import { freshDraft } from "./model";
 import type { SimulationDraft } from "./model";
 
 interface DraftContextValue {
@@ -12,13 +12,13 @@ interface DraftContextValue {
 const DraftContext = createContext<DraftContextValue | null>(null);
 
 export function SimulationDraftProvider({ children }: { children: ReactNode }) {
-  const [draft, setDraft] = useState<SimulationDraft>({ ...initialDraft });
+  const [draft, setDraft] = useState<SimulationDraft>(freshDraft);
   return (
     <DraftContext.Provider
       value={{
         draft,
         setDraft,
-        resetDraft: () => setDraft({ ...initialDraft }),
+        resetDraft: () => setDraft(freshDraft()),
       }}
     >
       {children}

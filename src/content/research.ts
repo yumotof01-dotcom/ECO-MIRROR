@@ -19,11 +19,18 @@ export const scientificNotes = [
 
 export const references = [
   {
+    id: "00",
+    kind: "採用データ · 英国の実験 · 大学保管v1",
+    title: "Climate change impacts on plant-pollinator interactions and functioning - experiment data",
+    detail: "Ellen Moss / Darren Evans (2022)。原CSVの全3,882訪花記録を保持し、原分類ラベルのまま正規化・非復元抽出・ネットワーク集計・反復統計・比較描画に使用します。CC BY 4.0。元の著者による承認・推奨を意味しません。",
+    url: "https://doi.org/10.25405/data.ncl.17430548.v1",
+  },
+  {
     id: "01",
     kind: "データベース候補 · 未採用",
     title: "Web of Life",
     detail:
-      "生物間相互作用ネットワークの公開データベース。個別データの出典・対象分類群・利用条件の確認は次工程で行います。",
+      "生物間相互作用ネットワークの公開データベース。背景の調査先であり、現在の計算には採用していません。",
     url: "https://www.web-of-life.es/",
   },
   {

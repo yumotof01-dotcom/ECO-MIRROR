@@ -13,7 +13,7 @@ const steps = [
     number: "02",
     icon: "scan",
     title: "観測の条件を変える",
-    text: "観測量や偏りを変えたとき、どの関係が見えにくくなるかを調べます。",
+    text: "比較する年・区画・処理・調査回と残す記録の割合を選び、確認できる関係の違いを調べます。",
   },
   {
     number: "03",
@@ -50,7 +50,7 @@ export function HomePage() {
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" to="/simulation">
-              観測条件を見てみる
+              シミュレーションを始める
               <Icon name="arrow" />
             </Link>
             <Link className="text-link" to="/research">
@@ -59,7 +59,7 @@ export function HomePage() {
             </Link>
           </div>
           <p className="hero-note">
-            現在は開発基盤のプレビューです。計算はまだ実行できません。
+            英国の実データ3,882記録を使用します。全記録も自然界の完全な真値ではなく、訪花は受粉成功を証明しません。
           </p>
         </div>
         <BotanicalIllustration />
@@ -85,11 +85,11 @@ export function HomePage() {
       <aside className="foundation-note">
         <div>
           <p className="eyebrow">WHERE WE ARE</p>
-          <h2>問いを確かめるための、土台づくり。</h2>
+          <h2>記録から、比較して確かめる。</h2>
           <p>
-            いま使えるのは、画面の移動と観測条件の下書きです。
+            条件を選び、単一・反復試行を実行して、ネットワークと統計を比較できます。
             <br />
-            公開データの接続と計算機能は、次の工程から順に開発します。
+            結果と再現用JSON・来歴は端末へ保存できます。処理はブラウザ内で行い、データを外部サーバーへ送りません。
           </p>
         </div>
         <Link to="/research" className="button button-light">

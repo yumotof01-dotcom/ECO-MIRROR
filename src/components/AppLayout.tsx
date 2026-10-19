@@ -34,7 +34,7 @@ export function AppLayout() {
         </nav>
         <span className="build-label">
           <span className="status-dot" />
-          基盤プレビュー
+          公開前の機能統合版
         </span>
       </header>
       <main id="main-content" tabIndex={-1}>
@@ -53,7 +53,7 @@ export function AppLayout() {
         </div>
         <div className="footer-bottom">
           <span>植物と昆虫の関係を考える、観測シミュレーター</span>
-          <span>DEVELOPMENT PHASE 01–02</span>
+          <span>第9工程 · 公開前検証</span>
         </div>
       </footer>
     </div>
