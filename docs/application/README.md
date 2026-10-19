@@ -38,6 +38,7 @@
 | `src/pages/` / `src/content/research.ts` | 4画面の実機能・出典・科学的注記 |
 | `src/features/visualization/adapter.ts` / `NetworkComparison.tsx` | 既存の全RunResult APIを保持し、実在する1試行フラグメントにも対応 |
 | `scripts/application/e2e.mjs` | 実ブラウザの操作・出力・性能・4画面幅・任意のaxe監査 |
+| `scripts/application/keyboard.mjs` | 主要フローを実ブラウザのキーボードだけで実行する検証 |
 | `scripts/application/reproduce.mjs` | 保存された本体/来歴を同じ実在版からオフライン再計算する開発者CLI |
 
 同じディレクトリ表記を省略した行は`src/features/execution/`。詳細な設計は[architecture.md](../architecture.md)。
