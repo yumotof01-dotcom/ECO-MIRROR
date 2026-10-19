@@ -9,7 +9,7 @@ export function AppLayout() {
         本文へ移動
       </a>
       <header className="site-header">
-        <Link to="/" className="brand" aria-label="ECO MIRROR A CLOSER LOOK AT NATURE ホーム">
+        <Link to="/" className="brand">
           <span className="brand-mark">
             <Icon name="sprout" />
           </span>
@@ -17,6 +17,7 @@ export function AppLayout() {
             ECO MIRROR
             <span className="brand-subtitle">A CLOSER LOOK AT NATURE</span>
           </span>
+          <span className="sr-only"> ホーム</span>
         </Link>
         <nav aria-label="メインナビゲーション">
           {navigation.map((item) => (
