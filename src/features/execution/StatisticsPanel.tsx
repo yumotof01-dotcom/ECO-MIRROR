@@ -11,13 +11,13 @@ function DistributionChart({ values, metric }: { values: readonly DistributionVa
   const max = Math.ceil(Math.max(1, ...bins.map(b => b.count)) / 4) * 4, step = 620 / bins.length;
   const title = metric === "pair_count" ? "観測ペア数の分布" : "観測ペア保持率の分布";
   const unit = metric === "pair_count" ? "観測ペア数（組）" : "観測ペア保持率（%）";
-  return <figure className="distribution-chart"><figcaption>{title}</figcaption><svg viewBox="0 0 720 265" role="img" aria-labelledby={`${uid}-title ${uid}-desc`}>
+  return <figure className="distribution-chart"><figcaption>{title}</figcaption><div className="chart-scroll" tabIndex={0} role="region" aria-label={`${title}（横にスクロール）`}><svg viewBox="0 0 720 265" role="img" aria-labelledby={`${uid}-title ${uid}-desc`}>
     <title id={`${uid}-title`}>{title}</title><desc id={`${uid}-desc`}>{values.length}試行の度数分布。縦軸は試行数。下の度数表で全ての数値を確認できます。</desc>
     {[0, 1, 2, 3, 4].map(i => { const y = 210 - i * 42; return <g key={i}><line x1="58" x2="680" y1={y} y2={y} stroke="#d9ded3" /><text x="48" y={y + 4} textAnchor="end">{Math.round(max * i / 4)}</text></g>; })}
     <text x="15" y="25">試行数</text>
     {bins.map((bin, i) => <g key={bin.label}><rect x={60 + i * step + step * .08} y={210 - 168 * bin.count / max} width={step * .84} height={168 * bin.count / max} fill="#204b3a"><title>{bin.label}：{bin.count}試行</title></rect>{(bins.length <= 6 || i % Math.ceil(bins.length / 6) === 0 || i === bins.length - 1) && <text x={60 + (i + .5) * step} y="230" textAnchor="middle">{metric === "pair_count" ? bin.label : i * 5}</text>}</g>)}
     <text x="370" y="258" textAnchor="middle">{unit}</text>
-  </svg><p className="field-help">{metric === "pair_count" ? "ビン幅：1組。横軸は実際の試行値の最小〜最大。" : "ビン幅：5パーセントポイント。0〜100%、左端を含み右端を含まない区間（最後は100%を含む）。"}</p><details><summary>度数表を読む</summary><div className="table-scroll"><table><caption>{title} · {values.length}試行</caption><thead><tr><th scope="col">{unit}</th><th scope="col">試行数</th></tr></thead><tbody>{bins.map(bin => <tr key={bin.label}><th scope="row">{bin.label}</th><td>{bin.count}</td></tr>)}</tbody></table></div></details></figure>;
+  </svg></div><p className="field-help">{metric === "pair_count" ? "ビン幅：1組。横軸は実際の試行値の最小〜最大。" : "ビン幅：5パーセントポイント。0〜100%、左端を含み右端を含まない区間（最後は100%を含む）。"}</p><details><summary>度数表を読む</summary><div className="table-scroll"><table><caption>{title} · {values.length}試行</caption><thead><tr><th scope="col">{unit}</th><th scope="col">試行数</th></tr></thead><tbody>{bins.map(bin => <tr key={bin.label}><th scope="row">{bin.label}</th><td>{bin.count}</td></tr>)}</tbody></table></div></details></figure>;
 }
 export const StatisticsPanel = memo(function StatisticsPanel({ summary, values, repetitions }: { summary: RepetitionSummary; values: readonly DistributionValue[]; repetitions: number }) {
   return <section className="statistics-panel" aria-labelledby="statistics-title"><h2 id="statistics-title">反復全体の統計（{repetitions}試行）</h2><p>以下は選択中の1試行とは別の、全試行の要約です。試行番号を変えても、この統計は変わりません。</p><div className="distribution-grid"><DistributionChart values={values} metric="pair_count" /><DistributionChart values={values} metric="pair_retention_pct" /></div>

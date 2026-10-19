@@ -9,7 +9,7 @@ export function AppLayout() {
         本文へ移動
       </a>
       <header className="site-header">
-        <Link to="/" className="brand" aria-label="ECO MIRROR ホーム">
+        <Link to="/" className="brand" aria-label="ECO MIRROR A CLOSER LOOK AT NATURE ホーム">
           <span className="brand-mark">
             <Icon name="sprout" />
           </span>
