@@ -1,0 +1,164 @@
+{
+  "scenarios": [
+    {
+      "cycle": 0,
+      "ready": {
+        "workers": 1,
+        "urls": 0,
+        "ready": {
+          "run_id": 1,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "exported": {
+        "workers": 1,
+        "urls": 3,
+        "ready": {
+          "run_id": 1,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "navigation": "preserved"
+    },
+    {
+      "cycle": 1,
+      "ready": {
+        "workers": 1,
+        "urls": 0,
+        "ready": {
+          "run_id": 2,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "exported": {
+        "workers": 1,
+        "urls": 3,
+        "ready": {
+          "run_id": 2,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "navigation": "preserved"
+    },
+    {
+      "cycle": 2,
+      "ready": {
+        "workers": 1,
+        "urls": 0,
+        "ready": {
+          "run_id": 3,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "exported": {
+        "workers": 1,
+        "urls": 3,
+        "ready": {
+          "run_id": 3,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "navigation": "preserved"
+    },
+    {
+      "cycle": 3,
+      "ready": {
+        "workers": 1,
+        "urls": 0,
+        "ready": {
+          "run_id": 4,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "exported": {
+        "workers": 1,
+        "urls": 3,
+        "ready": {
+          "run_id": 4,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "navigation": "preserved"
+    },
+    {
+      "cycle": 4,
+      "ready": {
+        "workers": 1,
+        "urls": 0,
+        "ready": {
+          "run_id": 5,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "exported": {
+        "workers": 1,
+        "urls": 3,
+        "ready": {
+          "run_id": 5,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "navigation": "preserved"
+    },
+    {
+      "cycle": 5,
+      "ready": {
+        "workers": 1,
+        "urls": 0,
+        "ready": {
+          "run_id": 6,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "exported": {
+        "workers": 1,
+        "urls": 3,
+        "ready": {
+          "run_id": 6,
+          "verification": "verified",
+          "pairs": 183,
+          "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+        }
+      },
+      "navigation": "preserved"
+    }
+  ],
+  "limitations": [
+    "Linux Chromium only; not physical Safari/iPad.",
+    "Worker and Blob URL lifetimes are measured, not peak RSS or low-memory device safety."
+  ],
+  "browser": "150.0.7871.100",
+  "recovery": {
+    "workers": 1,
+    "urls": 0,
+    "ready": {
+      "run_id": 9,
+      "verification": "verified",
+      "pairs": 183,
+      "revision": "e2bb28edab2be75b18f14c026f062dfd828ffd26"
+    }
+  },
+  "status": "passed"
+}

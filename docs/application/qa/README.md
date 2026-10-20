@@ -12,3 +12,5 @@
 正式な8.7MB/86.3MBの結果本体をGitへさらに複製しない。保存した別来歴の条件から同じ版で再生成できる。巨大本体のSHAはブラウザ→ダウンロード→Nodeストリームで独立照合済み。[検証の説明](../validation.md)と[性能の解釈](../performance.md)を併読する。実機Safari/iPad/タッチ/読み上げや低メモリ端末の確認を意味しない。
 
 元データ：Ellen Moss / Darren Evans (2022)、大学保管v1、DOI 10.25405/data.ncl.17430548.v1、CC BY 4.0。原ラベルを保持した記録抽出・ネットワーク集計・反復統計・可視化という加工。元著者の推奨/承認を意味しない。元CSV/データ来歴は変更していない。
+
+追加の`lifecycle-report.json`は、実Workerで反復100→保存→ページ往復を6回行った資源寿命の検証。反復1000中止後の反復2への回復も含む。`node scripts/application/lifecycle.mjs`で再実行できる（PlaywrightとChromiumが別途必要、`ECO_MIRROR_BROWSER_PATH`で実行ファイル指定可能）。アプリ本体や既存QA記録を上書きしない。

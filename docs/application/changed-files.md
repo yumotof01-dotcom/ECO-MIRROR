@@ -15,6 +15,7 @@ baseは第8工程05a732f。計算コア、9規範仕様、data全体、データ
 - `docs/application/qa/browser-report.json`
 - `docs/application/qa/browser-run-provenance.json`
 - `docs/application/qa/keyboard-report.json`
+- `docs/application/qa/lifecycle-report.json`
 - `docs/application/qa/local-check.json`
 - `docs/application/qa/node-reproduction-report.json`
 - `docs/application/qa/results-desktop-viewport.png`
@@ -39,6 +40,7 @@ baseは第8工程05a732f。計算コア、9規範仕様、data全体、データ
 - `scripts/application/capture.mjs`
 - `scripts/application/e2e.mjs`
 - `scripts/application/keyboard.mjs`
+- `scripts/application/lifecycle.mjs`
 - `scripts/application/reproduce.mjs`
 - `scripts/application/smoke.mjs`
 - `scripts/browser/metadata.test.ts`
