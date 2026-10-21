@@ -23,3 +23,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+      - name: Independent CSV and rational-arithmetic oracle
+        run: |
+          node scripts/verification/generate.mjs "$RUNNER_TEMP/eco-audit"
+          python3 scripts/verification/independent.py "$RUNNER_TEMP/eco-audit"
+      - name: Verify release build and complete Git provenance (no deployment)
+        run: node scripts/release/build.mjs

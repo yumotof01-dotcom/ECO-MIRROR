@@ -1,0 +1,15 @@
+ECO MIRROR data attribution
+Ellen Moss and Darren Evans (2022).
+Climate change impacts on plant-pollinator interactions and functioning - experiment data.
+University archive version 1: https://doi.org/10.25405/data.ncl.17430548.v1
+License: CC BY 4.0 https://creativecommons.org/licenses/by/4.0/
+Source file: Raw_InteractionData_BothYears.csv, file ID 34178859.
+Source SHA-256: c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a
+Changes: normalized event records with verbatim labels and source record numbers,
+without-replacement subsampling, network summaries, conditional-model statistics
+and visualization. Source CSV bytes remain unchanged in the repository.
+This UK experiment records flower visits, not proof of successful pollination.
+The full records are a finite comparison baseline, not ecological ground truth.
+No endorsement by the original authors is implied.
+Download run-result.json together with run-provenance.json to retain provenance
+and attribution. CSV is a derived summary and does not replace those JSON files.
