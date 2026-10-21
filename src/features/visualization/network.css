@@ -79,3 +79,7 @@
   .em-node text { fill: CanvasText; }
   .em-node:focus .em-node-hit, .em-node[aria-pressed="true"] .em-node-hit { fill: Highlight; stroke: Highlight; }
 }
+
+/* Reflow metric columns with enlarged text; retain complete values without clipping. */
+.em-metrics { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+.em-metrics dd { overflow-wrap: anywhere; }
