@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "raw_sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+  "records": 3882,
+  "identical_content_rows_preserved": 1930,
+  "selection_scopes": 409,
+  "fully_compared_trials": 2682,
+  "pcg_vectors": 9,
+  "rejection_cases": 4,
+  "exhaustive_subsets": 1024,
+  "exhaustive": [
+    {
+      "k": 0,
+      "subsets": 1,
+      "distribution": {
+        "0": 1
+      },
+      "expected_pairs": {
+        "numerator": "0",
+        "denominator": "1"
+      }
+    },
+    {
+      "k": 1,
+      "subsets": 10,
+      "distribution": {
+        "1": 10
+      },
+      "expected_pairs": {
+        "numerator": "1",
+        "denominator": "1"
+      }
+    },
+    {
+      "k": 2,
+      "subsets": 45,
+      "distribution": {
+        "1": 5,
+        "2": 40
+      },
+      "expected_pairs": {
+        "numerator": "17",
+        "denominator": "9"
+      }
+    },
+    {
+      "k": 3,
+      "subsets": 120,
+      "distribution": {
+        "1": 1,
+        "2": 37,
+        "3": 82
+      },
+      "expected_pairs": {
+        "numerator": "107",
+        "denominator": "40"
+      }
+    },
+    {
+      "k": 4,
+      "subsets": 210,
+      "distribution": {
+        "2": 14,
+        "3": 105,
+        "4": 91
+      },
+      "expected_pairs": {
+        "numerator": "101",
+        "denominator": "30"
+      }
+    },
+    {
+      "k": 5,
+      "subsets": 252,
+      "distribution": {
+        "2": 2,
+        "3": 55,
+        "4": 143,
+        "5": 52
+      },
+      "expected_pairs": {
+        "numerator": "143",
+        "denominator": "36"
+      }
+    },
+    {
+      "k": 6,
+      "subsets": 210,
+      "distribution": {
+        "3": 13,
+        "4": 91,
+        "5": 94,
+        "6": 12
+      },
+      "expected_pairs": {
+        "numerator": "9",
+        "denominator": "2"
+      }
+    },
+    {
+      "k": 7,
+      "subsets": 120,
+      "distribution": {
+        "3": 1,
+        "4": 27,
+        "5": 68,
+        "6": 24
+      },
+      "expected_pairs": {
+        "numerator": "119",
+        "denominator": "24"
+      }
+    },
+    {
+      "k": 8,
+      "subsets": 45,
+      "distribution": {
+        "4": 3,
+        "5": 23,
+        "6": 19
+      },
+      "expected_pairs": {
+        "numerator": "241",
+        "denominator": "45"
+      }
+    },
+    {
+      "k": 9,
+      "subsets": 10,
+      "distribution": {
+        "5": 3,
+        "6": 7
+      },
+      "expected_pairs": {
+        "numerator": "57",
+        "denominator": "10"
+      }
+    },
+    {
+      "k": 10,
+      "subsets": 1,
+      "distribution": {
+        "6": 1
+      },
+      "expected_pairs": {
+        "numerator": "6",
+        "denominator": "1"
+      }
+    }
+  ],
+  "results": {
+    "all-0-2": {
+      "sha256": "b161e54cae089d105f32ca507dc790e6836704ecf16fd2d482e6f022985ac18c",
+      "trials": 2
+    },
+    "all-100-1": {
+      "sha256": "470e031247068cfa77a7b949a9b22a269536bf16173e34f534547d1dce2a4444",
+      "trials": 1
+    },
+    "all-50-100": {
+      "sha256": "723647a1068328e6b038de381a25b1cb42ba4190d62d9ab374c974e95b2f1880",
+      "trials": 100
+    },
+    "all-50-1000": {
+      "sha256": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+      "trials": 1000
+    },
+    "empty": {
+      "sha256": "99009d3809f4451d6ffd4e7660b9de919e5b5ef7a2ef35c65749e1deb7f3e480",
+      "trials": 0
+    },
+    "year-2014": {
+      "sha256": "dfecbc018b74830843e98c5270cbca71f06cf7528f23e7a5ed7782715e4a0333",
+      "trials": 3
+    }
+  },
+  "limitations": [
+    "Python and TypeScript are independent code in this project, not an external expert review.",
+    "Uniform subset theory does not assert ecological sampling validity or exact PRNG seed frequencies."
+  ]
+}

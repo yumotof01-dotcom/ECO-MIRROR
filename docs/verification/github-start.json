@@ -1,0 +1,199 @@
+{
+  "checked_date_jst": "2026-10-21",
+  "main": "3e6a1556c4925058aa4765eca1672e89168e04f7",
+  "working_tree": "clean",
+  "prs": [
+    {
+      "pr": 1,
+      "state": "open",
+      "merged": false,
+      "base": "main",
+      "base_sha": "3e6a1556c4925058aa4765eca1672e89168e04f7",
+      "head": "feat/foundation-phase-1-2",
+      "head_sha": "6322b566c24a8d3396f499bc4e30382de7e88bd4",
+      "files": 39,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39011662082,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 1,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39011662082/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39011662082/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 2,
+      "state": "open",
+      "merged": false,
+      "base": "feat/foundation-phase-1-2",
+      "base_sha": "6322b566c24a8d3396f499bc4e30382de7e88bd4",
+      "head": "docs/phase-3-data-assessment",
+      "head_sha": "5880e52c64d4f44ad95f727b782b1823018f3606",
+      "files": 15,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39013297488,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 2,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39013297488/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39013297488/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 3,
+      "state": "open",
+      "merged": false,
+      "base": "docs/phase-3-data-assessment",
+      "base_sha": "5880e52c64d4f44ad95f727b782b1823018f3606",
+      "head": "feat/phase-4-data-pipeline",
+      "head_sha": "e07f7c0ea52a0b5241f97894a658740b6ab445dd",
+      "files": 45,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39016129220,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 3,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39016129220/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39016129220/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 4,
+      "state": "open",
+      "merged": false,
+      "base": "feat/phase-4-data-pipeline",
+      "base_sha": "e07f7c0ea52a0b5241f97894a658740b6ab445dd",
+      "head": "docs/phase-5-mathematical-specification",
+      "head_sha": "3aea5c385cd99a7bb67ab0879c5eb6bab7cbc315",
+      "files": 18,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39020251561,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 4,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39020251561/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39020251561/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 5,
+      "state": "open",
+      "merged": false,
+      "base": "docs/phase-5-mathematical-specification",
+      "base_sha": "3aea5c385cd99a7bb67ab0879c5eb6bab7cbc315",
+      "head": "feat/phase-6-single-trial-core",
+      "head_sha": "d349f3d0e608fd22b76551198360c661155660a4",
+      "files": 41,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39025134374,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 5,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39025134374/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39025134374/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 6,
+      "state": "open",
+      "merged": false,
+      "base": "feat/phase-6-single-trial-core",
+      "base_sha": "d349f3d0e608fd22b76551198360c661155660a4",
+      "head": "feat/phase-7-repeated-simulation",
+      "head_sha": "85c83737de6bc657bda877d176268bc43448a565",
+      "files": 34,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39090949614,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 7,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39090949614/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39090949614/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 7,
+      "state": "open",
+      "merged": false,
+      "base": "feat/phase-7-repeated-simulation",
+      "base_sha": "85c83737de6bc657bda877d176268bc43448a565",
+      "head": "feat/phase-8-network-visualization",
+      "head_sha": "05a732f1cdf8e782fce8ad9e36846624c5bcadc2",
+      "files": 22,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39091873502,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 8,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39091873502/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39091873502/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    },
+    {
+      "pr": 8,
+      "state": "open",
+      "merged": false,
+      "base": "feat/phase-8-network-visualization",
+      "base_sha": "05a732f1cdf8e782fce8ad9e36846624c5bcadc2",
+      "head": "feat/phase-9-interactive-application",
+      "head_sha": "e9ca5bceba6fb65737755bc3acb240fff6380eb5",
+      "files": 82,
+      "ci": {
+        "workflow_runs": [
+          {
+            "id": 39509793280,
+            "name": "CI",
+            "status": "completed",
+            "conclusion": "success",
+            "run_number": 13,
+            "jobs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39509793280/jobs",
+            "logs_url": "https://api.github.com/repos/yumotof01-dotcom/ECO-MIRROR/actions/runs/39509793280/logs",
+            "workflow_id": 387433865
+          }
+        ]
+      }
+    }
+  ]
+}
