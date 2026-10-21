@@ -24,6 +24,6 @@ export const StatisticsPanel = memo(function StatisticsPanel({ summary, values, 
     <div className="table-scroll" tabIndex={0} role="region" aria-label="全7指標の統計サマリー"><table className="statistics-table"><caption>この抽出モデルの2.5〜97.5%分位範囲と統計値</caption><thead><tr>{["指標・単位", "平均", "標本分散", "標本標準偏差", "最小", "2.5%分位点", "中央値", "97.5%分位点", "最大"].map(text => <th scope="col" key={text}>{text}</th>)}</tr></thead><tbody>{(Object.keys(labels) as MetricKey[]).map(key => {
       const s = summary[key], digits = key === "connectance_fixed" ? 6 : 2;
       return <tr key={key}><th scope="row">{labels[key]}</th><td><FractionText value={s.mean} digits={digits} /></td><td>{s.sample_variance ? <FractionText value={s.sample_variance} digits={key === "connectance_fixed" ? 8 : 2} /> : "未定義（1試行）"}</td><td>{formatSqrt(s.sample_sd, digits)}</td><td><FractionText value={s.min} digits={digits} /></td>{s.quantiles.map(q => <td key={`${q.probability.numerator}/${q.probability.denominator}`}><FractionText value={q.value} digits={digits} /></td>)}<td><FractionText value={s.max} digits={digits} /></td></tr>;
-    })}</tbody></table></div><p className="field-help">表示用の小数は丸めています。正式JSONは既約分数と標準偏差の被開平数を保持します。R=1では分散・標準偏差は未定義です。分位範囲はこの抽出モデルによるばらつきであり、生態系の95%信頼区間や将来予測ではありません。</p>
+    })}</tbody></table></div><p className="field-help">分位点は試行値を小さい順に並べたときの位置です。中央値は中央を表します（必要な位置は線形補間）。表示用の小数は丸めています。正式JSONは既約分数と標準偏差の被開平数を保持します。R=1では分散・標準偏差は未定義です。分位範囲はこの抽出モデルによるばらつきであり、生態系の95%信頼区間や将来予測ではありません。</p>
   </section>;
 });
