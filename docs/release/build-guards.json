@@ -1,0 +1,18 @@
+{
+  "source_revision": "565c55aae7ab1c8e494909ce04dd94f4bda1f0be",
+  "checks": [
+    {
+      "mode": "shallow",
+      "expected": "RELEASE_HISTORY",
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "mode": "dirty",
+      "expected": "RELEASE_DIRTY",
+      "exit_code": 1,
+      "passed": true
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "/",
+      "heading": "見えている自然が、\nすべてとは\n限らない。"
+    },
+    {
+      "path": "/simulation",
+      "heading": "観測条件を、組み立てる。"
+    },
+    {
+      "path": "/results",
+      "heading": "見え方の違いを、読み解く。"
+    },
+    {
+      "path": "/research",
+      "heading": "根拠と、限界をたどる。"
+    },
+    {
+      "path": "/unknown-page",
+      "heading": "ページが見つかりません。"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Self-signed local HTTPS with ignored certificate errors; not a Cloudflare deployment test.",
+    "Desktop Chromium main-page 4x CPU throttle is not iPad or Worker throttling."
+  ],
+  "browser": "153.0.8010.0",
+  "throttled_click_to_result_ms": 787.235818,
+  "result_sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+  "csp_violations": []
+}
