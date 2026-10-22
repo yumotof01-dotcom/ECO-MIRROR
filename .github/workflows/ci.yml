@@ -29,3 +29,28 @@ jobs:
           python3 scripts/verification/independent.py "$RUNNER_TEMP/eco-audit"
       - name: Verify release build and complete Git provenance (no deployment)
         run: node scripts/release/build.mjs
+  webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Install isolated pinned browser QA tools
+        run: |
+          npm install --prefix "$RUNNER_TEMP/eco-browser-qa" playwright@1.62.1
+          "$RUNNER_TEMP/eco-browser-qa/node_modules/.bin/playwright" install --with-deps webkit
+      - run: node scripts/release/build.mjs
+      - name: Real-data WebKit compatibility and reproducible downloads
+        env:
+          ECO_QA_ENGINE: webkit
+          ECO_QA_MODE: compatibility
+        run: |
+          export ECO_QA_NODE_MODULES="$RUNNER_TEMP/eco-browser-qa/node_modules"
+          node scripts/release/extended-browser.mjs
