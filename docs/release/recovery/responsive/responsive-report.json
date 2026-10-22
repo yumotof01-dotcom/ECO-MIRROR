@@ -1,0 +1,265 @@
+{
+  "checks": [
+    {
+      "name": "320x568:分析結果",
+      "width": 320,
+      "scroll": 320,
+      "height": 568,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "320x568:シミュレーション",
+      "width": 320,
+      "scroll": 320,
+      "height": 568,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "320x568:研究情報",
+      "width": 320,
+      "scroll": 320,
+      "height": 568,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "320x568:ホーム",
+      "width": 320,
+      "scroll": 320,
+      "height": 568,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "390x844:分析結果",
+      "width": 390,
+      "scroll": 390,
+      "height": 844,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "390x844:シミュレーション",
+      "width": 390,
+      "scroll": 390,
+      "height": 844,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "390x844:研究情報",
+      "width": 390,
+      "scroll": 390,
+      "height": 844,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "390x844:ホーム",
+      "width": 390,
+      "scroll": 390,
+      "height": 844,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "768x1024:分析結果",
+      "width": 768,
+      "scroll": 768,
+      "height": 1024,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "768x1024:シミュレーション",
+      "width": 768,
+      "scroll": 768,
+      "height": 1024,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "768x1024:研究情報",
+      "width": 768,
+      "scroll": 768,
+      "height": 1024,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "768x1024:ホーム",
+      "width": 768,
+      "scroll": 768,
+      "height": 1024,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1024x768:分析結果",
+      "width": 1024,
+      "scroll": 1024,
+      "height": 768,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1024x768:シミュレーション",
+      "width": 1024,
+      "scroll": 1024,
+      "height": 768,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1024x768:研究情報",
+      "width": 1024,
+      "scroll": 1024,
+      "height": 768,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1024x768:ホーム",
+      "width": 1024,
+      "scroll": 1024,
+      "height": 768,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1440x900:分析結果",
+      "width": 1440,
+      "scroll": 1440,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1440x900:シミュレーション",
+      "width": 1440,
+      "scroll": 1440,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1440x900:研究情報",
+      "width": 1440,
+      "scroll": 1440,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1440x900:ホーム",
+      "width": 1440,
+      "scroll": 1440,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1920x1080:分析結果",
+      "width": 1920,
+      "scroll": 1920,
+      "height": 1080,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1920x1080:シミュレーション",
+      "width": 1920,
+      "scroll": 1920,
+      "height": 1080,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1920x1080:研究情報",
+      "width": 1920,
+      "scroll": 1920,
+      "height": 1080,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "1920x1080:ホーム",
+      "width": 1920,
+      "scroll": 1920,
+      "height": 1080,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "text-200%:シミュレーション",
+      "width": 1280,
+      "scroll": 1280,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "text-200%:分析結果",
+      "width": 1280,
+      "scroll": 1280,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "text-400%:シミュレーション",
+      "width": 1280,
+      "scroll": 1280,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "name": "text-400%:分析結果",
+      "width": 1280,
+      "scroll": 1280,
+      "height": 900,
+      "offenders": [],
+      "overflow": false,
+      "axe_violations": 0
+    }
+  ],
+  "violations": [],
+  "errors": [],
+  "limitations": [
+    "Chromium desktop emulation, not physical iPad/Safari or screen-reader review.",
+    "CSS text enlargement is not OS/browser zoom.",
+    "No low-memory guarantee."
+  ],
+  "browser": "153.0.8010.0",
+  "status": "PASS"
+}

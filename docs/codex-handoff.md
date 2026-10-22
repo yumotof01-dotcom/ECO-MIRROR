@@ -107,4 +107,4 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 
 ## 最終引き継ぎ
 
-[最終報告](release/final-readiness-report.md)と[統合計画](release/integration.md)を読む。数理仕様1.0.0、計算版a55e7e2、原データは不変。実機の重大な未検証を解消するまで公開GOを出さない。最後の一時検証ファイルの消失についても最終報告に記載した。
+[最終報告](release/final-readiness-report.md)と[統合計画](release/integration.md)を読む。数理仕様1.0.0、計算版a55e7e2、原データは不変。実機の重大な未検証を解消するまで公開GOを出さない。一時検証記録の消失は再実行・リポジトリ直接保存で解消。docs/release/recovery/に13条件E2Eと28条件画面検査、docs/release/にHTTPS・キーボード/寿命・ビルド拒否の生JSONを保存した。
