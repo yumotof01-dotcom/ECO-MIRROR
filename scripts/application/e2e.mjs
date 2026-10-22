@@ -323,7 +323,10 @@ try {
     await writeFile(attestedPath, Buffer.concat([originalBytes, Buffer.from('\n/* QA-only second edit: must invalidate HMR attestation */\n')]));
     await page.getByRole('heading', { name: '分析結果はまだありません。', exact: true }).waitFor();
     assert.equal(await page.locator('[data-network]').count(), 0);
+    // Wait for the file watcher's document reload, not an already-idle old page.
+    const restoredNavigation = page.waitForEvent('framenavigated', { predicate: frame => frame === page.mainFrame() });
     await writeFile(attestedPath, originalBytes);
+    await restoredNavigation;
     await page.waitForLoadState('networkidle');
     // Reload explicitly after restoration, then verify real committed metadata again.
     await page.reload(); await nav('シミュレーション'); await page.getByLabel('単一試行（1回）').check();

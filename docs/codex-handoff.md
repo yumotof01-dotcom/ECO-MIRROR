@@ -1,11 +1,11 @@
 # Codexへの引き継ぎ
 
-**現在は第9工程の公開前統合版。次は工程10。** 以下の工程別記述は経緯として残す。現在の手順は本節と[第9工程資料](application/README.md)を優先し、依頼された範囲を越えない。
+**工程10〜12の監査・改善・公開準備を作業ブランチで実施。mainへの統合と一般公開は未実施。** 以下の工程別記述は経緯として残す。現在の手順は本節と[第9工程資料](application/README.md)を優先し、依頼された範囲を越えない。
 
 - 第9工程PR：[#8](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/8)。ブランチ：`feat/phase-9-interactive-application`。baseは`feat/phase-8-network-visualization`、継承先端05a732f。開始時にPR #1〜#7とCI成功を確認、未マージの継承を維持した。
 - UI・Worker・出力の実装は実在コミットを先に保存し、検証・来歴は後続コミットに分ける。計算版は既存a55e7e2、数理仕様1.0.0・元データ・正規化・依存を変更していない。
 - [状態遷移](application/state-transitions.md)、[実装/責務](application/README.md)、[出力と再現](application/exports.md)、[ブラウザ/数値検証](application/validation.md)、[性能](application/performance.md)を読む。
-- 次は低メモリ端末/Safari実機、独立した数値照合、読み上げとキーボードの回帰を検証する。公開・既存PRマージは別途依頼がない限り行わない。
+- 独立数値照合とChromium回帰は追加確認済み。次は低メモリ端末/Safari実機・読み上げと承認後の統合を検証する。公開・既存PRマージは別途依頼がない限り行わない。
 
 ## 作業場所
 
@@ -104,3 +104,7 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 ## 第10・11工程の追加記録
 
 独立監査は docs/verification/、画面検査・改善と実機手順は docs/usability/。計算版・原本・規範仕様は変更なし。未検証のSafari/iPad・読み上げ・低メモリをPASSにしない。第12工程は本番成果物と来歴、科学・ライセンス・セキュリティ、公開手順を整え、公開・既存PRマージは承認まで行わない。
+
+## 最終引き継ぎ
+
+[最終報告](release/final-readiness-report.md)と[統合計画](release/integration.md)を読む。数理仕様1.0.0、計算版a55e7e2、原データは不変。実機の重大な未検証を解消するまで公開GOを出さない。最後の一時検証ファイルの消失についても最終報告に記載した。
