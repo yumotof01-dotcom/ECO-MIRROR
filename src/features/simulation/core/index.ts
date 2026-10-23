@@ -1,4 +1,6 @@
 export { runSingleTrial } from "./run.ts";
+export { runRepeatedTrials, simulateRepetitions, DEFAULT_REPETITIONS } from "./repeated.ts";
+export { summarizeValues, summarizeTrials, quantileType7 } from "./statistics.ts";
 export { simulateTrial } from "./trial.ts";
 export { normalizeSelection } from "./inputs.ts";
 export { selectScope } from "./scope.ts";
@@ -8,4 +10,4 @@ export { compareNetworks } from "./network.ts";
 export { fraction, validateFraction } from "./fraction.ts";
 export { canonicalJson, idsHash, digestText } from "./serialization.ts";
 export { SimulationError } from "./errors.ts";
-export type { CoreEvent, Fraction, Selection, SingleTrialRequest, RunContext, DataIdentity, ScopeSummary, NetworkSummary, TrialResult, RunResult, Sha256 } from "./types.ts";
+export type { CoreEvent, Fraction, SqrtFraction, Selection, SingleTrialRequest, RepeatedTrialRequest, RunContext, DataIdentity, ScopeSummary, NetworkSummary, TrialResult, RunResult, SingleRunResult, RepeatedRunResult, ScalarSummary, RepetitionSummary, MetricKey, Sha256 } from "./types.ts";

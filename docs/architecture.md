@@ -35,7 +35,7 @@ ViteでビルドするReact SPA。TypeScriptのstrict設定、Tailwind CSSのVit
 | データ読込・検証 | 元ファイル、メタデータ、正規化、欠測・値の検証 | 工程4で実装    |
 | 観測モデルの仕様 | 抽出単位、比較範囲、仮定、丸め規則             | 工程5で文書化、コードなし |
 | 計算コア         | 仕様固定のPRNG、純粋関数、同じ入力で同じ出力   | 工程6で実装    |
-| 反復・集計       | 反復別シードの導出、ばらつきの集計             | 工程7    |
+| 反復・集計       | 反復別シードの導出、ばらつきの集計             | 工程7で実装    |
 | 可視化・分析     | 出典と結果の対応、状態別表示、エクスポート     | 工程8・9 |
 
 計算モジュールはReactやDOMへ依存させない。重い計算が実測された場合にWorker等を検討し、先に不要な構成を増やさない。将来の画面状態は `idle` / `running` / `success` / `empty_scope` / `error` を明示的に分け、成功時だけ結果を表示する。今回は画面状態や結果の接続を実装しない。
@@ -71,3 +71,9 @@ CIはNode 24、`npm ci`、`npm run check` を実行する。ローカルと同�
 `scripts/simulation/context.ts`だけがGit・ファイル・データ来歴を読み、実在する実装スナップショットと9規範ファイルのハッシュから `RunContext` を作る。値としてコアへ渡し、計算自身に環境依存を持ち込まない。開発者検証は `scripts/simulation/verify.ts`、テストも同ディレクトリ。Nodeの型検査にこの層と宣言的fixtureを含めた。
 
 正式結果は比較基準と1試行、原番号・乱数消費数・正確な指標・版/ハッシュを持つ。時刻・環境・帰属・結果ハッシュは別来歴。反復サマリーはnull。詳細は [工程6の実装仕様](simulation/phase6-implementation.md)。
+
+## 第7工程で実装した反復・統計層
+
+`core/repeated.ts`は全件検証済みデータの同じ選択範囲から既存`simulateTrial`をR回再利用し、全試行をt順に保存する。`core/statistics.ts`が7指標の平均、標本分散、SDの被開平数、min/max、type 7分位点をBigIntの既約分数で計算する。React/DOMと無関係で、既存ページは未接続のまま。
+
+`scripts/simulation/verify-repeated.ts`は実在する実装リビジョンと正規結果を検証する。別実装の`audit-repeated.py`が原CSVから1,000試行を再構築して照合する。詳細は[実装](simulation/phase7-implementation.md)と[検証](simulation/phase7-validation.md)。可視化層への入力は既存の`RunResult`と試行番号であり、描画のために抽出を再実行しない。

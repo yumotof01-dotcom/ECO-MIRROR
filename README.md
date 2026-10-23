@@ -4,11 +4,11 @@
 
 観測不足によって、生態系の状態を誤って判断するリスクを減らすことを目指します。生成AIによる予測は行わず、実データと再現可能な数理計算を使う方針です。
 
-## 現在の範囲：画面・データ基盤と第6工程の単一試行コア
+## 現在の範囲：画面・データ基盤と第7工程の反復・統計コア
 
-大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。工程5の [数理仕様](docs/simulation/README.md) に従い、工程6では条件選択、PCG32、非復元抽出、固定分母の指標、既約分数、再現可能な単一試行結果を実装しました。[実装説明](docs/simulation/phase6-implementation.md) と [検証記録](docs/simulation/phase6-validation.md) を参照してください。
+大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。工程5の [数理仕様](docs/simulation/README.md) に従い、工程6の単一コアに続き、工程7で1〜1,000試行・試行別PCG32系列・全試行保存・正確な平均/標本分散/SD/type 7分位点を実装しました。[実装説明](docs/simulation/phase6-implementation.md) と [検証記録](docs/simulation/phase6-validation.md) を参照してください。
 
-計算コアと実データは画面へ未接続です。反復計算・グラフ・結果表示・ユーザー向け出力はまだありません。既存の実行/書き出しボタンは無効、分析画面は未実行のままです。
+計算コアと実データは画面へ未接続です。反復計算は画面から独立したコアのみです。グラフ・結果表示・ユーザー向け出力はまだありません。既存の実行/書き出しボタンは無効、分析画面は未実行のままです。
 
 工程3では指定のCC-plant-pollinator実CSVを調査し、3,882行・7列、大学保管v1のCC BY 4.0、GitHub版との改行以外の一致を確認しました。英国の実験記録を使う観測条件の教材として、原分類ラベルを保持して採用します。調査結果は [データ調査報告](docs/data/cc-plant-pollinator/README.md) にあります。工程4では原CSVのバイト列を保持し、CC BY 4.0の帰属・変更表示を付けて同梱しました。[データ処理の実装仕様](docs/data/cc-plant-pollinator/implementation.md) と [検証記録](docs/data/cc-plant-pollinator/phase4-validation.md) を参照してください。
 
@@ -26,7 +26,7 @@
 Node.js 24.12以上とnpmを使用します（`.nvmrc` を用意）。この変更がmainにマージされる前は、次のブランチを取得してください。新しいGitHubリポジトリの作成は不要です。
 
 ```bash
-git clone --branch feat/phase-6-single-trial-core https://github.com/yumotof01-dotcom/ECO-MIRROR.git
+git clone --branch feat/phase-7-repeated-simulation https://github.com/yumotof01-dotcom/ECO-MIRROR.git
 cd ECO-MIRROR
 npm ci
 npm run dev
@@ -38,7 +38,7 @@ npm run dev
 
 ```bash
 git fetch origin
-git switch feat/phase-6-single-trial-core
+git switch feat/phase-7-repeated-simulation
 npm ci
 npm run dev
 ```
@@ -53,6 +53,7 @@ npm run data:fetch # 原本があれば検証のみ。取得する場合も版�
 npm run data:check # 保存済みデータ・来歴・Git内原本をオフライン検証
 npm run check     # データ検証・テスト・本番ビルドをまとめて実行
 node scripts/simulation/verify.ts # 保存済み単一試行の全バイト・来歴を照合（UI・通信なし）
+node scripts/simulation/verify-repeated.ts # 実データの反復結果・別来歴を照合
 npm run preview   # ビルド済み成果物をローカル表示
 ```
 
@@ -98,12 +99,16 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [第5工程の検証記録](docs/simulation/validation.md)
 - [第6工程の実装と再現手順](docs/simulation/phase6-implementation.md)
 - [第6工程の検証記録](docs/simulation/phase6-validation.md)
+- [第7工程の実装・統計と再現手順](docs/simulation/phase7-implementation.md)
+- [第7工程の検証記録](docs/simulation/phase7-validation.md)
 - [Codexへの引き継ぎ](docs/codex-handoff.md)
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程7：反復計算とばらつきの集計**です。確定仕様に従い、同じスコープに対するt別系列、全試行保存、Fractionの平均・標本分散、SqrtFraction、type 7分位点を実装します。現時点では単一試行までです。画面接続は工程8・9で行い、重複行の削除、分類名の推測修正、実施不明の0補完をしないでください。
+次は**工程8：実データの関係可視化**です。計算済みRunResultの既存試行を受け取り、固定した基準ノード位置で左右比較します。計算を描画側で実行し直さず、画面の正式な実行・状態管理・出力接続は工程9に残します。
 
 第5工程ブランチ `docs/phase-5-mathematical-specification` はPR #3の先端 `e07f7c0ea52a0b5241f97894a658740b6ab445dd` を継承しています。開始時はPR #1〜#3がすべて未マージのため、第5工程PRのbaseは `feat/phase-4-data-pipeline` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
 
 第6工程はPR #1〜#4が未マージであることを確認し、工程5先端 `3aea5c385cd99a7bb67ab0879c5eb6bab7cbc315` を継承しました。作業ブランチは `feat/phase-6-single-trial-core`、PRのbaseは `docs/phase-5-mathematical-specification` です。
+
+第7工程は `feat/phase-7-repeated-simulation`、baseは `feat/phase-6-single-trial-core`。開始時にPR #1〜#5は全て未マージで、第6工程先端d349f3dを継承しました。

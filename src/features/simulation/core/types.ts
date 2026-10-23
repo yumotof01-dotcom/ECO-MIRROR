@@ -11,6 +11,19 @@ export interface Selection {
 }
 
 export interface Fraction { readonly numerator: string; readonly denominator: string }
+export interface SqrtFraction { readonly radicand: Fraction }
+export type MetricKey = "event_count" | "plant_label_count" | "visitor_label_count" | "pair_count" | "lost_pair_count" | "pair_retention_pct" | "connectance_fixed";
+export interface ScalarSummary {
+  readonly valid_count: number;
+  readonly mean: Fraction;
+  readonly sample_variance: Fraction | null;
+  readonly sample_sd: SqrtFraction | null;
+  readonly min: Fraction;
+  readonly max: Fraction;
+  readonly quantiles: readonly { readonly probability: Fraction; readonly value: Fraction }[];
+  readonly undefined_reasons: Readonly<{ sample_variance?: "insufficient_trials"; sample_sd?: "insufficient_trials" }>;
+}
+export type RepetitionSummary = Readonly<Record<MetricKey, ScalarSummary>>;
 export interface PartnerCount { readonly label_id: string; readonly partner_count: number }
 export interface PairWeight { readonly plant_label_id: string; readonly visitor_label_id: string; readonly record_count: number }
 export interface NetworkSummary {
@@ -75,8 +88,9 @@ export interface SingleTrialRequest {
   readonly master_seed: number;
 }
 
-/** Only phase 6's single mode; no repetition summary or UI state is fabricated. */
-export interface RunResult {
+export interface RepeatedTrialRequest extends SingleTrialRequest { readonly repetitions: number }
+
+interface RunResultBase {
   readonly result_schema_version: "1.0.0";
   readonly specification_versions: Readonly<{ model: "1.0.0"; metrics: "1.0.0"; randomness: "1.0.0"; repetitions: "1.0.0"; serialization: "1.0.0" }>;
   readonly implementation_git_revision: string;
@@ -89,14 +103,23 @@ export interface RunResult {
     rate_percent: number; eligible_record_count: number; sample_record_count: number | null; actual_record_pct: Fraction | null;
   }>;
   readonly randomness: Readonly<{ algorithm: "pcg-xsh-rr-64-32"; master_seed: number; stream_offset: 54 }>;
-  readonly execution_mode: "single_trial";
-  readonly requested_repetitions: 1;
   readonly status: "success" | "empty_scope";
   readonly reference: NetworkSummary | null;
   readonly trials: readonly TrialResult[];
+}
+export interface SingleRunResult extends RunResultBase {
+  readonly execution_mode: "single_trial";
+  readonly requested_repetitions: 1;
   readonly summary: null;
   readonly summary_reason: "repetition_not_requested" | "empty_scope";
 }
+export interface RepeatedRunResult extends RunResultBase {
+  readonly execution_mode: "repeated_trials";
+  readonly requested_repetitions: number;
+  readonly summary: RepetitionSummary | null;
+  readonly summary_reason: null | "empty_scope";
+}
+export type RunResult = SingleRunResult | RepeatedRunResult;
 
 /** Hashing is supplied by the boundary; core has no crypto/DOM/fs/network dependency. */
 export type Sha256 = (utf8Text: string) => string | Promise<string>;

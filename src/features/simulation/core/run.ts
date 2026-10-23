@@ -8,10 +8,10 @@ import { normalizeRequest } from "./inputs.ts";
 import { selectScope } from "./scope.ts";
 import { canonicalJson, digestText } from "./serialization.ts";
 import { simulateTrial } from "./trial.ts";
-import type { RunContext, RunResult, Sha256 } from "./types.ts";
+import type { RunContext, SingleRunResult, Sha256 } from "./types.ts";
 
 /** Full-source public core. Copy before phase-4 validation/freezing to leave caller input unchanged. */
-export async function runSingleTrial(data: ObservationData, requestInput: unknown, context: RunContext, sha256: Sha256): Promise<RunResult> {
+export async function runSingleTrial(data: ObservationData, requestInput: unknown, context: RunContext, sha256: Sha256): Promise<SingleRunResult> {
   validateEventSequence(data.dataset.events, "full-source");
   requireSimulation(data.dataset.events.length === 3882 && data.dataset.events.every((event, i) => event.source_record_number === i + 1), "SOURCE_ORDER", "full-source", "expected every original record 1..3882, without gaps");
   const validated = validateObservationData(structuredClone(data.dataset), structuredClone(data.taxa));
@@ -32,7 +32,7 @@ export async function runSingleTrial(data: ObservationData, requestInput: unknow
   const N = selected.events.length;
   const result = N > 0 ? await simulateTrial(selected.events, request.rate_percent, request.master_seed, 0, sha256) : null;
   const k = result?.trial.sample.event_count ?? null;
-  const body: RunResult = {
+  const body: SingleRunResult = {
     result_schema_version: "1.0.0",
     specification_versions: { model: "1.0.0", metrics: "1.0.0", randomness: "1.0.0", repetitions: "1.0.0", serialization: "1.0.0" },
     ...metadata,
