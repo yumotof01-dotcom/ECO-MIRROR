@@ -1,0 +1,16 @@
+# 実際の検証成果物
+
+- `browser-report.json`：Chromium実操作13完了条件、性能/点観測メモリ、操作・取消・故意の失敗、4幅/文字200%、axe検査、来歴HMRの結果。数値の実装版を各runに記録する。
+- `browser-run-provenance.json`：ブラウザで実際に保存した全範囲50%/seed42/反復100回の別来歴。正式本体のSHA-256と実在するデータ/計算版/アプリ版/入力ハッシュ/出典を記録する。
+- `trial-metrics-R100.csv`：同じ実結果から保存した派生CSV。全100試行を保持し、割合は分子/分母で保存する。`.gitattributes`の当該パスだけに`-text`を指定し、ブラウザ保存のCRLFバイトを維持する。
+- `keyboard-report.json`：Tab等だけでホームから実行/試行変更/保存まで通した6到達点の可視フォーカスと実R2出力のハッシュ。
+- `node-reproduction-report.json`：実ブラウザ保存をNodeの既存計算入口で再計算し全バイト照合した結果と、偽ハッシュ/偽版の拒否。CLI自体は開発者検証用でブラウザへのインポート機能ではない。
+- `local-check.json`：実装コミットに対応するローカルcheckと実装CIの成功記録。
+- `screenshot-report.json`：実データから新たに同じ既定条件を実行し、ページ先頭で撮った画像の画面幅・確認値。架空の数値や画像生成を使っていない。
+- `results-*.png` / `simulation-*.png`：実ブラウザ画面。`viewport`付きは画面内、その他はページ全体。ネットワーク・大きい表/グラフは必要な内部スクロールを持つ。
+
+正式な8.7MB/86.3MBの結果本体をGitへさらに複製しない。保存した別来歴の条件から同じ版で再生成できる。巨大本体のSHAはブラウザ→ダウンロード→Nodeストリームで独立照合済み。[検証の説明](../validation.md)と[性能の解釈](../performance.md)を併読する。実機Safari/iPad/タッチ/読み上げや低メモリ端末の確認を意味しない。
+
+元データ：Ellen Moss / Darren Evans (2022)、大学保管v1、DOI 10.25405/data.ncl.17430548.v1、CC BY 4.0。原ラベルを保持した記録抽出・ネットワーク集計・反復統計・可視化という加工。元著者の推奨/承認を意味しない。元CSV/データ来歴は変更していない。
+
+追加の`lifecycle-report.json`は、実Workerで反復100→保存→ページ往復を6回行った資源寿命の検証。反復1000中止後の反復2への回復も含む。`node scripts/application/lifecycle.mjs`で再実行できる（PlaywrightとChromiumが別途必要、`ECO_MIRROR_BROWSER_PATH`で実行ファイル指定可能）。アプリ本体や既存QA記録を上書きしない。

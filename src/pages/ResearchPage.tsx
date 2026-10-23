@@ -23,7 +23,7 @@ export function ResearchPage() {
             植物と昆虫の訪花関係を、観測条件の違いから見つめ直す。観測不足による誤った判断のリスクを減らすことが、このプロジェクトの目的です。
           </p>
           <p>
-            実データと明示した数理手法を使い、同じデータ・条件・手法の版から計算を再現できる構造を目指します。生成AIで未知の関係を予測することはありません。
+            実データと明示した数理手法を使い、同じデータ・条件・計算版から計算を再現します。生成AIで未知の関係を予測することはありません。
           </p>
         </div>
       </section>
@@ -47,11 +47,13 @@ export function ResearchPage() {
       <section className="research-section" aria-labelledby="references-title">
         <div className="section-kicker">
           <p className="eyebrow">SOURCES & REFERENCES</p>
-          <h2 id="references-title">参照先と、データの準備状況。</h2>
+          <h2 id="references-title">採用データと、参照先。</h2>
         </div>
         <p className="reference-intro">
-          現在、アプリに接続済みのデータセットはありません。以下は調査対象・背景資料であり、このアプリの分析結果ではありません。
+          Moss & Evans (2022)の英国実験の訪花記録を使用します。大学保管v1の版・ハッシュを検証し、植物20・昆虫104の原ラベルと3,882行を保持します。原ラベル数は確定種数ではありません。
         </p>
+        <p className="reference-intro"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">利用条件：CC BY 4.0（新しいタブ）</a>。加工は原ラベルを保持した正規化、イベントの非復元抽出、ネットワーク集計、反復統計と描画です。英国の実験から日本の再生草原を直接評価する資料ではありません。元著者が本アプリを承認・推奨していることを意味しません。</p>
+        <p className="reference-intro">同値の行も個別記録として保持します。2014年と2015年のRoundは別ラベルで扱います。元記録のない15調査単位は、調査実施と訪花0件の区別がつかないため補完しません。抽出割合は調査時間ではなく、分位範囲は生態系の95%信頼区間ではありません。</p>
         <div className="reference-list">
           {references.map((reference) => (
             <article key={reference.id}>
@@ -78,13 +80,13 @@ export function ResearchPage() {
       <aside className="scope-note">
         <div>
           <p className="eyebrow">CURRENT SCOPE</p>
-          <h2>いまは、工程1・2まで。</h2>
+          <h2>実データの計算・比較・保存まで。</h2>
           <p>
-            要件・研究方針の整理と、開発環境・4画面の基盤を整備しています。データの取得、計算、分析結果の生成は今後の工程です。
+            単一・反復試行、固定配置のネットワーク比較、反復統計、正式JSON・来歴・CSVの保存を接続しました。処理はブラウザ内で完結します。実地の観測過程の妥当性、科学的レビュー、一般公開は今後の工程です。
           </p>
         </div>
         <Link to="/simulation" className="text-link">
-          画面の基盤を見る
+          観測条件を設定する
           <Icon name="arrow" />
         </Link>
       </aside>

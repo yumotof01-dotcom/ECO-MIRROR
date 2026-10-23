@@ -1,0 +1,75 @@
+{
+  "browser": "150.0.7871.100",
+  "mode": "keyboard only: Tab/Enter/Control+A/type/ArrowDown",
+  "steps": [
+    {
+      "action": "Tab to home CTA",
+      "tab_count": 1,
+      "visible_focus": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 687.28125,
+        "bottom": 734.46875,
+        "viewport": 900
+      }
+    },
+    {
+      "action": "Tab to repetitions",
+      "tab_count": 53,
+      "visible_focus": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 427.453125,
+        "bottom": 473.453125,
+        "viewport": 900
+      }
+    },
+    {
+      "action": "Tab to execute",
+      "tab_count": 2,
+      "visible_focus": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 578.828125,
+        "bottom": 629.21875,
+        "viewport": 900
+      }
+    },
+    {
+      "action": "Tab to trial selector",
+      "tab_count": 8,
+      "visible_focus": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 428.546875,
+        "bottom": 470.546875,
+        "viewport": 900
+      }
+    },
+    {
+      "action": "Tab to prepare export",
+      "tab_count": 10,
+      "visible_focus": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 613.453125,
+        "bottom": 663.84375,
+        "viewport": 900
+      }
+    },
+    {
+      "action": "Tab to formal JSON download",
+      "tab_count": 1,
+      "visible_focus": {
+        "outline": "solid",
+        "width": "3px",
+        "top": 657.25,
+        "bottom": 707.640625,
+        "viewport": 900
+      }
+    }
+  ],
+  "result_sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+  "trials": 2,
+  "status": "passed"
+}

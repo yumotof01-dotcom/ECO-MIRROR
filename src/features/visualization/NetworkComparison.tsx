@@ -1,8 +1,8 @@
 import { useId, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import type { RunResult } from "../simulation/core/types";
-import { adaptRunResult } from "./adapter";
-import type { ComparisonData, VisualLink, VisualNode } from "./adapter";
+import { adaptRunResult, adaptNetworkTrialView } from "./adapter";
+import type { ComparisonData, VisualLink, VisualNode, NetworkTrialView } from "./adapter";
 import { createBipartiteLayout, linkPath, linkWidth } from "./layout";
 import type { BipartiteLayout } from "./layout";
 import "./network.css";
@@ -38,7 +38,7 @@ function NetworkDiagram({ data, layout, mode, links, selected, query, zoom, onSe
     if (next !== null) {
       event.preventDefault(); setActive(next);
       const target = svg.current?.querySelector<SVGGElement>(`[data-focus-index="${next}"]`);
-      target?.focus(); target?.scrollIntoView?.({ block: "nearest", inline: "nearest" });
+      target?.focus(); target?.scrollIntoView?.({ block: "center", inline: "nearest" });
     }
   };
   const interactive = (i: number) => ({
@@ -173,12 +173,12 @@ function Comparison({ data, onTrialChange }: { data: ComparisonData; onTrialChan
 }
 
 /** Controlled trial selection; the component never invokes the simulation engine. */
-export function NetworkComparison({ result, trialIndex = 0, onTrialChange }: { result: RunResult; trialIndex?: number; onTrialChange?: (index: number) => void }) {
+export function NetworkComparison({ result, trialIndex = 0, onTrialChange }: { result: RunResult | NetworkTrialView; trialIndex?: number; onTrialChange?: (index: number) => void }) {
   const view = useMemo(() => {
-    try { return { data: adaptRunResult(result, trialIndex), error: null }; }
+    try { return { data: "kind" in result ? adaptNetworkTrialView(result, trialIndex) : adaptRunResult(result, trialIndex), error: null }; }
     catch (error) { return { data: null, error: error instanceof Error ? error.message : "結果を検証できませんでした" }; }
   }, [result, trialIndex]);
   if (view.error) return <div className="em-network-state" role="alert"><h2>ネットワークを表示できません</h2><p>{view.error}</p><p>不整合な結果を補正して表示することはできません。</p></div>;
   if (!view.data || view.data.status === "empty_scope") return <div className="em-network-state" role="status"><h2>選択範囲に観測記録がありません</h2><p>empty_scope：比較する試行は生成されていません。訪花0件や自然界での不在を示す結果ではありません。</p></div>;
-  return <Comparison key={result.scope.eligible_ids_sha256} data={view.data} onTrialChange={onTrialChange} />;
+  return <Comparison key={("kind" in result ? result.header : result).scope.eligible_ids_sha256} data={view.data} onTrialChange={onTrialChange} />;
 }

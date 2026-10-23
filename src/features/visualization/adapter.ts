@@ -26,6 +26,12 @@ export interface ComparisonData {
   readonly archiveDoi: string;
 }
 export type ComparisonState = ComparisonData | { readonly status: "empty_scope" };
+/** A named read-only fragment of a real result; not a synthetic shortened RunResult. */
+export interface NetworkTrialView {
+  readonly kind: "network_trial_view";
+  readonly header: Omit<RunResult, "trials">;
+  readonly trial: TrialResult;
+}
 
 function requireView(test: unknown, message: string): asserts test {
   if (!test) throw new Error(`INVALID_VISUALIZATION_RESULT: ${message}`);
@@ -95,6 +101,14 @@ export function adaptRunResult(result: RunResult, trialIndex = 0): ComparisonSta
   for (const [index, trial] of result.trials.entries()) requireView(trial && trial.trial_index === index, "trial order/index mismatch");
   const trial = result.trials[trialIndex];
   requireView(trial, "requested trial does not exist");
+  return adaptNetworkTrialView({ kind: "network_trial_view", header: result, trial }, trialIndex);
+}
+
+export function adaptNetworkTrialView(view: NetworkTrialView, trialIndex: number): ComparisonState {
+  const result = view.header, trial = view.trial;
+  requireView(view.kind === "network_trial_view" && result.result_schema_version === "1.0.0" && result.status === "success" && result.reference, "invalid network fragment");
+  requireView(integer(result.requested_repetitions) && result.requested_repetitions >= 1 && result.requested_repetitions <= 1000, "invalid trial count");
+  requireView(integer(trialIndex) && trialIndex < result.requested_repetitions && trial.trial_index === trialIndex, "requested trial does not match fragment");
   inspect(result.reference); inspect(trial.sample, result.reference);
   requireView(result.reference.event_count > 0 && result.reference.event_count === result.sampling.eligible_record_count, "empty or inconsistent success scope");
   requireView(trial.sample.event_count === result.sampling.sample_record_count && trial.sample.event_count === trial.sampled_source_record_numbers.length, "sample size mismatch");
@@ -110,7 +124,7 @@ export function adaptRunResult(result: RunResult, trialIndex = 0): ComparisonSta
   return {
     status: "success", nodes,
     links: result.reference.pair_weights.map((pair, i) => ({ id: key(pair.plant_label_id, pair.visitor_label_id), plantId: pair.plant_label_id, visitorId: pair.visitor_label_id, referenceCount: pair.record_count, sampleCount: trial.sample.pair_weights[i].record_count })),
-    reference: result.reference, trial, trialIndices: result.trials.map(t => t.trial_index),
+    reference: result.reference, trial, trialIndices: Array.from({ length: result.requested_repetitions }, (_, i) => i),
     ratePercent: result.sampling.rate_percent, datasetId: result.data_identity.dataset_id, archiveDoi: result.data_identity.archive_doi,
   };
 }

@@ -28,9 +28,9 @@ describe("ECO MIRRORの画面基盤", () => {
     expect(
       screen.getByText("説明用イラスト · 実データではありません"),
     ).toBeVisible();
-    fireEvent.click(screen.getByRole("link", { name: "観測条件を見てみる" }));
+    fireEvent.click(screen.getByRole("link", { name: "シミュレーションを始める" }));
     expect(
-      screen.getByRole("form", { name: "観測条件の下書き" }),
+      screen.getByRole("form", { name: "観測条件" }),
     ).toBeVisible();
     expect(document.title).toBe("シミュレーション | ECO MIRROR");
     expect(screen.getByRole("main")).toHaveFocus();
@@ -65,15 +65,15 @@ describe("ECO MIRRORの画面基盤", () => {
     expect(screen.getByText("分析結果はまだありません。")).toBeVisible();
     navigate("シミュレーション");
     expect(screen.getByLabelText("観測割合")).toHaveValue("75");
-    expect(screen.getByLabelText("反復回数")).toHaveValue(250);
-    expect(screen.getByLabelText("乱数シード")).toHaveValue(123);
+    expect(screen.getByLabelText("反復回数")).toHaveValue("250");
+    expect(screen.getByLabelText("乱数シード")).toHaveValue("123");
     fireEvent.click(screen.getByRole("button", { name: "初期値に戻す" }));
     expect(screen.getByLabelText("観測割合")).toHaveValue("50");
-    expect(screen.getByLabelText("反復回数")).toHaveValue(100);
-    expect(screen.getByLabelText("乱数シード")).toHaveValue(42);
+    expect(screen.getByLabelText("反復回数")).toHaveValue("100");
+    expect(screen.getByLabelText("乱数シード")).toHaveValue("42");
   });
 
-  it("空欄・小数・範囲外の入力を示し、入力しても計算を有効にしない", () => {
+  it("空欄・小数・指数・範囲外を拒否し、妥当な条件だけ実行可能にする", () => {
     renderApp("/simulation");
     const repetitions = screen.getByLabelText("反復回数");
     for (const value of ["", "0", "1.5", "1001"]) {
@@ -83,7 +83,7 @@ describe("ECO MIRRORの画面基盤", () => {
     fireEvent.change(repetitions, { target: { value: "1" } });
     expect(repetitions).toHaveAttribute("aria-invalid", "false");
     const seed = screen.getByLabelText("乱数シード");
-    for (const value of ["", "-1", "0.5", "4294967296"]) {
+    for (const value of ["", "-1", "0.5", "1e2", "4294967296"]) {
       fireEvent.change(seed, { target: { value } });
       expect(seed).toHaveAttribute("aria-invalid", "true");
     }
@@ -91,29 +91,27 @@ describe("ECO MIRRORの画面基盤", () => {
     expect(seed).toHaveAttribute("aria-invalid", "false");
     expect(
       screen.getByRole("combobox", { name: "使用するデータセット" }),
-    ).toBeDisabled();
+    ).toBeEnabled();
     expect(
       screen.getByRole("button", { name: "シミュレーションを実行" }),
-    ).toBeDisabled();
+    ).toBeEnabled();
   });
 
   it("分析画面を直接開いても、未実行をゼロの結果として扱わない", () => {
     renderApp("/results");
-    expect(screen.getByText("未実行")).toBeVisible();
+    expect(screen.getByText("まだ実行していません。")).toBeVisible();
     expect(screen.getByText("分析結果はまだありません。")).toBeVisible();
-    expect(
-      screen.getByRole("button", { name: "結果を書き出す" }),
-    ).toBeDisabled();
+    expect(screen.queryByRole("button", { name: "保存ファイルを準備" })).not.toBeInTheDocument();
     expect(screen.queryByRole("table")).not.toBeInTheDocument();
     expect(
       screen.getByRole("main").querySelector('canvas, svg[role="img"]'),
     ).toBeNull();
   });
 
-  it("研究情報でデータが未接続であることと、出典を確認できる", () => {
+  it("研究情報で接続した英国データ・ライセンス・背景資料を確認できる", () => {
     renderApp("/research");
     expect(
-      screen.getByText(/現在、アプリに接続済みのデータセットはありません/),
+      screen.getByText(/Moss & Evans \(2022\)の英国実験の訪花記録を使用します/),
     ).toBeVisible();
     expect(screen.getByRole("link", { name: /^Web of Life/ })).toHaveAttribute(
       "href",

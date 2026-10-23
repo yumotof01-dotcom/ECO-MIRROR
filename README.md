@@ -4,41 +4,41 @@
 
 観測不足によって、生態系の状態を誤って判断するリスクを減らすことを目指します。生成AIによる予測は行わず、実データと再現可能な数理計算を使う方針です。
 
-## 現在の範囲：第8工程のネットワーク比較可視化まで
+## 現在の範囲：第9工程の公開前機能統合版
 
 大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。工程5の [数理仕様](docs/simulation/README.md) に従い、工程6の単一コアに続き、工程7で1〜1,000試行・試行別PCG32系列・全試行保存・正確な平均/標本分散/SD/type 7分位点を実装しました。[反復の実装説明](docs/simulation/phase7-implementation.md) と [検証記録](docs/simulation/phase7-validation.md) を参照してください。
 
-工程8では計算済みRunResultを受け取る独立したReact/SVGの比較図を実装しました。左右共通のノード座標、原ラベル、重み、未確認の破線、詳細、検索、キーボード操作を備えます。[開発者プレビューと設計](docs/visualization/README.md)を参照してください。通常アプリの実行/書き出しボタンは無効、分析画面は未実行のままです。正式な状態管理との接続は工程9に残します。
+工程8のReact/SVG比較図を、工程9で実データ・既存計算コアへ正式接続しました。条件入力→単一/反復実行→指標・ネットワーク・統計→正式JSON/別来歴/CSVの保存を操作できます。計算と全試行の保持・出力はWeb Workerで行い、画面へはサマリーと現在の1試行だけを渡します。初期条件は全範囲・50%・seed 42・反復100回です。[第9工程の実装・利用手順](docs/application/README.md)を参照してください。公開・デプロイは行っていません。
 
 工程3では指定のCC-plant-pollinator実CSVを調査し、3,882行・7列、大学保管v1のCC BY 4.0、GitHub版との改行以外の一致を確認しました。英国の実験記録を使う観測条件の教材として、原分類ラベルを保持して採用します。調査結果は [データ調査報告](docs/data/cc-plant-pollinator/README.md) にあります。工程4では原CSVのバイト列を保持し、CC BY 4.0の帰属・変更表示を付けて同梱しました。[データ処理の実装仕様](docs/data/cc-plant-pollinator/implementation.md) と [検証記録](docs/data/cc-plant-pollinator/phase4-validation.md) を参照してください。
 
 | 画面             | URL           | 現在できること                                 |
 | ---------------- | ------------- | ---------------------------------------------- |
 | ホーム           | `/`           | プロジェクトの目的・方針・実装範囲を読む       |
-| シミュレーション | `/simulation` | 観測条件の下書き、入力確認、初期値へのリセット |
-| 分析結果         | `/results`    | 未実行・データ未接続の状態を確認する           |
-| 研究情報         | `/research`   | 科学的な注意事項、背景資料、データ候補を読む   |
+| シミュレーション | `/simulation` | 年・区画・処理・年別Round、0〜100%、シード、実行モードの設定・実行・取消 |
+| 分析結果         | `/results`    | 実計算の指標・試行別ネットワーク・反復統計・保存           |
+| 研究情報         | `/research`   | 採用データの出典・CC BY 4.0・加工内容・科学的限界を読む   |
 
-条件の下書きはアプリ内の画面移動で保持されます。再読み込みやタブを閉じると失われます。データ選択・実行・書き出しは無効です。ホームの植物と昆虫の図は**説明用イラスト**で、観測データではありません。
+条件と実行結果は画面移動で保持されます。再読み込みやタブを閉じると失われるため、必要な結果は先に保存してください。結果は実行時点の条件に対応し、入力を変更すると旧条件であることを表示します。処理中の条件変更は処理を中止します。ホームの植物と昆虫の図は**説明用イラスト**で、観測データではありません。
 
 ## 起動方法
 
 Node.js 24.12以上とnpmを使用します（`.nvmrc` を用意）。この変更がmainにマージされる前は、次のブランチを取得してください。新しいGitHubリポジトリの作成は不要です。
 
 ```bash
-git clone --branch feat/phase-8-network-visualization https://github.com/yumotof01-dotcom/ECO-MIRROR.git
+git clone --branch feat/phase-9-interactive-application https://github.com/yumotof01-dotcom/ECO-MIRROR.git
 cd ECO-MIRROR
 npm ci
 npm run dev
 ```
 
-ターミナルに表示されるURLを開きます。通常は `http://localhost:5173/` です。環境変数、APIキー、外部サービスの接続は不要です。
+ターミナルに表示されるURLを開きます。通常は `http://localhost:5173/` です。環境変数、APIキー、外部サービスの接続は不要です。Git完全履歴が必要です。ビルド/開発起動時に、同梱データ・9規範仕様・計算コードとアプリコードの実在コミット/実バイトを照合します。未コミットのアプリ変更は開発用として計算できますが正式保存は無効です。計算来歴そのものが不一致なら実行を拒否します。実装を先にコミットして再起動/再ビルドしてください。Gitを含まないソース配布だけでは検証済みビルドを生成できません。
 
 すでにローカルにリポジトリがある場合は、未コミットの変更を確認したうえで次のコマンドを使います。
 
 ```bash
 git fetch origin
-git switch feat/phase-8-network-visualization
+git switch feat/phase-9-interactive-application
 npm ci
 npm run dev
 ```
@@ -74,15 +74,18 @@ src/
   app/                  ルート、画面遷移、統合テスト
   components/           共通レイアウト・見出し・SVGイラスト
   content/              研究上の注意事項・参照先
-  features/data/        型・実行時検証・型安全な遅延読み込み（画面未接続）
-  features/simulation/  UI下書きと、独立したcore/・ハッシュ境界・画面未接続の実行入口
+  features/data/        型・実行時検証・型安全な遅延読み込み（Workerから使用）
+  features/simulation/  入力下書きと、独立したcore/・ハッシュ境界・既存実行入口
+  features/execution/   Worker、状態管理、厳密結果検証、表示・統計・出力
   features/visualization/ 計算済み結果のアダプター、固定配置、左右SVG、詳細と操作
   dev/                  実データ計算済み結果だけを使う独立プレビュー
   pages/                4画面と404画面
   styles/               Tailwindとデザイントークン、レスポンシブCSS
   test/                 テストの共通設定
 scripts/data/           原本取得・CSV解析・正規化・品質監査・CLIテスト
-scripts/simulation/     実行コンテキスト・固定再現検証・単一試行のテスト
+scripts/simulation/     実行コンテキスト・固定再現検証・計算のテスト
+scripts/browser/        ビルド/開発時の実在Git・データ・仕様・アプリの照合
+scripts/application/    実ブラウザ統合検証（別途Playwright/ブラウザが必要）
 data/raw/               大学保管v1の原CSV・取得情報・ライセンス証拠
 data/processed/         決定的なイベント・原ラベル辞書・品質監査・来歴
 docs/                   仕様・設計・ロードマップ・科学的注意事項
@@ -109,11 +112,14 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [第7工程の検証記録](docs/simulation/phase7-validation.md)
 - [第8工程の可視化設計](docs/visualization/README.md)
 - [第8工程の検証記録](docs/visualization/validation.md)
+- [第9工程の操作・構成・出力](docs/application/README.md)
+- [第9工程の検証と制約](docs/application/validation.md)
+- [第9工程の性能測定](docs/application/performance.md)
 - [Codexへの引き継ぎ](docs/codex-handoff.md)
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程9：分析結果と再現用出力**です。実行状態を明示して既存の計算入口と可視化を接続し、試行番号・結果・来歴を管理します。現段階では着手していません。
+次は**工程10：数理・データ・性能の検証**です。独立した数値照合の拡充、低メモリ環境・Safari実機・性能の再検証を行います。第9工程で一般公開や工程10の全面作業は行いません。
 
 第5工程ブランチ `docs/phase-5-mathematical-specification` はPR #3の先端 `e07f7c0ea52a0b5241f97894a658740b6ab445dd` を継承しています。開始時はPR #1〜#3がすべて未マージのため、第5工程PRのbaseは `feat/phase-4-data-pipeline` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
 
@@ -122,3 +128,5 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 第7工程は `feat/phase-7-repeated-simulation`、baseは `feat/phase-6-single-trial-core`。開始時にPR #1〜#5は全て未マージで、第6工程先端d349f3dを継承しました。
 
 第8工程は`feat/phase-8-network-visualization`、baseは`feat/phase-7-repeated-simulation`。工程7のPR #6とCI成功を確認し、先端85c8373を継承しました。
+
+第9工程は[PR #8](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/8)、ブランチ`feat/phase-9-interactive-application`、baseは`feat/phase-8-network-visualization`。開始時にPR #1〜#7が未マージ、工程8先端05a732fとCI成功を確認して継承しました。既存PRのマージ・mainへの直接pushは行いません。

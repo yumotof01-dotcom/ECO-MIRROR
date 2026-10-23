@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AppLayout } from "../components/AppLayout";
 import { SimulationDraftProvider } from "../features/simulation/SimulationDraftContext";
+import { ExecutionProvider } from "../features/execution/ExecutionProvider";
+import type { WorkerPort } from "../features/execution/protocol";
 import { HomePage } from "../pages/HomePage";
 import { SimulationPage } from "../pages/SimulationPage";
 import { ResultsPage } from "../pages/ResultsPage";
@@ -20,9 +22,10 @@ function PageEffects() {
   return null;
 }
 
-export function App() {
+export function App({ workerFactory }: { workerFactory?: () => WorkerPort } = {}) {
   return (
     <SimulationDraftProvider>
+      <ExecutionProvider factory={workerFactory}>
       <PageEffects />
       <Routes>
         <Route element={<AppLayout />}>
@@ -33,6 +36,7 @@ export function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      </ExecutionProvider>
     </SimulationDraftProvider>
   );
 }
