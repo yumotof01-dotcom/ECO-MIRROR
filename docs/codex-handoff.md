@@ -100,3 +100,7 @@ Node.js 24.12以上とGit完全履歴を使う。浅いcloneは `git fetch --uns
 第7工程は[PR #6](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/6)、先端85c83737de6bc657bda877d176268bc43448a565、218テストとCI成功。第8工程はその先端から`feat/phase-8-network-visualization`を作り、同ブランチだけの差分をPRで提案する。
 
 [可視化設計](visualization/README.md)と[検証結果](visualization/validation.md)を読む。`NetworkComparison`は既存RunResultとtrialIndex/onTrialChangeを受け取る。基準ノード位置を共有し、抽出後の未確認リンクも保持する。`/dev/network.html`は開発者用。工程9ではこのコンポーネントを再実装せず、成功した計算結果を渡す状態管理と正式出力を接続した。後工程もエラーを隠す目的で成功へ切り替えない。
+
+## 第10・11工程の追加記録
+
+独立監査は docs/verification/、画面検査・改善と実機手順は docs/usability/。計算版・原本・規範仕様は変更なし。未検証のSafari/iPad・読み上げ・低メモリをPASSにしない。第12工程は本番成果物と来歴、科学・ライセンス・セキュリティ、公開手順を整え、公開・既存PRマージは承認まで行わない。

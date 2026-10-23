@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../");
 
 @theme {
   --color-forest: #204b3a;
@@ -351,7 +351,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #658066;
+  color: #435b46;
   margin-bottom: 20px;
 }
 .step-top > span {
@@ -748,7 +748,7 @@ input[type="range"] {
   border-top: 1px solid var(--line);
 }
 .note-number {
-  color: #7b8c6e;
+  color: #526548;
   font-family: var(--serif);
   font-size: 14px;
   padding-top: 3px;
@@ -778,7 +778,7 @@ input[type="range"] {
 }
 .reference-id {
   font-family: var(--serif);
-  color: #7b8c6e;
+  color: #526548;
   font-size: 14px;
 }
 .reference-kind {
