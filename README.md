@@ -4,11 +4,11 @@
 
 観測不足によって、生態系の状態を誤って判断するリスクを減らすことを目指します。生成AIによる予測は行わず、実データと再現可能な数理計算を使う方針です。
 
-## 現在の範囲：画面・データ基盤と第7工程の反復・統計コア
+## 現在の範囲：第8工程のネットワーク比較可視化まで
 
-大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。工程5の [数理仕様](docs/simulation/README.md) に従い、工程6の単一コアに続き、工程7で1〜1,000試行・試行別PCG32系列・全試行保存・正確な平均/標本分散/SD/type 7分位点を実装しました。[実装説明](docs/simulation/phase6-implementation.md) と [検証記録](docs/simulation/phase6-validation.md) を参照してください。
+大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。工程5の [数理仕様](docs/simulation/README.md) に従い、工程6の単一コアに続き、工程7で1〜1,000試行・試行別PCG32系列・全試行保存・正確な平均/標本分散/SD/type 7分位点を実装しました。[反復の実装説明](docs/simulation/phase7-implementation.md) と [検証記録](docs/simulation/phase7-validation.md) を参照してください。
 
-計算コアと実データは画面へ未接続です。反復計算は画面から独立したコアのみです。グラフ・結果表示・ユーザー向け出力はまだありません。既存の実行/書き出しボタンは無効、分析画面は未実行のままです。
+工程8では計算済みRunResultを受け取る独立したReact/SVGの比較図を実装しました。左右共通のノード座標、原ラベル、重み、未確認の破線、詳細、検索、キーボード操作を備えます。[開発者プレビューと設計](docs/visualization/README.md)を参照してください。通常アプリの実行/書き出しボタンは無効、分析画面は未実行のままです。正式な状態管理との接続は工程9に残します。
 
 工程3では指定のCC-plant-pollinator実CSVを調査し、3,882行・7列、大学保管v1のCC BY 4.0、GitHub版との改行以外の一致を確認しました。英国の実験記録を使う観測条件の教材として、原分類ラベルを保持して採用します。調査結果は [データ調査報告](docs/data/cc-plant-pollinator/README.md) にあります。工程4では原CSVのバイト列を保持し、CC BY 4.0の帰属・変更表示を付けて同梱しました。[データ処理の実装仕様](docs/data/cc-plant-pollinator/implementation.md) と [検証記録](docs/data/cc-plant-pollinator/phase4-validation.md) を参照してください。
 
@@ -26,7 +26,7 @@
 Node.js 24.12以上とnpmを使用します（`.nvmrc` を用意）。この変更がmainにマージされる前は、次のブランチを取得してください。新しいGitHubリポジトリの作成は不要です。
 
 ```bash
-git clone --branch feat/phase-7-repeated-simulation https://github.com/yumotof01-dotcom/ECO-MIRROR.git
+git clone --branch feat/phase-8-network-visualization https://github.com/yumotof01-dotcom/ECO-MIRROR.git
 cd ECO-MIRROR
 npm ci
 npm run dev
@@ -38,10 +38,14 @@ npm run dev
 
 ```bash
 git fetch origin
-git switch feat/phase-7-repeated-simulation
+git switch feat/phase-8-network-visualization
 npm ci
 npm run dev
 ```
+
+## 開発者用ネットワークプレビュー
+
+`npm run dev -- --host 127.0.0.1`で起動し、`http://127.0.0.1:5173/dev/network.html`を開きます。工程7の実データで計算済みの50%・100%・0%・empty_scopeを比較できます。ここで再計算は行わず、通常の本番ビルドにはこの独立ページを含めません。操作・凡例・検証は[可視化資料](docs/visualization/README.md)を参照してください。
 
 ## 確認コマンド
 
@@ -72,6 +76,8 @@ src/
   content/              研究上の注意事項・参照先
   features/data/        型・実行時検証・型安全な遅延読み込み（画面未接続）
   features/simulation/  UI下書きと、独立したcore/・ハッシュ境界・画面未接続の実行入口
+  features/visualization/ 計算済み結果のアダプター、固定配置、左右SVG、詳細と操作
+  dev/                  実データ計算済み結果だけを使う独立プレビュー
   pages/                4画面と404画面
   styles/               Tailwindとデザイントークン、レスポンシブCSS
   test/                 テストの共通設定
@@ -101,14 +107,18 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [第6工程の検証記録](docs/simulation/phase6-validation.md)
 - [第7工程の実装・統計と再現手順](docs/simulation/phase7-implementation.md)
 - [第7工程の検証記録](docs/simulation/phase7-validation.md)
+- [第8工程の可視化設計](docs/visualization/README.md)
+- [第8工程の検証記録](docs/visualization/validation.md)
 - [Codexへの引き継ぎ](docs/codex-handoff.md)
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程8：実データの関係可視化**です。計算済みRunResultの既存試行を受け取り、固定した基準ノード位置で左右比較します。計算を描画側で実行し直さず、画面の正式な実行・状態管理・出力接続は工程9に残します。
+次は**工程9：分析結果と再現用出力**です。実行状態を明示して既存の計算入口と可視化を接続し、試行番号・結果・来歴を管理します。現段階では着手していません。
 
 第5工程ブランチ `docs/phase-5-mathematical-specification` はPR #3の先端 `e07f7c0ea52a0b5241f97894a658740b6ab445dd` を継承しています。開始時はPR #1〜#3がすべて未マージのため、第5工程PRのbaseは `feat/phase-4-data-pipeline` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
 
 第6工程はPR #1〜#4が未マージであることを確認し、工程5先端 `3aea5c385cd99a7bb67ab0879c5eb6bab7cbc315` を継承しました。作業ブランチは `feat/phase-6-single-trial-core`、PRのbaseは `docs/phase-5-mathematical-specification` です。
 
 第7工程は `feat/phase-7-repeated-simulation`、baseは `feat/phase-6-single-trial-core`。開始時にPR #1〜#5は全て未マージで、第6工程先端d349f3dを継承しました。
+
+第8工程は`feat/phase-8-network-visualization`、baseは`feat/phase-7-repeated-simulation`。工程7のPR #6とCI成功を確認し、先端85c8373を継承しました。
