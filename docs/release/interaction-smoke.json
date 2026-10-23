@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "cycles": [
+    {
+      "cycle": 0,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 1,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 2,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 3,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 4,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 5,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "workers": 1,
+      "urls": 3
+    }
+  ],
+  "keyboard": [
+    "home-to-form",
+    "execute",
+    "trial-selection",
+    "prepare-export",
+    "download"
+  ],
+  "errors": [],
+  "limitations": [
+    "Desktop Chromium keyboard only, not a screen reader or physical touch device.",
+    "Six cycles do not establish long-duration or low-memory safety."
+  ],
+  "browser": "153.0.8010.0",
+  "after_reload": {
+    "workers": 0,
+    "urls": []
+  }
+}

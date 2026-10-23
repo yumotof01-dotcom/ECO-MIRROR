@@ -1,0 +1,870 @@
+{
+  "browser": "153.0.8010.0",
+  "screenshots": [
+    "results-phone.png",
+    "results-tablet-portrait.png",
+    "results-tablet-landscape.png",
+    "results-desktop.png",
+    "simulation-phone.png",
+    "simulation-desktop.png"
+  ],
+  "runs": [
+    {
+      "name": "default-R100-p50",
+      "type": "ready",
+      "run_id": 1,
+      "time": 1417.1999999999825,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 100,
+      "rate": 50,
+      "calculation_ms": 1094.8999999999942,
+      "ui_payload_bytes": 131322,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 1393,
+      "main_heap": {
+        "used_bytes": 7131752,
+        "total_bytes": 11067392,
+        "backing_storage_bytes": 361030
+      },
+      "worker_heap": {
+        "usedSize": 2657700,
+        "totalSize": 26742784,
+        "embedderHeapUsedSize": 474816,
+        "backingStorageSize": 45020822
+      },
+      "render": {
+        "dom_elements": 3761,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 146.20000000001164,
+      "main_longtasks": [
+        {
+          "time": 1458.2999999999884,
+          "duration_ms": 58
+        }
+      ],
+      "export": {
+        "type": "export_ready",
+        "run_id": 1,
+        "time": 2042.0999999999767,
+        "result_sha256": "723647a1068328e6b038de381a25b1cb42ba4190d62d9ab374c974e95b2f1880",
+        "result_bytes": 8728268,
+        "serialization_ms": 260.30000000001746,
+        "hashing_ms": 25.199999999982538,
+        "main_heartbeat_max_gap_ms": 54.30000000001746,
+        "main_longtasks": [],
+        "sha256_checked_independently": "723647a1068328e6b038de381a25b1cb42ba4190d62d9ab374c974e95b2f1880",
+        "main_heap": {
+          "used_bytes": 11744808,
+          "total_bytes": 25747456,
+          "backing_storage_bytes": 386273
+        },
+        "worker_heap": {
+          "usedSize": 2884508,
+          "totalSize": 39325696,
+          "embedderHeapUsedSize": 382040,
+          "backingStorageSize": 14060481
+        }
+      }
+    },
+    {
+      "name": "single-p0",
+      "type": "ready",
+      "run_id": 2,
+      "time": 7301,
+      "status": "success",
+      "mode": "single_trial",
+      "repetitions": 1,
+      "rate": 0,
+      "calculation_ms": 53.90000000002328,
+      "ui_payload_bytes": 107840,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 0,
+      "end_to_two_frames_ms": 251,
+      "main_heap": {
+        "used_bytes": 58557952,
+        "total_bytes": 115023872,
+        "backing_storage_bytes": 2409028
+      },
+      "worker_heap": {
+        "usedSize": 6702348,
+        "totalSize": 16764928,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 11383501
+      },
+      "render": {
+        "dom_elements": 3249,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 72,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 2,
+        "time": 7473.6999999999825,
+        "result_sha256": "e94c7703f03c76eec9c3f58b421d172be5d435b45e94282c7552196c547cad6a",
+        "result_bytes": 162633,
+        "serialization_ms": 8.60000000000582,
+        "hashing_ms": 0.6999999999825377,
+        "main_heartbeat_max_gap_ms": 59.69999999998254,
+        "main_longtasks": [],
+        "sha256_checked_independently": "e94c7703f03c76eec9c3f58b421d172be5d435b45e94282c7552196c547cad6a",
+        "main_heap": {
+          "used_bytes": 47369116,
+          "total_bytes": 115023872,
+          "backing_storage_bytes": 2425387
+        },
+        "worker_heap": {
+          "usedSize": 7874696,
+          "totalSize": 16764928,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 12041777
+        }
+      }
+    },
+    {
+      "name": "single-p100",
+      "type": "ready",
+      "run_id": 3,
+      "time": 7935.1999999999825,
+      "status": "success",
+      "mode": "single_trial",
+      "repetitions": 1,
+      "rate": 100,
+      "calculation_ms": 76.29999999998836,
+      "ui_payload_bytes": 126226,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 257,
+      "end_to_two_frames_ms": 249,
+      "main_heap": {
+        "used_bytes": 55027620,
+        "total_bytes": 115023872,
+        "backing_storage_bytes": 2425795
+      },
+      "worker_heap": {
+        "usedSize": 6880408,
+        "totalSize": 16502784,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 12067375
+      },
+      "render": {
+        "dom_elements": 3125,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 57.90000000002328,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 3,
+        "time": 8078.299999999988,
+        "result_sha256": "2347a9bcf885b41886c66bf05d85e42dbff78ae8519a914807b8dcef94826592",
+        "result_bytes": 215960,
+        "serialization_ms": 19.599999999976717,
+        "hashing_ms": 1,
+        "main_heartbeat_max_gap_ms": 62.20000000001164,
+        "main_longtasks": [],
+        "sha256_checked_independently": "2347a9bcf885b41886c66bf05d85e42dbff78ae8519a914807b8dcef94826592",
+        "main_heap": {
+          "used_bytes": 66955636,
+          "total_bytes": 115810304,
+          "backing_storage_bytes": 2440613
+        },
+        "worker_heap": {
+          "usedSize": 9955140,
+          "totalSize": 16764928,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 13165049
+        }
+      }
+    },
+    {
+      "name": "single-p50",
+      "type": "ready",
+      "run_id": 4,
+      "time": 8503.799999999988,
+      "status": "success",
+      "mode": "single_trial",
+      "repetitions": 1,
+      "rate": 50,
+      "calculation_ms": 70,
+      "ui_payload_bytes": 117036,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 227,
+      "main_heap": {
+        "used_bytes": 50761172,
+        "total_bytes": 119218176,
+        "backing_storage_bytes": 2441155
+      },
+      "worker_heap": {
+        "usedSize": 9269004,
+        "totalSize": 20140032,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 11725413
+      },
+      "render": {
+        "dom_elements": 3155,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 77.80000000001746,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 4,
+        "time": 8640,
+        "result_sha256": "c7a9d45480d42834bdee569d94af0441b4e78a95e8d0452b552a63fcfb42fe45",
+        "result_bytes": 189312,
+        "serialization_ms": 12.799999999988358,
+        "hashing_ms": 1,
+        "main_heartbeat_max_gap_ms": 68.89999999999418,
+        "main_longtasks": [],
+        "sha256_checked_independently": "c7a9d45480d42834bdee569d94af0441b4e78a95e8d0452b552a63fcfb42fe45",
+        "main_heap": {
+          "used_bytes": 62812632,
+          "total_bytes": 119218176,
+          "backing_storage_bytes": 2441344
+        },
+        "worker_heap": {
+          "usedSize": 7140752,
+          "totalSize": 17027072,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 12603405
+        }
+      }
+    },
+    {
+      "name": "repeated-R1",
+      "type": "ready",
+      "run_id": 5,
+      "time": 9064.899999999994,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 1,
+      "rate": 50,
+      "calculation_ms": 78.70000000001164,
+      "ui_payload_bytes": 121373,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 250,
+      "main_heap": {
+        "used_bytes": 70217644,
+        "total_bytes": 119218176,
+        "backing_storage_bytes": 2441927
+      },
+      "worker_heap": {
+        "usedSize": 15667496,
+        "totalSize": 28938240,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 12062529
+      },
+      "render": {
+        "dom_elements": 3488,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 90.79999999998836,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 5,
+        "time": 9205.099999999977,
+        "result_sha256": "e46ce198e7b042aa567bfeb3378ae57589c1daf7a7e36d95271cbe77700fc9c6",
+        "result_bytes": 197487,
+        "serialization_ms": 12.39999999999418,
+        "hashing_ms": 1.1000000000058208,
+        "main_heartbeat_max_gap_ms": 76.79999999998836,
+        "main_longtasks": [],
+        "sha256_checked_independently": "e46ce198e7b042aa567bfeb3378ae57589c1daf7a7e36d95271cbe77700fc9c6",
+        "main_heap": {
+          "used_bytes": 57726076,
+          "total_bytes": 123674624,
+          "backing_storage_bytes": 2442116
+        },
+        "worker_heap": {
+          "usedSize": 12602112,
+          "totalSize": 27774976,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 12956871
+        }
+      }
+    },
+    {
+      "name": "repeated-R2",
+      "type": "ready",
+      "run_id": 6,
+      "time": 9653.799999999988,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 2,
+      "rate": 50,
+      "calculation_ms": 103,
+      "ui_payload_bytes": 121513,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 284,
+      "main_heap": {
+        "used_bytes": 65931300,
+        "total_bytes": 123674624,
+        "backing_storage_bytes": 2443221
+      },
+      "worker_heap": {
+        "usedSize": 14506452,
+        "totalSize": 30699520,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 12395505
+      },
+      "render": {
+        "dom_elements": 3503,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 88,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 6,
+        "time": 9814,
+        "result_sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+        "result_bytes": 284066,
+        "serialization_ms": 16.20000000001164,
+        "hashing_ms": 1.2999999999883585,
+        "main_heartbeat_max_gap_ms": 50.69999999998254,
+        "main_longtasks": [],
+        "sha256_checked_independently": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+        "main_heap": {
+          "used_bytes": 78698048,
+          "total_bytes": 123674624,
+          "backing_storage_bytes": 2443410
+        },
+        "worker_heap": {
+          "usedSize": 14803696,
+          "totalSize": 27250688,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 13629423
+        }
+      }
+    },
+    {
+      "name": "R100-p0",
+      "type": "ready",
+      "run_id": 7,
+      "time": 10725.299999999988,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 100,
+      "rate": 0,
+      "calculation_ms": 572.6000000000058,
+      "ui_payload_bytes": 121090,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 0,
+      "end_to_two_frames_ms": 828,
+      "main_heap": {
+        "used_bytes": 65483596,
+        "total_bytes": 127344640,
+        "backing_storage_bytes": 2443790
+      },
+      "worker_heap": {
+        "usedSize": 10371484,
+        "totalSize": 29347840,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 11736460
+      },
+      "render": {
+        "dom_elements": 3688,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 53.5,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 7,
+        "time": 11158.599999999977,
+        "result_sha256": "f8d893a9d26bbfedb9748b28f0530accae21cc5330a314511694036fa50130f5",
+        "result_bytes": 6059597,
+        "serialization_ms": 169.5,
+        "hashing_ms": 14.5,
+        "main_heartbeat_max_gap_ms": 70.10000000000582,
+        "main_longtasks": [],
+        "sha256_checked_independently": "f8d893a9d26bbfedb9748b28f0530accae21cc5330a314511694036fa50130f5",
+        "main_heap": {
+          "used_bytes": 80338956,
+          "total_bytes": 127344640,
+          "backing_storage_bytes": 2443979
+        },
+        "worker_heap": {
+          "usedSize": 13151548,
+          "totalSize": 29347840,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 24192129
+        }
+      }
+    },
+    {
+      "name": "R100-p100",
+      "type": "ready",
+      "run_id": 8,
+      "time": 12934.5,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 100,
+      "rate": 100,
+      "calculation_ms": 1352.1000000000058,
+      "ui_payload_bytes": 139951,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 257,
+      "end_to_two_frames_ms": 1847,
+      "main_heap": {
+        "used_bytes": 64615448,
+        "total_bytes": 130490368,
+        "backing_storage_bytes": 2444521
+      },
+      "worker_heap": {
+        "usedSize": 3409544,
+        "totalSize": 39849984,
+        "embedderHeapUsedSize": 470784,
+        "backingStorageSize": 33758183
+      },
+      "render": {
+        "dom_elements": 3564,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 60.60000000000582,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 8,
+        "time": 13952.599999999977,
+        "result_sha256": "a421f3a9d3ed7b15c99f2b29c9e828a6364dae99ab9e6b65d806485c4903a00c",
+        "result_bytes": 11391682,
+        "serialization_ms": 350,
+        "hashing_ms": 33,
+        "main_heartbeat_max_gap_ms": 68.29999999998836,
+        "main_longtasks": [],
+        "sha256_checked_independently": "a421f3a9d3ed7b15c99f2b29c9e828a6364dae99ab9e6b65d806485c4903a00c",
+        "main_heap": {
+          "used_bytes": 79973220,
+          "total_bytes": 130490368,
+          "backing_storage_bytes": 2444710
+        },
+        "worker_heap": {
+          "usedSize": 3608392,
+          "totalSize": 38539264,
+          "embedderHeapUsedSize": 485240,
+          "backingStorageSize": 16723895
+        }
+      }
+    },
+    {
+      "name": "partial-year-plot-treatment-round",
+      "type": "ready",
+      "run_id": 9,
+      "time": 14994.5,
+      "status": "success",
+      "mode": "single_trial",
+      "repetitions": 1,
+      "rate": 100,
+      "calculation_ms": 46.5,
+      "ui_payload_bytes": 16506,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 1,
+      "end_to_two_frames_ms": 232,
+      "main_heap": {
+        "used_bytes": 14195560,
+        "total_bytes": 114831360,
+        "backing_storage_bytes": 1651965
+      },
+      "worker_heap": {
+        "usedSize": 8158084,
+        "totalSize": 16502784,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 10627707
+      },
+      "render": {
+        "dom_elements": 232,
+        "logical_nodes": 4,
+        "svg_links": 2
+      },
+      "main_heartbeat_max_gap_ms": 50,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 9,
+        "time": 15137.799999999988,
+        "result_sha256": "23e51b3cb0cf44394ecf631df67106d26771014c42aa4288af39150b194656e8",
+        "result_bytes": 5148,
+        "serialization_ms": 0.8999999999941792,
+        "hashing_ms": 0.6000000000058208,
+        "main_heartbeat_max_gap_ms": 68.5,
+        "main_longtasks": [],
+        "sha256_checked_independently": "23e51b3cb0cf44394ecf631df67106d26771014c42aa4288af39150b194656e8",
+        "main_heap": {
+          "used_bytes": 16198316,
+          "total_bytes": 114831360,
+          "backing_storage_bytes": 1652571
+        },
+        "worker_heap": {
+          "usedSize": 8427464,
+          "totalSize": 16502784,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 10638783
+        }
+      }
+    },
+    {
+      "name": "empty-scope",
+      "type": "ready",
+      "run_id": 10,
+      "time": 15893.599999999977,
+      "status": "empty_scope",
+      "mode": "repeated_trials",
+      "repetitions": 3,
+      "rate": 50,
+      "calculation_ms": 44.70000000001164,
+      "ui_payload_bytes": 15190,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "end_to_two_frames_ms": 244,
+      "main_heap": {
+        "used_bytes": 20251668,
+        "total_bytes": 114831360,
+        "backing_storage_bytes": 1652855
+      },
+      "worker_heap": {
+        "usedSize": 14282780,
+        "totalSize": 20946944,
+        "embedderHeapUsedSize": 773712,
+        "backingStorageSize": 10625293
+      },
+      "render": {
+        "dom_elements": 105,
+        "logical_nodes": 0,
+        "svg_links": 0
+      },
+      "main_heartbeat_max_gap_ms": 50.09999999997672,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 10,
+        "time": 16053.799999999988,
+        "result_sha256": "07ef3917291fe70e2914460f35e4eebff099205aca576e91d2421e0d8abb675f",
+        "result_bytes": 3215,
+        "serialization_ms": 0.6999999999825377,
+        "hashing_ms": 0.5,
+        "main_heartbeat_max_gap_ms": 50,
+        "main_longtasks": [],
+        "sha256_checked_independently": "07ef3917291fe70e2914460f35e4eebff099205aca576e91d2421e0d8abb675f",
+        "main_heap": {
+          "used_bytes": 21787000,
+          "total_bytes": 114831360,
+          "backing_storage_bytes": 1653094
+        },
+        "worker_heap": {
+          "usedSize": 14479784,
+          "totalSize": 20946944,
+          "embedderHeapUsedSize": 773712,
+          "backingStorageSize": 10631954
+        }
+      }
+    },
+    {
+      "name": "cancel-export-R100",
+      "type": "ready",
+      "run_id": 13,
+      "time": 17682.699999999983,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 100,
+      "rate": 50,
+      "calculation_ms": 1002.3999999999942,
+      "ui_payload_bytes": 131322,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 1351,
+      "main_heap": {
+        "used_bytes": 13002160,
+        "total_bytes": 79704064,
+        "backing_storage_bytes": 1651539
+      },
+      "worker_heap": {
+        "usedSize": 2668164,
+        "totalSize": 26742784,
+        "embedderHeapUsedSize": 474992,
+        "backingStorageSize": 45020822
+      },
+      "render": {
+        "dom_elements": 3762,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 76.90000000002328,
+      "main_longtasks": []
+    },
+    {
+      "name": "R1000-p50-run1",
+      "type": "ready",
+      "run_id": 15,
+      "time": 27834.099999999977,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 1000,
+      "rate": 50,
+      "calculation_ms": 9600.200000000012,
+      "ui_payload_bytes": 221361,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 9881,
+      "main_heap": {
+        "used_bytes": 13904668,
+        "total_bytes": 79179776,
+        "backing_storage_bytes": 1652079
+      },
+      "worker_heap": {
+        "usedSize": 30622656,
+        "totalSize": 94765056,
+        "embedderHeapUsedSize": 485784,
+        "backingStorageSize": 52479658
+      },
+      "render": {
+        "dom_elements": 4740,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 73,
+      "main_longtasks": [],
+      "export": {
+        "type": "export_ready",
+        "run_id": 15,
+        "time": 31738.399999999994,
+        "result_sha256": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+        "result_bytes": 86277392,
+        "serialization_ms": 2540.899999999994,
+        "hashing_ms": 170.89999999999418,
+        "main_heartbeat_max_gap_ms": 57,
+        "main_longtasks": [],
+        "sha256_checked_independently": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+        "main_heap": {
+          "used_bytes": 39468644,
+          "total_bytes": 79179776,
+          "backing_storage_bytes": 1674341
+        },
+        "worker_heap": {
+          "usedSize": 20435996,
+          "totalSize": 91230208,
+          "embedderHeapUsedSize": 509848,
+          "backingStorageSize": 91609605
+        }
+      }
+    },
+    {
+      "name": "R1000-p50-run2",
+      "type": "ready",
+      "run_id": 16,
+      "time": 43702.899999999994,
+      "status": "success",
+      "mode": "repeated_trials",
+      "repetitions": 1000,
+      "rate": 50,
+      "calculation_ms": 11149.100000000006,
+      "ui_payload_bytes": 221362,
+      "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+      "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+      "verification": "verified",
+      "trial_pair_count": 183,
+      "end_to_two_frames_ms": 11414,
+      "main_heap": {
+        "used_bytes": 13594632,
+        "total_bytes": 16265216,
+        "backing_storage_bytes": 1669798
+      },
+      "worker_heap": {
+        "usedSize": 38194460,
+        "totalSize": 94670848,
+        "embedderHeapUsedSize": 467048,
+        "backingStorageSize": 32511144
+      },
+      "render": {
+        "dom_elements": 4740,
+        "logical_nodes": 248,
+        "svg_links": 514
+      },
+      "main_heartbeat_max_gap_ms": 131.10000000000582,
+      "main_longtasks": [
+        {
+          "time": 43742.899999999994,
+          "duration_ms": 55
+        }
+      ],
+      "export": {
+        "type": "export_ready",
+        "run_id": 16,
+        "time": 47813.399999999994,
+        "result_sha256": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+        "result_bytes": 86277392,
+        "serialization_ms": 2562.399999999994,
+        "hashing_ms": 175.60000000000582,
+        "main_heartbeat_max_gap_ms": 55.90000000002328,
+        "main_longtasks": [],
+        "sha256_checked_independently": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+        "main_heap": {
+          "used_bytes": 17824432,
+          "total_bytes": 29110272,
+          "backing_storage_bytes": 1692055
+        },
+        "worker_heap": {
+          "usedSize": 20403096,
+          "totalSize": 92278784,
+          "embedderHeapUsedSize": 546992,
+          "backingStorageSize": 91609605
+        }
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "name": "trial-99-without-recalculation",
+      "ms": 99,
+      "type": "trial_ready",
+      "run_id": 1,
+      "time": 2712.5,
+      "trial_index": 99,
+      "json_equivalent_bytes": 45773
+    },
+    {
+      "name": "navigation-preserves-current-trial-and-result",
+      "passed": true
+    },
+    {
+      "name": "keyboard-select-node-and-arrow-focus-visible",
+      "node": "plant:Capsella_bursapastoris",
+      "top": 436.569091796875,
+      "bottom": 462.569091796875,
+      "header_bottom": -3157,
+      "viewport_height": 900
+    },
+    {
+      "name": "year-plot-treatment-round-selection-compared-to-original-normalized-events",
+      "event_count": 3
+    },
+    {
+      "name": "invalid-exponent-empty-seed-empty-plots-and-reset",
+      "passed": true
+    },
+    {
+      "name": "stale-result-labelled-and-replay-restores-original-p50",
+      "passed": true
+    },
+    {
+      "name": "reload-clears-memory-result-with-explanation",
+      "passed": true
+    }
+  ],
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "name": "phone",
+      "whole_page_overflow": false,
+      "logical_coordinates_match": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "name": "tablet-portrait",
+      "whole_page_overflow": false,
+      "logical_coordinates_match": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "name": "tablet-landscape",
+      "whole_page_overflow": false,
+      "logical_coordinates_match": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "name": "desktop",
+      "whole_page_overflow": false,
+      "logical_coordinates_match": true
+    },
+    {
+      "name": "results-text-200-percent",
+      "whole_page_overflow": false
+    },
+    {
+      "name": "form-text-200-percent",
+      "whole_page_overflow": false
+    }
+  ],
+  "accessibility": [
+    {
+      "page": "results",
+      "violations": []
+    },
+    {
+      "page": "simulation",
+      "violations": []
+    }
+  ],
+  "resource_checks": [
+    {
+      "name": "actual-worker-cancel-terminates-and-clears-result",
+      "passed": true
+    },
+    {
+      "name": "export-cancellation-discards-worker-result-and-urls",
+      "passed": true
+    },
+    {
+      "name": "R1000-full-export-hash-reproduced-twice",
+      "sha256": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8"
+    },
+    {
+      "name": "blocked-real-data-asset-is-error-without-fabricated-result",
+      "passed": true
+    },
+    {
+      "name": "dirty-application-formal-export-blocked-HMR-clears-result-restored-commit-verifies",
+      "passed": true
+    }
+  ],
+  "network_origins": [
+    "http://127.0.0.1:5182"
+  ],
+  "errors": [],
+  "limitations": [
+    "Physical iPad/Safari, touch devices and screen readers were not available.",
+    "CDP heap readings are point-in-time JS heap values, not whole-browser peak RSS or a guarantee for low-memory devices."
+  ]
+}

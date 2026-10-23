@@ -1,0 +1,44 @@
+{
+  "checked_date": "2026-10-21",
+  "url": "https://api.figshare.com/v2/articles/17430548/versions/1",
+  "doi": "10.25405/data.ncl.17430548.v1",
+  "version": 1,
+  "title": "Climate change impacts on plant-pollinator interactions and functioning - experiment data",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "authors": [
+    {
+      "id": 11772350,
+      "full_name": "Ellen Moss",
+      "first_name": "Ellen",
+      "last_name": "Moss",
+      "is_active": true,
+      "url_name": "Ellen_Moss",
+      "orcid_id": "0000-0001-8821-8984"
+    },
+    {
+      "id": 10685590,
+      "full_name": "Darren Evans",
+      "first_name": "Darren",
+      "last_name": "Evans",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": "0000-0003-4061-6726"
+    }
+  ],
+  "files": [
+    {
+      "id": 34178859,
+      "name": "Raw_InteractionData_BothYears.csv",
+      "size": 254165,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/34178859",
+      "supplied_md5": "6f083ca81e9bc14c3bbd5806aecb62e8",
+      "computed_md5": "6f083ca81e9bc14c3bbd5806aecb62e8",
+      "mimetype": "text/plain"
+    }
+  ]
+}

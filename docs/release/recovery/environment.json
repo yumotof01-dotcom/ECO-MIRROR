@@ -1,0 +1,16 @@
+{
+  "date_jst": "2026-10-22",
+  "source_revision": "c3c394104c790e0f3ea7cc86c0931fe829910b9a",
+  "application_revision": "66950469cc7a755e32124c06e9b691b8c04d45d0",
+  "engine_revision": "a55e7e2a86d2c9ac58de23fdbb2a0ae673ddb0b1",
+  "node": "24.19.0",
+  "chromium": "153.0.8010.0",
+  "chromium_distribution": "@sparticuz/chromium 153.0.0, extracted binary; package recommended flags NOT used, existing Playwright launch arguments retained",
+  "axe_core": "4.14.0",
+  "webkit": "26.5 build2336 downloaded, launch blocked by missing OS shared libraries",
+  "notes": [
+    "Temporary QA tools only; application package.json and package-lock unchanged.",
+    "Shared Linux container, no physical iPad, screen reader or low-memory emulation.",
+    "Final E2E and usability runs use explicit FONTCONFIG_FILE with Noto Sans CJK JP; QA tools and downloads stay in ignored .release/, machine evidence is written directly to docs/release/."
+  ]
+}

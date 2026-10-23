@@ -54,6 +54,7 @@ export function ResearchPage() {
         </p>
         <p className="reference-intro"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">利用条件：CC BY 4.0（新しいタブ）</a>。加工は原ラベルを保持した正規化、イベントの非復元抽出、ネットワーク集計、反復統計と描画です。英国の実験から日本の再生草原を直接評価する資料ではありません。元著者が本アプリを承認・推奨していることを意味しません。</p>
         <p className="reference-intro">同値の行も個別記録として保持します。2014年と2015年のRoundは別ラベルで扱います。元記録のない15調査単位は、調査実施と訪花0件の区別がつかないため補完しません。抽出割合は調査時間ではなく、分位範囲は生態系の95%信頼区間ではありません。</p>
+        <p className="reference-intro"><a href="/DATA-ATTRIBUTION.txt">データの帰属・加工内容</a> · <a href="/THIRD-PARTY-NOTICES.txt">第三者ソフトウェアのライセンス</a></p>
         <div className="reference-list">
           {references.map((reference) => (
             <article key={reference.id}>
@@ -82,7 +83,7 @@ export function ResearchPage() {
           <p className="eyebrow">CURRENT SCOPE</p>
           <h2>実データの計算・比較・保存まで。</h2>
           <p>
-            単一・反復試行、固定配置のネットワーク比較、反復統計、正式JSON・来歴・CSVの保存を接続しました。処理はブラウザ内で完結します。実地の観測過程の妥当性、科学的レビュー、一般公開は今後の工程です。
+            単一・反復試行、固定配置のネットワーク比較、反復統計、正式JSON・来歴・CSVの保存を接続しました。処理はブラウザ内で完結します。独立した参照計算と内部科学レビューを実施しました。外部専門家の査読、実機の最終確認、一般公開は未実施です。
           </p>
         </div>
         <Link to="/simulation" className="text-link">

@@ -50,7 +50,7 @@ Routes外の`ExecutionProvider`が小さい`ExecutionClient`状態を購読し�
 
 `npm run build` は型チェックの後に静的ファイルを `dist/` へ出力する。`dist/` と `node_modules/` はコミットしない。
 
-BrowserRouterのため、将来の配信環境にはSPAフォールバックが必要。現段階はルートパスでの配信を前提とする。GitHub Pagesのリポジトリ配下への配信などは、Viteのbase、Routerのbasename、直接アクセス対応をまとめて検討する。デプロイ設定はまだ置かない。
+BrowserRouterのため、将来の配信環境にはSPAフォールバックが必要。現段階はルートパスでの配信を前提とする。GitHub Pagesのリポジトリ配下への配信などは、Viteのbase、Routerのbasename、直接アクセス対応をまとめて検討する。工程12でPagesのSPA配信手順、public/_headersと成果物検証を準備した。デプロイ自体は未実施。
 
 ## 継続的確認
 
@@ -103,3 +103,7 @@ CIはNode 24、`npm ci`、`npm run check` を実行する。ローカルと同�
 計算版a55e7e2とアプリ版は異なる実在リビジョンとして保持する。9規範ファイルと計算スナップショットは変更しない。未コミットアプリは開発用で正式保存不可、計算来歴不一致は計算自体を拒否する。来歴を隠すフォールバック値を作らない。開発時の実装変更はHMRキャッシュを無効にし全画面を再読込する。ビルド中の入力変更も検出する。
 
 Workerを終了して取消するため既存同期コアの数式や順序を変えない。進捗はloading/running/出力準備の把握できる段階だけで、推測の完了率は出さない。全結果・出力バイトをReactへ複製しないが、SHA-256のWeb Crypto入力には結果Blob相当の連続バッファが必要。低メモリ端末の成功を保証する設計ではなく、失敗と取消を明示する。[性能](application/performance.md)に実測と制約を記す。
+
+## 監査・公開の境界
+
+scripts/verification/は独立Python検算、scripts/usability/は画面検査、scripts/release/は完全履歴・実バイト・distハッシュを検証する。publicの帰属/ライセンス/ヘッダーはsource_revisionと成果物ハッシュで追跡する。Worker、データ、コア、結果契約は変更しない。

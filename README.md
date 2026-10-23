@@ -119,7 +119,7 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程10：数理・データ・性能の検証**です。独立した数値照合の拡充、低メモリ環境・Safari実機・性能の再検証を行います。第9工程で一般公開や工程10の全面作業は行いません。
+工程10〜12の監査・操作性改善・公開準備を作業ブランチで整備しました。[最終判定と残る確認](docs/release/final-readiness-report.md)を参照してください。mainへの統合・一般公開は未実施です。
 
 第5工程ブランチ `docs/phase-5-mathematical-specification` はPR #3の先端 `e07f7c0ea52a0b5241f97894a658740b6ab445dd` を継承しています。開始時はPR #1〜#3がすべて未マージのため、第5工程PRのbaseは `feat/phase-4-data-pipeline` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
 
@@ -130,3 +130,7 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 第8工程は`feat/phase-8-network-visualization`、baseは`feat/phase-7-repeated-simulation`。工程7のPR #6とCI成功を確認し、先端85c8373を継承しました。
 
 第9工程は[PR #8](https://github.com/yumotof01-dotcom/ECO-MIRROR/pull/8)、ブランチ`feat/phase-9-interactive-application`、baseは`feat/phase-8-network-visualization`。開始時にPR #1〜#7が未マージ、工程8先端05a732fとCI成功を確認して継承しました。既存PRのマージ・mainへの直接pushは行いません。
+
+## 最終監査と公開準備
+
+[数理監査](docs/verification/README.md)、[操作性と実機手順](docs/usability/README.md)、[公開準備](docs/release/README.md)、[PR統合計画](docs/release/integration.md)。完全Git履歴とclean treeで `node scripts/release/build.mjs` を実行すると、配信せずdistと `.release/build-manifest.json` を生成・検証します。
