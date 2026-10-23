@@ -1,0 +1,139 @@
+{
+  "manifest_version": "1.0.0",
+  "dataset_id": "moss-evans-2022-flower-visits-v1",
+  "audit_date": "2026-10-17",
+  "decision": {
+    "status": "selected_with_constraints",
+    "purpose": "英国の実験記録を使う観測条件・抽出方法の検証教材",
+    "app_imported": false,
+    "raw_csv_committed": false,
+    "taxon_mode": "verbatim_raw_labels",
+    "constraints": [
+      "CC BY 4.0の帰属・ライセンス・変更表示を保持",
+      "分類ラベル数を確定種数と呼ばない",
+      "重複行を一律削除しない",
+      "行のない調査単位を確認済み0件としない",
+      "受粉成功・自然全体の真値・日本の再生草原の実態を直接証明しない"
+    ]
+  },
+  "creators": [
+    {
+      "name": "Ellen Moss",
+      "orcid": "0000-0001-8821-8984"
+    },
+    {
+      "name": "Darren Evans",
+      "orcid": "0000-0003-4061-6726"
+    }
+  ],
+  "title": "Climate change impacts on plant-pollinator interactions and functioning - experiment data",
+  "archive_doi": "10.25405/data.ncl.17430548.v1",
+  "archive_article_id": 17430548,
+  "archive_version": 1,
+  "archive_published_date": "2022-02-25T16:23:09Z",
+  "license": {
+    "name": "CC BY 4.0",
+    "spdx_id": "CC-BY-4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "evidence_url": "https://api.figshare.com/v2/articles/17430548/versions/1",
+    "scope": "University archived dataset files; not a blanket license for upstream GitHub R code",
+    "article_license_not_used_as_data_license": true
+  },
+  "archive_file": {
+    "id": 34178859,
+    "name": "Raw_InteractionData_BothYears.csv",
+    "size": 254165,
+    "download_url": "https://ndownloader.figshare.com/files/34178859",
+    "computed_md5": "6f083ca81e9bc14c3bbd5806aecb62e8",
+    "sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+    "line_endings": "CRLF",
+    "preferred_source_for_phase4": true
+  },
+  "github_file": {
+    "repository": "https://github.com/FrikadEllen/CC-plant-pollinator",
+    "commit": "045906eb5f5f8b45c0b314cda980f33a349099e4",
+    "path": "Data/Raw_InteractionData_BothYears.csv",
+    "url": "https://raw.githubusercontent.com/FrikadEllen/CC-plant-pollinator/045906eb5f5f8b45c0b314cda980f33a349099e4/Data/Raw_InteractionData_BothYears.csv",
+    "git_blob_sha1": "8385cf206327d990d1cc52d1c78da6d7cde57d70",
+    "sha256": "c7d2b988b6d8cb356351f3cf971ce297e9d531d81897e0ce368ba4629c84fd06",
+    "bytes": 250282,
+    "line_endings": "LF",
+    "standalone_license_file_found": false
+  },
+  "equivalence": {
+    "raw_bytes_equal": false,
+    "archive_crlf_to_lf_equals_github": true,
+    "parsed_header_values_and_record_order_equal": true,
+    "record_count": 3882,
+    "column_count": 7
+  },
+  "metadata_evidence": {
+    "api_url": "https://api.figshare.com/v2/articles/17430548/versions/1",
+    "response_sha256": "97a07ff4cfa94cfdb7a4a52ad2e4f28f710c84e1c1953dace5476c19661a5994",
+    "note": "SHA-256 of the response bytes retrieved for this audit; dynamic metadata fields may change independently of versioned CSV file bytes",
+    "verified_excerpt": {
+      "id": 17430548,
+      "title": "Climate change impacts on plant-pollinator interactions and functioning - experiment data",
+      "version": 1,
+      "doi": "10.25405/data.ncl.17430548.v1",
+      "published_date": "2022-02-25T16:23:09Z",
+      "modified_date": "2023-05-31T12:16:11Z",
+      "resource_doi": "10.3389/fpls.2022.826205",
+      "license": {
+        "value": 1,
+        "name": "CC BY 4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    }
+  },
+  "publication": {
+    "authors": [
+      "Ellen D. Moss",
+      "Darren M. Evans"
+    ],
+    "year": 2022,
+    "doi": "10.3389/fpls.2022.826205",
+    "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.826205/full"
+  },
+  "supporting_upstream_files": [
+    {
+      "path": "README.md",
+      "sha256": "43f0ec30bd48618ebc34fbcbc7ffc93012fafd4b232a80c97f6f7dd842e10885",
+      "url": "https://github.com/FrikadEllen/CC-plant-pollinator/blob/045906eb5f5f8b45c0b314cda980f33a349099e4/README.md",
+      "usage": "read-only evidence; not copied into application"
+    },
+    {
+      "path": "Data/AllData_PlotLevel_BothYears.csv",
+      "sha256": "ef9c7980939795f32c4ebc1fe184ecc695bfa959ea736ee1518b13258b437a64",
+      "url": "https://github.com/FrikadEllen/CC-plant-pollinator/blob/045906eb5f5f8b45c0b314cda980f33a349099e4/Data/AllData_PlotLevel_BothYears.csv",
+      "usage": "read-only evidence; not copied into application"
+    },
+    {
+      "path": "Data/TreatmentYearData.txt",
+      "sha256": "d147f79462edd0df57b1c2ce15afca6834d574fcef0ecf08b158afff77e791d6",
+      "url": "https://github.com/FrikadEllen/CC-plant-pollinator/blob/045906eb5f5f8b45c0b314cda980f33a349099e4/Data/TreatmentYearData.txt",
+      "usage": "read-only evidence; not copied into application"
+    },
+    {
+      "path": "Scripts/CC-pp_Species-accumm-analysis.R",
+      "sha256": "1daac2a92a4de4319b452eff2dc4841dc2d64cc9324d6ce0cd014070d38610f4",
+      "url": "https://github.com/FrikadEllen/CC-plant-pollinator/blob/045906eb5f5f8b45c0b314cda980f33a349099e4/Scripts/CC-pp_Species-accumm-analysis.R",
+      "usage": "read-only evidence; not copied into application"
+    },
+    {
+      "path": "Scripts/CC-pp_Community-analysis.r",
+      "sha256": "8d2a3ed04aa00442e787773cc6ca8c3a43e6a1f66dc1bb82e8ddbde713602b2c",
+      "url": "https://github.com/FrikadEllen/CC-plant-pollinator/blob/045906eb5f5f8b45c0b314cda980f33a349099e4/Scripts/CC-pp_Community-analysis.r",
+      "usage": "read-only evidence; not copied into application"
+    }
+  ],
+  "audit_outputs": {
+    "profile": "profile.json",
+    "counts": "counts.md",
+    "taxonomy_inventory": "taxa.md",
+    "audit_program": "audit.py",
+    "normalization_design": "normalization.md",
+    "validation": "validation.md"
+  },
+  "attribution": "Derived audit counts and label inventories from Ellen Moss and Darren Evans (2022), Climate change impacts on plant-pollinator interactions and functioning - experiment data, version 1, https://doi.org/10.25405/data.ncl.17430548.v1, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: grouped counts and label-review flags; no source-row deletion or taxonomic merging. No endorsement by the data creators is implied."
+}
