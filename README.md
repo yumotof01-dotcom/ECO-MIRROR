@@ -4,9 +4,9 @@
 
 観測不足によって、生態系の状態を誤って判断するリスクを減らすことを目指します。生成AIによる予測は行わず、実データと再現可能な数理計算を使う方針です。
 
-## 現在の範囲：画面基盤と第4工程のデータ処理基盤
+## 現在の範囲：画面・データ基盤と第5工程の数理仕様
 
-大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。実データは画面へ未接続です。サンプリング、乱数生成、指標計算、結果生成は実装していません。分析結果を装った数値やグラフもありません。
+大学保管の実CSVを取得・ハッシュ検証し、全3,882行の正規化・品質監査・型安全な読み込みを用意しました。実データは画面へ未接続です。サンプリング、乱数生成、指標計算、結果生成は実装していません。分析結果を装った数値やグラフもありません。工程5では [観測モデル・指標・乱数・反復の仕様](docs/simulation/README.md) を確定しました。数理設計と手計算例のみで、実行コードは追加していません。
 
 工程3では指定のCC-plant-pollinator実CSVを調査し、3,882行・7列、大学保管v1のCC BY 4.0、GitHub版との改行以外の一致を確認しました。英国の実験記録を使う観測条件の教材として、原分類ラベルを保持して採用します。調査結果は [データ調査報告](docs/data/cc-plant-pollinator/README.md) にあります。工程4では原CSVのバイト列を保持し、CC BY 4.0の帰属・変更表示を付けて同梱しました。[データ処理の実装仕様](docs/data/cc-plant-pollinator/implementation.md) と [検証記録](docs/data/cc-plant-pollinator/phase4-validation.md) を参照してください。
 
@@ -24,7 +24,7 @@
 Node.js 24.12以上とnpmを使用します（`.nvmrc` を用意）。この変更がmainにマージされる前は、次のブランチを取得してください。新しいGitHubリポジトリの作成は不要です。
 
 ```bash
-git clone --branch feat/phase-4-data-pipeline https://github.com/yumotof01-dotcom/ECO-MIRROR.git
+git clone --branch docs/phase-5-mathematical-specification https://github.com/yumotof01-dotcom/ECO-MIRROR.git
 cd ECO-MIRROR
 npm ci
 npm run dev
@@ -36,7 +36,7 @@ npm run dev
 
 ```bash
 git fetch origin
-git switch feat/phase-4-data-pipeline
+git switch docs/phase-5-mathematical-specification
 npm ci
 npm run dev
 ```
@@ -89,10 +89,13 @@ BrowserRouterを使用します。将来ホスティングする場合は、`/si
 - [第3工程のデータ調査・採用判断](docs/data/cc-plant-pollinator/README.md)
 - [年・区画・調査回別の記録数](docs/data/cc-plant-pollinator/counts.md)
 - [取り込み・正規化の設計](docs/data/cc-plant-pollinator/normalization.md)
+- [第5工程の数理仕様](docs/simulation/README.md)
+- [第5工程の手計算例](docs/simulation/worked-examples.md)
+- [第5工程の検証記録](docs/simulation/validation.md)
 - [Codexへの引き継ぎ](docs/codex-handoff.md)
 - [検証記録](docs/validation.md)
 - [開発時の作業ルール](AGENTS.md)
 
-次は**工程5：観測モデルと指標の数学的定義**です。全観測記録を比較基準に、選択範囲・抽出単位・割合と丸め・0と欠測・指標の式と分母・PRNGと反復仕様を定義します。重複行の一律削除、分類名の推測修正、記録のない調査単位への0補完をしないでください。数理仕様は工程5、計算実装は工程6以降です。
+次は**工程6：単一試行の再現可能な計算コア**です。確定仕様に従い、条件の正規化・原順の選択・半数切上げ・PCG32と棄却法・前方部分Fisher–Yates・原ラベルの指標・正確な数値と来歴を純粋関数として実装します。反復は工程7、画面接続は工程8・9まで進めません。重複行の削除、分類名の推測修正、実施不明の0補完をしないでください。
 
-第4工程ブランチは第3工程PR #2の先端を継承しています。作業開始時はPR #1・#2とも未マージのため、第4工程PRのbaseは `docs/phase-3-data-assessment` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
+第5工程ブランチ `docs/phase-5-mathematical-specification` はPR #3の先端 `e07f7c0ea52a0b5241f97894a658740b6ab445dd` を継承しています。開始時はPR #1〜#3がすべて未マージのため、第5工程PRのbaseは `feat/phase-4-data-pipeline` です。既存PRを無断でmainへマージせず、引き継ぎ時に最新状態を確認してください。
