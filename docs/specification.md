@@ -72,3 +72,9 @@
 CC-plant-pollinatorの指定実CSVを調査し、利用条件と記録単位を確認して用途を限定した採用判断を行った。[調査報告](data/cc-plant-pollinator/README.md)、[監査集計](data/cc-plant-pollinator/counts.md)、[出典・ハッシュ](data/cc-plant-pollinator/manifest.json)、[正規化設計](data/cc-plant-pollinator/normalization.md)を正本とする。
 
 データをアプリへ渡す読込処理や正規化処理は追加していない。画面、実行・書き出しの無効状態は工程1・2と同じ。数値を表示する監査文書は、将来の分析結果と区別する。
+
+## 7. 第4工程のデータ処理基盤
+
+大学保管v1の原CSVと取得時の公式メタデータを同梱し、固定サイズ・SHA-256・MD5、CC BY 4.0、全3,882行の正規化と第3工程の全監査値との照合、原行追跡、決定的生成とコード来歴、型安全なローダーを実装した。仕様と受け入れ条件は [implementation.md](data/cc-plant-pollinator/implementation.md)、検証は [phase4-validation.md](data/cc-plant-pollinator/phase4-validation.md)。
+
+既存画面には接続しない。工程1・2の画面仕様と未実行・実行無効の状態を維持する。全記録は英国実験の訪花行であり、分類名を修正せず、同値行を削除せず、行のない15組を実施済み0としない。実施日時・実績努力量・ブロックを推測しない。指標と観測モデルの定義は工程5、計算実装は工程6以降。

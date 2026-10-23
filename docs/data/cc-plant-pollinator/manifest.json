@@ -1,12 +1,12 @@
 {
-  "manifest_version": "1.0.0",
+  "manifest_version": "1.1.0",
   "dataset_id": "moss-evans-2022-flower-visits-v1",
   "audit_date": "2026-10-17",
   "decision": {
     "status": "selected_with_constraints",
     "purpose": "英国の実験記録を使う観測条件・抽出方法の検証教材",
-    "app_imported": false,
-    "raw_csv_committed": false,
+    "app_imported": true,
+    "raw_csv_committed": true,
     "taxon_mode": "verbatim_raw_labels",
     "constraints": [
       "CC BY 4.0の帰属・ライセンス・変更表示を保持",
@@ -14,7 +14,8 @@
       "重複行を一律削除しない",
       "行のない調査単位を確認済み0件としない",
       "受粉成功・自然全体の真値・日本の再生草原の実態を直接証明しない"
-    ]
+    ],
+    "ui_connected": false
   },
   "creators": [
     {
@@ -135,5 +136,15 @@
     "normalization_design": "normalization.md",
     "validation": "validation.md"
   },
-  "attribution": "Derived audit counts and label inventories from Ellen Moss and Darren Evans (2022), Climate change impacts on plant-pollinator interactions and functioning - experiment data, version 1, https://doi.org/10.25405/data.ncl.17430548.v1, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: grouped counts and label-review flags; no source-row deletion or taxonomic merging. No endorsement by the data creators is implied."
+  "attribution": "Derived audit counts and label inventories from Ellen Moss and Darren Evans (2022), Climate change impacts on plant-pollinator interactions and functioning - experiment data, version 1, https://doi.org/10.25405/data.ncl.17430548.v1, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. Changes: grouped counts and label-review flags; no source-row deletion or taxonomic merging. No endorsement by the data creators is implied.",
+  "phase4_implementation": {
+    "status": "normalized_artifacts_and_typed_loader_ready",
+    "specification": "implementation.md",
+    "validation": "phase4-validation.md",
+    "raw_directory": "data/raw/moss-evans-2022-flower-visits-v1",
+    "processed_directory": "data/processed/moss-evans-2022-flower-visits-v1",
+    "schema_version": "1.0.0",
+    "transform_version": "ccpp-verbatim-v1",
+    "simulation_implemented": false
+  }
 }

@@ -1,0 +1,64 @@
+{
+  "dataset_id": "moss-evans-2022-flower-visits-v1",
+  "source_sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+  "schema_version": "1.0.0",
+  "transform_version": "ccpp-verbatim-v1",
+  "transform_git_revision": "c286c76e3a6d0e28ae9a22b7efd3686ca4f54f94",
+  "transform_input_sha256": {
+    "package.json": "4f436c691d28982c1043879dbadbdb7411896820a8b8b80fd2d1a7b1b2fc4be6",
+    "package-lock.json": "46d430c7ac36e5e2b8d6f76409d35259c7f1cb718fc717674b728db1acc6c941",
+    "src/features/data/contract.ts": "4457388b9aff90a8069180850d9f4fa0a25ac17f8655543e31c91d2c50b43fdf",
+    "src/features/data/types.ts": "ae5e4c69eee7a04381c76c99ee02e343579192b672e6bb61408f6433bb45cd27",
+    "src/features/data/validate.ts": "ee937fed3dbed7c474312e4aa0dfbbc1b794709810bfc35a071b464dd9c145c1",
+    "scripts/data/csv.ts": "5ad8f4a59034ee71c6662967ede1780ed477d4dc411d3a33bc76c01859a42311",
+    "scripts/data/quality.ts": "1f106b3bebd7c14fffdef9a21101fc5e39c59006210b2ff18fd6b7434c0dc51a",
+    "scripts/data/pipeline.ts": "74418235d6cb84b26a87ce23655850a8e14b4cd474741c18eca0c6d195a9886c",
+    "scripts/data/io.ts": "d451994ba2fc183f8e2a6ce492ce60fe23decdcd0bca4198fc564eec8046d601",
+    "scripts/data/fetch.ts": "f106e9ce568fc3abe23aa6ccb5b95113262d51efbc63da3f74bfda41793a0522",
+    "scripts/data/normalize.ts": "62798e71505201d48c91caad209ed1056c209cc5004802602a690c3384731452",
+    "scripts/data/check.ts": "3af88ae95feb3e4008e75ac33e8cdb53daf12d67c76d33964effd9f220ca037c",
+    "docs/data/cc-plant-pollinator/profile.json": "cafc39ba2d55d2ea55d723e622bc89fc613709fa1761aaf7782ff78401c154e5",
+    "docs/data/cc-plant-pollinator/manifest.json": "a18bfa250497fa96bd12ecbd27233ca668a965dc2d810561802761475ee978b6"
+  },
+  "source": {
+    "path": "data/raw/moss-evans-2022-flower-visits-v1/Raw_InteractionData_BothYears.csv",
+    "url": "https://ndownloader.figshare.com/files/34178859",
+    "doi": "10.25405/data.ncl.17430548.v1",
+    "version": 1,
+    "sha256": "c2d7023215fb885070caf6603886bce10e965732e3cc2465111e9d73cad9ab9a",
+    "source_metadata_path": "data/raw/moss-evans-2022-flower-visits-v1/source.json",
+    "source_metadata_sha256": "2df9d6bf1f6ca4b294ffd0351f218d1a83d6e7472e55f430b9c926733731224e",
+    "retrieved_at_utc": "2026-10-17T07:54:48.151Z"
+  },
+  "phase3_profile_sha256": "cafc39ba2d55d2ea55d723e622bc89fc613709fa1761aaf7782ff78401c154e5",
+  "serialization": "UTF-8; LF; JSON.stringify(value, null, 2) + final LF; fixed property order; source event order; code-point sorted label dictionaries; no timestamps in artifacts",
+  "taxonomy_version": "verbatim-raw-labels-v1",
+  "commands": [
+    "npm ci",
+    "npm run data:fetch",
+    "npm run data:normalize",
+    "npm run data:check",
+    "npm test",
+    "npm run build"
+  ],
+  "outputs": {
+    "events.json": {
+      "sha256": "17c87b30f3f66f8d3537123c75ea29a8d3193f9f1f0381a8e48460fd3f73d58c",
+      "bytes": 2608118
+    },
+    "taxa.json": {
+      "sha256": "10d4fc491c12718d21e4fb2ee9d65876084bbf7e2d122a63e31f33e1d441453d",
+      "bytes": 30826
+    },
+    "quality.json": {
+      "sha256": "2e43927c07f7c3b7b2b3926454050902f15ab15d8eb4bdeee8c06df0833afa2a",
+      "bytes": 66793
+    },
+    "artifacts.json": {
+      "sha256": "b2cf414f18899d34d29a00ad1706daf68605c4f73774c8132f30b0aa67d6f4ce",
+      "bytes": 633
+    }
+  },
+  "changes": "All 3,882 source records retained in source order; strict integer conversion and traceable IDs added; label dictionaries and audit counts derived. No taxonomic correction, deduplication, zero filling or inferred survey information. UK experiment flower visits; not evidence of successful pollination or Japanese grassland condition.",
+  "attribution": "Ellen Moss and Darren Evans (2022), Climate change impacts on plant-pollinator interactions and functioning - experiment data, version 1, https://doi.org/10.25405/data.ncl.17430548.v1. CC BY 4.0 https://creativecommons.org/licenses/by/4.0/. No endorsement is implied."
+}
