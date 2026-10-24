@@ -1,0 +1,9 @@
+{
+  "branch": "feat/observation-droplet-v2",
+  "commits": [
+    "14c6c32852f371aa3cd0df00fe3909fe2fa34978",
+    "fd22a20dea838ce4043099c5b8b03407e965c1f1"
+  ],
+  "adopted_for_v3": false,
+  "bundle_sha256": "f24adfd86fa230d9e7abb5473663c95ffed0c26de309c1f16833c39c2dc0f188"
+}

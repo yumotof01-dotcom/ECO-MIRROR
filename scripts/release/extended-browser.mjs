@@ -27,13 +27,26 @@ try{
   const c=URL.createObjectURL.bind(URL),r=URL.revokeObjectURL.bind(URL);URL.createObjectURL=b=>{const u=c(b);window.__qa.urls.push(u);return u;};URL.revokeObjectURL=u=>{window.__qa.urls=window.__qa.urls.filter(v=>v!==u);return r(u);};
   let last=performance.now();setInterval(()=>{const now=performance.now();window.__qa.ticks.push(now-last);last=now;},50);
  });
- const nav=name=>p.getByRole('navigation',{name:'メインナビゲーション'}).getByRole('link',{name,exact:true}).click();
- await p.goto('http://127.0.0.1:5194/');await p.getByRole('link',{name:'シミュレーションを始める',exact:true}).tap();
+ const records=()=>p.getByRole('navigation',{name:'観測モード'}).getByRole('link',{name:'記録',exact:true}).click();
+ const nav=async name=>{
+  const dialog=p.getByRole('dialog',{name:'観測条件の詳細設定'});
+  if(new URL(p.url()).pathname==='/simulation'){
+   await dialog.waitFor();
+   await p.getByRole('button',{name:'条件設定を閉じる ×'}).click();
+   await dialog.waitFor({state:'hidden'});
+  }
+  await p.getByRole('navigation',{name:'メインナビゲーション'}).getByRole('link',{name,exact:true}).click();
+  if(name==='シミュレーション')await dialog.waitFor();
+  if(name==='分析結果')await records();
+ };
+ await p.goto('http://127.0.0.1:5194/');await p.getByRole('link',{name:/^シミュレーションを始める/}).tap();await p.getByRole('dialog',{name:'観測条件の詳細設定'}).waitFor();
  async function run(R,rate,cycle){
   await nav('シミュレーション');await p.getByRole('button',{name:'初期値に戻す',exact:true}).click();
   await p.getByLabel('反復回数').fill(String(R));
   const slider=p.getByLabel('観測割合',{exact:true});if(rate===0)await slider.press('Home');else if(rate===100)await slider.press('End');
   const begin=performance.now();await p.getByRole('button',{name:'シミュレーションを実行',exact:true}).tap();
+  await p.waitForURL(/\/results$/);
+  await records();
   await p.getByRole('heading',{name:'試行 0 の結果',exact:true}).waitFor({timeout:240000});
   const elapsed=performance.now()-begin;
   assert.equal(await p.evaluate(()=>window.__qa.workers),1);assert.equal(await p.evaluate(()=>window.__qa.urls.length),0);

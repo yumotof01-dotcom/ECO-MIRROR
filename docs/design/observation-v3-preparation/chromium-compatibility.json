@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "engine": "chromium",
+  "mode": "compatibility",
+  "checks": [
+    {
+      "cycle": 0,
+      "R": 2,
+      "rate": 50,
+      "click_to_result_ms": 530.0372550000002,
+      "export_and_download_ms": 596.8921989999999,
+      "bytes": 284066,
+      "sha256": "2580eecead8d242bc360fdcb7adf2c4dae5748397dd9a2a368e8465775d7827d",
+      "metadata": {
+        "type": "ready",
+        "verification": "verified",
+        "revision": "421fb2f9a761ebbeb209734af98e583a24786076",
+        "pairs": 183
+      },
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 1,
+      "R": 100,
+      "rate": 50,
+      "click_to_result_ms": 1506.0615979999998,
+      "export_and_download_ms": 1294.5319980000004,
+      "bytes": 8728268,
+      "sha256": "723647a1068328e6b038de381a25b1cb42ba4190d62d9ab374c974e95b2f1880",
+      "metadata": {
+        "type": "ready",
+        "verification": "verified",
+        "revision": "421fb2f9a761ebbeb209734af98e583a24786076",
+        "pairs": 183
+      },
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 2,
+      "R": 2,
+      "rate": 0,
+      "click_to_result_ms": 349.6667690000004,
+      "export_and_download_ms": 528.0901510000003,
+      "bytes": 230549,
+      "sha256": "743587944133f25214495ad7e2d94014e7a9aa2ca9bba46e20ee428256dfc364",
+      "metadata": {
+        "type": "ready",
+        "verification": "verified",
+        "revision": "421fb2f9a761ebbeb209734af98e583a24786076",
+        "pairs": 0
+      },
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 3,
+      "R": 2,
+      "rate": 100,
+      "click_to_result_ms": 343.3179060000002,
+      "export_and_download_ms": 477.82536600000094,
+      "bytes": 337274,
+      "sha256": "ac9a969a0a54d77c0b5b510993767e7a53712a680f14b085876b7766df723dd8",
+      "metadata": {
+        "type": "ready",
+        "verification": "verified",
+        "revision": "421fb2f9a761ebbeb209734af98e583a24786076",
+        "pairs": 257
+      },
+      "workers": 1,
+      "urls": 3
+    },
+    {
+      "cycle": 4,
+      "R": 1000,
+      "rate": 50,
+      "click_to_result_ms": 11520.334642,
+      "export_and_download_ms": 5086.351176,
+      "bytes": 86277392,
+      "sha256": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+      "metadata": {
+        "type": "ready",
+        "verification": "verified",
+        "revision": "421fb2f9a761ebbeb209734af98e583a24786076",
+        "pairs": 183
+      },
+      "workers": 1,
+      "urls": 3
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Desktop automated browser, not physical iPad/Safari, VoiceOver or participant testing.",
+    "Heap limit constrains V8 heaps, not total device RAM or OS memory pressure.",
+    "Bounded repeated use is not a guarantee for indefinite/background operation."
+  ],
+  "browser": "154.0.8037.57",
+  "heap_limit_mib": null,
+  "cancelled_resources": {
+    "workers": 0,
+    "urls": 0
+  },
+  "max_heartbeat_gap_ms": 214.10000000149012,
+  "after_reload": {
+    "workers": 0,
+    "urls": 0
+  },
+  "elapsed_ms": 25993.379373
+}
