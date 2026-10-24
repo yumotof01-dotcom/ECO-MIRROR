@@ -103,11 +103,8 @@ export function ObservationScene({
           ),
         );
     } else if (suppress.current) {
-      setTransform((t) => ({
-        ...t,
-        x: t.x + p.x - last.current.x,
-        y: t.y + p.y - last.current.y,
-      }));
+      const dx = p.x - last.current.x, dy = p.y - last.current.y;
+      setTransform((t) => ({ ...t, x: t.x + dx, y: t.y + dy }));
     }
     last.current = p;
   };
