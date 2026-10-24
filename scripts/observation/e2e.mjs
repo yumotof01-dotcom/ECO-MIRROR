@@ -1,5 +1,6 @@
 /** Real browser + existing Worker/data/core. Reports go outside the checkout by default. */
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { preview } from "vite";
 import { createRequire } from "node:module";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
@@ -13,6 +14,9 @@ const output = process.env.ECO_OBSERVATION_OUTPUT || "/tmp/eco-observation-v2";
 await mkdir(output, { recursive: true });
 const report = {
   status: "running",
+  source_revision: execFileSync("git", ["rev-parse", "HEAD"], {
+    encoding: "utf8",
+  }).trim(),
   checks: [],
   runs: [],
   errors: [],

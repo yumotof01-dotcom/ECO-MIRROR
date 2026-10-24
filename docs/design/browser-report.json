@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "checks": [
+    "idle has no fabricated network or metrics",
+    "comparison modes preserve all 124 positions and all 257 pairs",
+    "search, mouse pan, CDP two-finger pinch, keyboard zoom and reset do not recompute or alter results",
+    "records retains exact statistics, legacy bipartite comparison and three real downloads",
+    "empty_scope is not successful zero extraction",
+    "cancel terminates current Worker and revokes all saved URLs",
+    "real data-asset failure is visible, recovery succeeds, rerun restores conditions and reload clears memory"
+  ],
+  "runs": [
+    {
+      "name": "R100-p50",
+      "click_to_result_ms": 1435.491696,
+      "type": "ready",
+      "ms": 1188.2999999998137,
+      "bytes": 132809,
+      "verification": "verified",
+      "export": {
+        "sha256": "723647a1068328e6b038de381a25b1cb42ba4190d62d9ab374c974e95b2f1880",
+        "bytes": 8728268,
+        "csv_rows": 100
+      }
+    },
+    {
+      "name": "single-0",
+      "click_to_result_ms": 275.7242869999991,
+      "type": "ready",
+      "ms": 65.5,
+      "bytes": 109314,
+      "verification": "verified",
+      "export": {
+        "sha256": "e94c7703f03c76eec9c3f58b421d172be5d435b45e94282c7552196c547cad6a",
+        "bytes": 162633,
+        "csv_rows": 1
+      }
+    },
+    {
+      "name": "single-100",
+      "click_to_result_ms": 280.34109499999977,
+      "type": "ready",
+      "ms": 77.5,
+      "bytes": 127700,
+      "verification": "verified",
+      "export": {
+        "sha256": "2347a9bcf885b41886c66bf05d85e42dbff78ae8519a914807b8dcef94826592",
+        "bytes": 215960,
+        "csv_rows": 1
+      }
+    },
+    {
+      "name": "single-50",
+      "click_to_result_ms": 258.28381499999887,
+      "type": "ready",
+      "ms": 70.6999999997206,
+      "bytes": 118537,
+      "verification": "verified",
+      "export": {
+        "sha256": "c7a9d45480d42834bdee569d94af0441b4e78a95e8d0452b552a63fcfb42fe45",
+        "bytes": 189312,
+        "csv_rows": 1
+      }
+    },
+    {
+      "name": "R1000-p50",
+      "click_to_result_ms": 11935.985018999998,
+      "type": "ready",
+      "ms": 11548.299999999814,
+      "bytes": 222849,
+      "verification": "verified",
+      "export": {
+        "sha256": "083873fbd56b8b3a7fb30c876a86c878252d18583b906c4354bfe85286c29ab8",
+        "bytes": 86277392,
+        "csv_rows": 1000
+      }
+    },
+    {
+      "name": "recovery-R2",
+      "click_to_result_ms": 370.84342599999945,
+      "type": "ready",
+      "ms": 126.10000000009313,
+      "bytes": 123015,
+      "verification": "verified"
+    },
+    {
+      "name": "network-error-recovery",
+      "click_to_result_ms": 356.9491449999987,
+      "type": "ready",
+      "ms": 112,
+      "bytes": 123000,
+      "verification": "verified"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "home-desktop.png",
+    "comparison-desktop.png",
+    "node-detail.png",
+    "comparison-small-phone.png",
+    "comparison-phone.png",
+    "comparison-tablet-portrait.png",
+    "comparison-tablet-landscape.png",
+    "comparison-desktop.png",
+    "comparison-wide-desktop.png",
+    "records-desktop.png"
+  ],
+  "limitations": [
+    "Chromium automated touch/pinch is not physical iPad/Safari or VoiceOver validation.",
+    "Timing and resource counters do not prove peak memory or low-memory safety."
+  ],
+  "browser": "154.0.8037.57",
+  "max_heartbeat_gap_ms": 62.89999999990687,
+  "application_git_revision": "f09e17633e7c99aaa93540a12cef5d1e07fae5ff",
+  "source_revision": "f09e17633e7c99aaa93540a12cef5d1e07fae5ff"
+}

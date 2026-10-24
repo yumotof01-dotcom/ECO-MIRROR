@@ -70,7 +70,7 @@ try {
     finally { if (sessionId) await browserCdp.send('Target.detachFromTarget', { sessionId }).catch(() => {}); }
   };
   const records = () => page.getByRole('navigation', { name: '観測モード' }).getByRole('link', { name: '記録', exact: true }).click();
-  const nav = async name => { await page.getByRole('navigation', { name: 'メインナビゲーション' }).getByRole('link', { name }).click(); if (name === '分析結果') await records(); };
+  const nav = async name => { if (await page.getByRole('dialog', { name: '観測条件の詳細設定' }).isVisible()) await page.getByRole('button', { name: '条件設定を閉じる ×' }).click(); await page.getByRole('navigation', { name: 'メインナビゲーション' }).getByRole('link', { name }).click(); if (name === '分析結果') await records(); };
   const twoFrames = () => page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
   const positions = () => page.locator('[data-node-id]').evaluateAll(nodes => nodes.map(n => [n.dataset.nodeId, n.dataset.x, n.dataset.y]));
   const events = () => page.evaluate(() => window.__ecoQA.events);
