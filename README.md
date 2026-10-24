@@ -1,3 +1,19 @@
+# Observation Interface V2（現行UI）
+
+作業場所：`/workspace/ECO-MIRROR-observation-v2`。Node.js >=24.12、完全なGit履歴を使用します。
+
+```sh
+npm ci
+npm run data:check
+npm test
+npm run build
+npm run dev -- --host 127.0.0.1
+```
+
+観測 `/`、詳細条件 `/simulation`、比較 `/results`、現在実行の記録 `/results?mode=records`、研究情報 `/research`。起動時のネットワーク・指標は未実行です。水滴ボタンで実データの計算を開始します。正式保存にはアプリを実在コミットへ保存して再起動/再計算する必要があります。
+
+[Observation Interface V2の設計](docs/design/observation-interface-v2.md)、[操作](docs/design/interaction-specification.md)、[検証報告](docs/design/implementation-report.md)を参照。以下の工程別READMEは履歴として保持しています。
+
 # ECO-MIRROR
 
 **観測を、問い直す。** 植物と昆虫の公開訪花データを使い、観測条件によって見える関係がどのように変わるかを確かめるWebシミュレーターです。

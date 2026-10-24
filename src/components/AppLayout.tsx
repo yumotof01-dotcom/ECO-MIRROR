@@ -1,62 +1,38 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { ForestBackground } from "../features/observation/ForestBackground";
 import { navigation } from "../app/navigation";
-import { Icon } from "./Icon";
-
+import "../features/observation/observation.css";
 export function AppLayout() {
   return (
-    <div className="app-shell">
+    <div className="observation-shell">
+      <ForestBackground />
       <a className="skip-link" href="#main-content">
         本文へ移動
       </a>
-      <header className="site-header">
-        <Link to="/" className="brand">
-          <span className="brand-mark">
-            <Icon name="sprout" />
+      <header className="observation-header">
+        <Link to="/" className="observation-brand">
+          <span className="brand-leaf" aria-hidden="true">
+            ♧
           </span>
           <span>
-            ECO MIRROR
-            <span className="brand-subtitle">A CLOSER LOOK AT NATURE</span>
+            ECO MIRROR<small>見えなかった、つながりを見つける</small>
           </span>
           <span className="sr-only"> ホーム</span>
         </Link>
         <nav aria-label="メインナビゲーション">
-          {navigation.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              end={item.path === "/"}
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              {item.label}
+          {navigation.map((n) => (
+            <NavLink key={n.path} to={n.path} end={n.path === "/"}>
+              {n.label}
             </NavLink>
           ))}
         </nav>
-        <span className="build-label">
-          <span className="status-dot" />
-          公開前の機能統合版
-        </span>
+        <Link className="ob-settings-link" to="/simulation">
+          観測条件 <span aria-hidden="true">⚙</span>
+        </Link>
       </header>
       <main id="main-content" tabIndex={-1}>
         <Outlet />
       </main>
-      <footer className="site-footer">
-        <div className="footer-top">
-          <Link className="footer-brand" to="/">
-            ECO MIRROR<span>観測を、問い直す。</span>
-          </Link>
-          <p>
-            実データと、再現可能な計算から。
-            <br />
-            生成AIによる予測は行いません。
-          </p>
-        </div>
-        <div className="footer-bottom">
-          <span>植物と昆虫の関係を考える、観測シミュレーター</span>
-          <span>第9工程 · 公開前検証</span>
-        </div>
-      </footer>
     </div>
   );
 }

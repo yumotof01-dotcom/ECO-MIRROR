@@ -107,3 +107,8 @@ Workerを終了して取消するため既存同期コアの数式や順序を�
 ## 監査・公開の境界
 
 scripts/verification/は独立Python検算、scripts/usability/は画面検査、scripts/release/は完全履歴・実バイト・distハッシュを検証する。publicの帰属/ライセンス/ヘッダーはsource_revisionと成果物ハッシュで追跡する。Worker、データ、コア、結果契約は変更しない。
+
+
+## Observation Interface V2
+
+現行表示層は [コンポーネント構成](design/component-architecture.md)。既存のExecutionProvider/Client・Worker・数理コアを保持し、検証済みVisualNode/VisualLinkへ決定的2D表示を追加。厳密二部比較と統計・保存は記録モードに保持する。
