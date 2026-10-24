@@ -1,3 +1,11 @@
+# 現在の引き継ぎ：Observation Interface V2
+
+正式作業場所は `/workspace/ECO-MIRROR-observation-v2`、ブランチは `feat/observation-interface-v2`。PR #11のhead 88afaffを継承。旧 `/workspace/ECO-MIRROR` の未コミットファイルへ触れない。
+
+最新のUI説明は [設計](design/observation-interface-v2.md)、[実装・検証](design/implementation-report.md)。計算版・原本・正規化・数理仕様は不変。UI実装を先に実在コミットへ保存し、正式出力と来歴の検証を後続コミットで保存する。未コミットUIでは正式保存できない。
+
+以下は工程別の履歴。古い「次は工程10」「mainは初期状態」を現在のGitHub状態として扱わない。PR #1〜10は統合済み、PR #11は今回開始時にopen/base main。V2の将来のPR baseは、#11未マージ時にはchore/phase-12-release-readiness。既存PRの無断マージや一般公開は禁止。
+
 # Codexへの引き継ぎ
 
 **工程10〜12の監査・改善・公開準備を作業ブランチで実施。mainへの統合と一般公開は未実施。** 以下の工程別記述は経緯として残す。現在の手順は本節と[第9工程資料](application/README.md)を優先し、依頼された範囲を越えない。

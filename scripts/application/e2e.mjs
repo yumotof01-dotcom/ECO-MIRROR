@@ -69,7 +69,8 @@ try {
     } catch (error) { return { unavailable: String(error) }; }
     finally { if (sessionId) await browserCdp.send('Target.detachFromTarget', { sessionId }).catch(() => {}); }
   };
-  const nav = name => page.getByRole('navigation', { name: 'メインナビゲーション' }).getByRole('link', { name }).click();
+  const records = () => page.getByRole('navigation', { name: '観測モード' }).getByRole('link', { name: '記録', exact: true }).click();
+  const nav = async name => { await page.getByRole('navigation', { name: 'メインナビゲーション' }).getByRole('link', { name }).click(); if (name === '分析結果') await records(); };
   const twoFrames = () => page.evaluate(() => new Promise(done => requestAnimationFrame(() => requestAnimationFrame(done))));
   const positions = () => page.locator('[data-node-id]').evaluateAll(nodes => nodes.map(n => [n.dataset.nodeId, n.dataset.x, n.dataset.y]));
   const events = () => page.evaluate(() => window.__ecoQA.events);
@@ -87,6 +88,7 @@ try {
     const start = await page.evaluate(() => performance.now());
     await page.getByRole('button', { name: 'シミュレーションを実行', exact: true }).click();
     await page.waitForURL(/\/results$/);
+    await records();
     await page.getByRole('heading', { name: empty ? '選択範囲に観測記録がありません。' : '試行 0 の結果', exact: true }).waitFor({ timeout: 120000 });
     await twoFrames();
     const item = { name, ...await lastReady(), end_to_two_frames_ms: Math.round(await page.evaluate(() => performance.now()) - start), main_heap: await heap(), worker_heap: await workerHeap() };
@@ -316,6 +318,7 @@ try {
     await page.goto('http://127.0.0.1:5183/simulation');
     await page.getByLabel('単一試行（1回）').check();
     await page.getByRole('button', { name: 'シミュレーションを実行', exact: true }).click();
+    await records();
     await page.getByRole('heading', { name: '試行 0 の結果', exact: true }).waitFor();
     await page.getByText('開発用 · アプリ来歴未検証', { exact: true }).waitFor();
     assert.equal(await page.getByRole('button', { name: '保存ファイルを準備', exact: true }).isDisabled(), true);
@@ -331,6 +334,7 @@ try {
     // Reload explicitly after restoration, then verify real committed metadata again.
     await page.reload(); await nav('シミュレーション'); await page.getByLabel('単一試行（1回）').check();
     await page.getByRole('button', { name: 'シミュレーションを実行', exact: true }).click();
+    await records();
     await page.getByRole('heading', { name: '試行 0 の結果', exact: true }).waitFor();
     assert.equal((await lastReady()).verification, 'verified');
     report.resource_checks.push({ name: 'dirty-application-formal-export-blocked-HMR-clears-result-restored-commit-verifies', passed: true });

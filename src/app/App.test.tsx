@@ -20,25 +20,25 @@ function navigate(label: string) {
 }
 
 describe("ECO MIRRORの画面基盤", () => {
-  it("説明図を実データと区別し、ホームから条件画面へ移動できる", () => {
+  it("装飾を実データと区別し、ホームから条件画面へ移動できる", () => {
     renderApp();
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "見えている自然が、すべてとは限らない。",
+      "森の記録に、近づく。",
     );
-    expect(
-      screen.getByText("説明用イラスト · 実データではありません"),
-    ).toBeVisible();
-    fireEvent.click(screen.getByRole("link", { name: "シミュレーションを始める" }));
-    expect(
-      screen.getByRole("form", { name: "観測条件" }),
-    ).toBeVisible();
+    expect(screen.getByText(/背景は装飾用の独自SVGです/)).toBeVisible();
+    fireEvent.click(
+      screen.getByRole("link", {
+        name: "シミュレーションを始める · 詳細条件 →",
+      }),
+    );
+    expect(screen.getByRole("form", { name: "観測条件" })).toBeVisible();
     expect(document.title).toBe("シミュレーション | ECO MIRROR");
     expect(screen.getByRole("main")).toHaveFocus();
   });
 
   it.each([
     ["/simulation", "観測条件を、組み立てる。", "シミュレーション"],
-    ["/results", "見え方の違いを、読み解く。", "分析結果"],
+    ["/results", "森の記録に、近づく。", "分析結果"],
     ["/research", "根拠と、限界をたどる。", "研究情報"],
   ])("%s を直接開けて、現在地を表示する", (path, title, label) => {
     renderApp(path);
@@ -46,7 +46,9 @@ describe("ECO MIRRORの画面基盤", () => {
       screen.getByRole("heading", { level: 1, name: title }),
     ).toBeVisible();
     expect(
-      within(screen.getByRole("navigation")).getByRole("link", { name: label }),
+      within(
+        screen.getByRole("navigation", { name: "メインナビゲーション" }),
+      ).getByRole("link", { name: label }),
     ).toHaveAttribute("aria-current", "page");
   });
 
@@ -99,9 +101,11 @@ describe("ECO MIRRORの画面基盤", () => {
 
   it("分析画面を直接開いても、未実行をゼロの結果として扱わない", () => {
     renderApp("/results");
-    expect(screen.getByText("まだ実行していません。")).toBeVisible();
+    expect(screen.getByText(/まだ実行していません。/)).toBeVisible();
     expect(screen.getByText("分析結果はまだありません。")).toBeVisible();
-    expect(screen.queryByRole("button", { name: "保存ファイルを準備" })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "保存ファイルを準備" }),
+    ).not.toBeInTheDocument();
     expect(screen.queryByRole("table")).not.toBeInTheDocument();
     expect(
       screen.getByRole("main").querySelector('canvas, svg[role="img"]'),
@@ -135,7 +139,7 @@ describe("ECO MIRRORの画面基盤", () => {
     ).toBeVisible();
     fireEvent.click(screen.getByRole("link", { name: "ホームへ戻る" }));
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "見えている自然が、すべてとは限らない。",
+      "森の記録に、近づく。",
     );
   });
 });
