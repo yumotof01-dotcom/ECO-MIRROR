@@ -168,6 +168,7 @@ export function ObservationInterface({
                   <label>
                     表示する試行番号
                     <select
+                      aria-label="表示する試行番号"
                       value={state.payload!.trial!.trial_index}
                       onChange={(e) => selectTrial(Number(e.target.value))}
                     >

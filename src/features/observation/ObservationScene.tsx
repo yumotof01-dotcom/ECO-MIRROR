@@ -194,6 +194,7 @@ export function ObservationScene({
         <label className="scene-node-select">
           ノードを選択
           <select
+            aria-label="ノードを選択"
             value={selected ?? ""}
             onChange={(e) => {
               onSelect(e.target.value || null);

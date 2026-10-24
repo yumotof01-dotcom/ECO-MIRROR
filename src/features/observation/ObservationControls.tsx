@@ -68,6 +68,7 @@ export function ObservationControls() {
         <label className="mode-input">
           実行モード
           <select
+            aria-label="実行モード"
             value={draft.mode}
             onChange={(e) =>
               edit({ mode: e.target.value as typeof draft.mode })
