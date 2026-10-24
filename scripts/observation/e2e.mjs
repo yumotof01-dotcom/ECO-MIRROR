@@ -139,9 +139,8 @@ try {
   }
   async function run(name) {
     const t = performance.now();
-    await p
-      .getByRole("button", { name: "シミュレーションを実行", exact: true })
-      .click();
+    const runButton = p.getByRole("button", { name: "シミュレーションを実行", exact: true });
+    if (name === "R100-p50") { await runButton.focus(); await p.keyboard.press("Enter"); } else await runButton.click();
     await p
       .getByText("試行 0 の結果", { exact: true })
       .waitFor({ timeout: 180000 });
@@ -227,9 +226,9 @@ try {
     await p.getByRole("button", { name: label, exact: true }).click();
     assert.deepEqual(await coords(), initial);
   }
-  report.checks.push(
-    "comparison modes preserve all 124 positions and all 257 pairs",
-  );
+  await p.goBack(); await settle(); assert.equal(await p.getByRole("button",{name:"差分",exact:true}).getAttribute("aria-pressed"),"true");
+  await p.goForward(); await settle(); assert.equal(await p.getByRole("button",{name:"抽出後",exact:true}).getAttribute("aria-pressed"),"true");
+  report.checks.push("comparison modes, browser back/forward preserve all 124 positions and all 257 pairs");
   await p.getByLabel("表示する試行番号", { exact: true }).selectOption("99");
   await p.getByText("試行 99 の結果", { exact: true }).waitFor();
   assert.deepEqual(await coords(), initial);
@@ -285,6 +284,10 @@ try {
     0,
   );
   await p.getByRole("button", { name: "表示をリセット" }).click();
+  await cdp.send("Input.dispatchTouchEvent",{type:"touchStart",touchPoints:[{x:cx,y:cy,id:3}]});
+  await cdp.send("Input.dispatchTouchEvent",{type:"touchMove",touchPoints:[{x:cx+45,y:cy+20,id:3}]});
+  await cdp.send("Input.dispatchTouchEvent",{type:"touchEnd",touchPoints:[]});await settle();assert.notEqual(await transform(),"0,0,1");
+  await p.getByRole("button",{name:"表示をリセット"}).click();
   await canvas.focus();
   await p.keyboard.press("+");
   await p.keyboard.press("0");
