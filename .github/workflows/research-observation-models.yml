@@ -1,0 +1,31 @@
+name: Research observation-model benchmark
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/research/benchmark-observation-models.mjs'
+      - 'docs/research/**'
+      - '.github/workflows/research-observation-models.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  empirical-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test and run independent models on the fixed real CSV
+        run: |
+          node scripts/research/benchmark-observation-models.mjs --self-test
+          node scripts/research/benchmark-observation-models.mjs --check > empirical-benchmark.json
+          python scripts/research/future_risk_audit.py --self-test
+          python scripts/research/future_risk_audit.py --check > finite-sample-audit.json
+      - name: Save reproducible research outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: eco-mirror-research-benchmark
+          path: |
+            empirical-benchmark.json
+            finite-sample-audit.json
