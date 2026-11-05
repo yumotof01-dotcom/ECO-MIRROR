@@ -20,7 +20,7 @@ jobs:
       - name: Check independent research engine without real data
         run: python scripts/research/poms_multiyear_validation.py --self-test
       - name: Official UK PoMS 2017-2023, nested rolling-year testing, uncertainty and transfer
-        run: python scripts/research/poms_multiyear_validation.py --out poms-multiyear-validation.json > poms-multiyear-log.json
+        run: python scripts/research/poms_multiyear_validation.py --out poms-multiyear-validation.json | tee poms-multiyear-log.json
       - name: Publish only aggregate research artifacts
         if: always()
         uses: actions/upload-artifact@v4
