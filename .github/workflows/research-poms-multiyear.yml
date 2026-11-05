@@ -1,0 +1,32 @@
+name: Research repeated-year validation and transfer guard
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/research/poms_multiyear_validation.py'
+      - '.github/workflows/research-poms-multiyear.yml'
+      - 'docs/research/rigorous-risk-validation-*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  multi-year-evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check independent research engine without real data
+        run: python scripts/research/poms_multiyear_validation.py --self-test
+      - name: Official UK PoMS 2017-2023, nested rolling-year testing, uncertainty and transfer
+        run: python scripts/research/poms_multiyear_validation.py --out poms-multiyear-validation.json > poms-multiyear-log.json
+      - name: Publish only aggregate research artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eco-mirror-multiyear-validation
+          path: |
+            poms-multiyear-validation.json
+            poms-multiyear-log.json
+          if-no-files-found: warn
