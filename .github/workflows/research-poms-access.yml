@@ -1,0 +1,35 @@
+name: Research official UK PoMS access and schema
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/research/poms_inspect.py'
+      - 'scripts/research/poms_heldout.py'
+      - '.github/workflows/research-poms-access.yml'
+      - 'docs/research/uk-poms-*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect-eidc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch official EIDC distribution and inspect schema
+        run: python scripts/research/poms_inspect.py --out poms-inspection.json
+      - name: Check blind-year model code on synthetic fixtures
+        run: python scripts/research/poms_heldout.py --self-test
+      - name: Fit on 2017-2022 only and evaluate 2023 on official data
+        run: python scripts/research/poms_heldout.py --out poms-heldout-2023.json
+      - name: Upload aggregate-only audit, even if EIDC not accessible
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: poms-official-schema-audit
+          path: |
+            poms-inspection.json
+            poms-heldout-2023.json
+          if-no-files-found: error
