@@ -51,7 +51,10 @@ def download_official() -> tuple[bytes, str, str]:
 
 
 def sniff_csv(data: bytes) -> tuple[list[str], list[dict[str, str]]]:
-    text = data.decode("utf-8-sig")
+    try:
+        text = data.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        text = data.decode("cp1252")
     head = text[:8192]
     try:
         dialect = csv.Sniffer().sniff(head, delimiters=",;\t")
