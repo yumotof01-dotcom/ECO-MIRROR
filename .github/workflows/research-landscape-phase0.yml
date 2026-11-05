@@ -1,0 +1,24 @@
+name: Phase-0 landscape mathematical specification
+
+on:
+  pull_request:
+    paths:
+      - 'docs/landscape/**'
+      - 'scripts/research/landscape-phase0-reference.test.mjs'
+      - '.github/workflows/research-landscape-phase0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phase0-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Verify synthetic-only reference mathematics
+        run: node --test scripts/research/landscape-phase0-reference.test.mjs
