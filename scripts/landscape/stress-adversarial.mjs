@@ -103,7 +103,7 @@ for(let t=0;t<5000;t++){
 }
 // Deliberate 160,000-cell checkerboard must refuse >3000 patch pairwise work.
 const n=400;
-const checker=Array.from({length:n*n},(_,i)=>(i%2===0)?"vegetation":"other");
+const checker=Array.from({length:n*n},(_,i)=>((Math.floor(i/n)+(i%n))%2===0)?"vegetation":"other");
 const checkerResult=assessLandscape({...meta,width:n,height:n,cells:checker},4,40);
 assert.equal(checkerResult.status,"NOT_ESTIMABLE");
 assert.equal(checkerResult.reason,"MODEL_LIMIT");failClosed++;
