@@ -123,7 +123,7 @@ def main():
       "cross_pattern_neighbourhood_corrob_candidates":len(confirmed_within_grid),
       "nonmonotonic_pc_response_curves":len(monotonicity_violations),
       "ecological_field_thresholds_validated":0,
-      "limitations":["2km boundary was cropped without ecological movement buffer",
+      "limitations":[f"{w*crop['resolution_metres']}m by {h*crop['resolution_metres']}m boundary was cropped without ecological movement buffer",
                      "ESA 2021 land cover is not a measured bee habitat map",
                      "Hypothetical vegetation removal, not measured future change",
                      "The candidate's model-only classification is sensitive to arbitrary threshold settings"]
