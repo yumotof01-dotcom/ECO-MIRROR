@@ -22,7 +22,9 @@ const report={
   derived_pixel_class_sha256:window.derived_pixel_class_sha256,
   source_full_tile_sha256:null,
   geographic_quality:"ESA 2021 classified crop, not a verified bee habitat map",
-  spatial_limitations:"The 2km window was cropped without exterior movement buffer; results may have boundary effects.",
+  spatial_limitations:grid.width===200 && grid.height===200 && grid.resolutionMetres===10
+    ? "The 2km window was cropped without exterior movement buffer; results may have boundary effects."
+    : `The ${grid.width*grid.resolutionMetres}m x ${grid.height*grid.resolutionMetres}m window has no exterior movement buffer; edge effects remain unmeasured.`,
   ecological_validation:"not_validated",
   actual_future_probabilities:false,
   ensemble,
