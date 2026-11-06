@@ -143,8 +143,8 @@ function constructSite(grid:LandscapeGrid,classes:Uint8Array,labels:Int32Array,l
   const adjacentLabels=(positions:readonly (readonly number[])[],map:Int32Array)=>{
     const found=new Set<number>();
     for(const [xx,yy] of positions){
-      if(xx!<0||yy!<0||xx!>=grid.width||yy!>=grid.height)continue;
-      const index=map[yy!*grid.width+xx!]!;
+      if(xx<0||yy<0||xx>=grid.width||yy>=grid.height)continue;
+      const index=map[yy*grid.width+xx]!;
       if(index>0)found.add(index);
     }
     return found.size;
