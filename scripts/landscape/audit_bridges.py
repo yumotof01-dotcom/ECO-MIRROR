@@ -54,6 +54,23 @@ def patch_pc(mask,w,h,res,neighbourhood,lam):
             numerator+=2*ai*aj*math.exp(-math.hypot(xi-xj,yi-yj)/lam)
     return numerator / ((w*h*res*res)**2)
 
+def patch_labels(mask,w,h,neighbourhood):
+    """Independent component labels for verifying actual direct topology."""
+    directions=[(1,0),(-1,0),(0,1),(0,-1)]
+    if neighbourhood==8:directions += [(1,1),(1,-1),(-1,1),(-1,-1)]
+    ids=[0]*(w*h);component_count=0
+    for i in range(w*h):
+        if not mask[i] or ids[i]:continue
+        component_count+=1; todo=[i];ids[i]=component_count
+        for pos in todo:
+            y,x=divmod(pos,w)
+            for dx,dy in directions:
+                xx=x+dx;yy=y+dy
+                if 0<=xx<w and 0<=yy<h:
+                    k=yy*w+xx
+                    if mask[k] and not ids[k]:ids[k]=component_count;todo.append(k)
+    return ids,component_count
+
 def hashed_order(mask,w,h,pattern):
     veg=[i for i,m in enumerate(mask) if m]
     def mix32(i):
@@ -101,6 +118,8 @@ def main():
     expected=baseline["ensemble"]["expectedCount"]
     check(expected==440 and len(reference)==440 and result["scenarioCount"]==440,
           "all 440 scenarios must be represented")
+    components4,number4=patch_labels(mask,w,h,4)
+    components8,number8=patch_labels(mask,w,h,8)
     interventions=result["evaluated"]
     check(len(interventions)==result["selectedConnectorFootprintsCount"]+
           result["selectedReferenceFootprintsCount"],"candidate count mismatch")
@@ -120,6 +139,21 @@ def main():
               all(raw[i] in CONVERTIBLE for i in footprint) and
               all(not mask[i] for i in footprint),"water, vegetation or mislabeled candidate")
         check(site["addedAreaM2"]==4*res**2,"unequal area")
+        orthogonal=[(x-1,y),(x-1,y+1),(x+2,y),(x+2,y+1),
+                    (x,y-1),(x+1,y-1),(x,y+2),(x+1,y+2)]
+        perimeter=[(xx,yy) for yy in range(y-1,y+3) for xx in range(x-1,x+3)
+                   if not(x<=xx<=x+1 and y<=yy<=y+1)]
+        def touch_count(positions,component_ids):
+            return len({component_ids[yy*w+xx] for xx,yy in positions
+                if 0<=xx<w and 0<=yy<h and component_ids[yy*w+xx]>0})
+        touch4=touch_count(orthogonal,components4)
+        touch8=touch_count(perimeter,components8)
+        check(site["adjacentPatchCount4"]==touch4 and site["adjacentPatchCount8"]==touch8,
+              "independent topology audit mismatch")
+        expected_mechanism=("joins_patches_in_both" if touch4>=2 and touch8>=2 else
+           "joins_patches_in_4_only" if touch4>=2 else
+           "joins_patches_in_8_only" if touch8>=2 else "no_direct_patch_join")
+        check(site["topologicalEffect"]==expected_mechanism,"false direct bridge label")
         if site["role"]=="hypothetical_connector":
             check(site["nearbyPatchCount"]>=2,"connector lacks two baseline patches")
         else:
@@ -159,6 +193,17 @@ def main():
     sorted_rank=sorted(connector_items,key=lambda it:(
         -it["summary"]["lowerDecileDeltaPc"], -it["summary"]["medianDeltaPc"],it["site"]["id"]))
     check([it["site"]["id"] for it in sorted_rank]==result["rankedConnectorIds"],"ranking mismatch")
+    check([it["site"]["id"] for it in sorted_rank
+        if it["site"]["topologicalEffect"]=="joins_patches_in_both"]==result["rankedDirectBridgeIds"],
+        "separate true direct bridge ranking mismatch")
+    # The strongest direct bridge should reduce the number of 4- and 8-components.
+    if result["rankedDirectBridgeIds"]:
+        direct=next(it for it in interventions if it["site"]["id"]==result["rankedDirectBridgeIds"][0])
+        revised=mask.copy()
+        for idx in direct["site"]["cells"]:revised[idx]=True
+        _,after4=patch_labels(revised,w,h,4)
+        _,after8=patch_labels(revised,w,h,8)
+        check(after4<number4 and after8<number8,"claimed bridge failed to join patches")
 
     # Recalculate a small fixed sample independently of the TypeScript connectivity engine.
     sample_items=[sorted_rank[0]]
@@ -202,6 +247,7 @@ def main():
         "ranked_first_lower_decile_delta_pc":top["summary"]["lowerDecileDeltaPc"],
         "ranked_first_negative_conditions":top["summary"]["negativeConditions"],
         "reference_candidate_count":len(control_items),
+        "genuine_both_neighbourhood_bridges_in_shortlist":len(result["rankedDirectBridgeIds"]),
         "outcome":"PASS",
         "field_ecology_validation":"NOT_DONE",
         "site_legal_feasibility":"NOT_DONE"
