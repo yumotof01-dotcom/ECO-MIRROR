@@ -29,6 +29,8 @@ jobs:
           node-version: 24
       - name: Execute all 440 scenarios and 40 model change curves on the real crop
         run: node --experimental-strip-types scripts/landscape/run-worldcover.mjs /tmp/worldcover-shinjuku.json /tmp/worldcover-440-results.json
+      - name: Independently audit full parameter coverage and scientific boundaries
+        run: python scripts/landscape/audit_real_results.py /tmp/worldcover-shinjuku.json /tmp/worldcover-440-results.json
       - name: Save crop, full 440-scenario report and independent SHA audit
         if: always()
         uses: actions/upload-artifact@v4
