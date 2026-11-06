@@ -10,8 +10,8 @@ function fixture(){
     const i=y*w+x;cells[i]="vegetation";raw[i]=10;
   };
   // Two disjoint 3x3 patches with a 2x2 gap for conversion.
-  for(let y=14;y<17;y++)for(let x=10;x<13;x++)plant(x,y);
-  for(let y=14;y<17;y++)for(let x=17;x<20;x++)plant(x,y);
+  for(let y=14;y<17;y++)for(let x=9;x<12;x++)plant(x,y);
+  for(let y=14;y<17;y++)for(let x=14;x<17;x++)plant(x,y);
   // Deliberate water rectangle (must never become a candidate).
   for(let y=23;y<25;y++)for(let x=23;x<25;x++)raw[y*w+x]=80;
   const grid:LandscapeGrid={width:w,height:h,resolutionMetres:10,crs:"EPSG:6677",
@@ -28,6 +28,13 @@ describe("hypothetical 4-cell intervention, all 440 Phase-2 conditions",()=>{
     expect(report.selectedConnectorFootprintsCount).toBeGreaterThan(0);
     expect(report.rankedConnectorIds).toHaveLength(report.selectedConnectorFootprintsCount);
     expect(report.ecologicalInterventionEffectsValidated).toBe(0);
+    expect(report.rankedDirectBridgeIds.length).toBeGreaterThan(0);
+    for(const id of report.rankedDirectBridgeIds){
+      const site=report.evaluated.find(x=>x.site.id===id)!.site;
+      expect(site.adjacentPatchCount4).toBeGreaterThanOrEqual(2);
+      expect(site.adjacentPatchCount8).toBeGreaterThanOrEqual(2);
+      expect(site.topologicalEffect).toBe("joins_patches_in_both");
+    }
     expect(report.siteFeasibility).toBe("not_assessed");
     for(const result of report.evaluated){
       expect(result.results).toHaveLength(440);
