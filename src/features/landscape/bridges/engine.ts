@@ -28,6 +28,9 @@ export interface InterventionSite {
   readonly sourceClasses: readonly number[];
   readonly addedAreaM2: number;
   readonly nearbyPatchCount: number;
+  readonly adjacentPatchCount4: number;
+  readonly adjacentPatchCount8: number;
+  readonly topologicalEffect: "joins_patches_in_both" | "joins_patches_in_4_only" | "joins_patches_in_8_only" | "no_direct_patch_join";
   readonly nearestSecondPatchDistanceM: number | null;
   readonly selectionScore: number;
   readonly disclaimer: "hypothetical_land_cover_conversion_only";
@@ -71,6 +74,7 @@ export interface BridgeExperiment {
   readonly selectionMethod: "all_even_2x2_footprints_then_tile_stratified_deterministic_shortlist";
   readonly evaluated: readonly EvaluatedIntervention[];
   readonly rankedConnectorIds: readonly string[];
+  readonly rankedDirectBridgeIds: readonly string[];
   readonly modelValidation: "not_validated_for_real_species_or_intervention";
   readonly siteFeasibility: "not_assessed";
   readonly ecologicalInterventionEffectsValidated: 0;
@@ -89,7 +93,7 @@ function validateOriginalClasses(grid:LandscapeGrid, classCodes:Uint8Array): voi
     require(grid.cells[i]===derived,"raw classes conflict with independently hashed vegetation mask");
   }
 }
-function nearbyLabels(grid:LandscapeGrid):{ ids:Int32Array;sizes:number[] } {
+function nearbyLabels(grid:LandscapeGrid, neighbourhood:Neighbourhood):{ ids:Int32Array;sizes:number[] } {
   const ids=new Int32Array(grid.cells.length); // 0 means non-vegetation
   const sizes:number[]=[];
   for(let start=0;start<ids.length;start++){
@@ -97,7 +101,9 @@ function nearbyLabels(grid:LandscapeGrid):{ ids:Int32Array;sizes:number[] } {
     const id=sizes.length+1,queue=[start];ids[start]=id;
     for(let head=0;head<queue.length;head++){
       const here=queue[head]!,x=here%grid.width,y=Math.floor(here/grid.width);
-      for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){
+      const moves=neighbourhood===4 ? [[1,0],[-1,0],[0,1],[0,-1]] :
+        [[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]];
+      for(const [dx,dy] of moves){
         const nx=x+dx!,ny=y+dy!;
         if(nx<0||ny<0||nx>=grid.width||ny>=grid.height)continue;
         const next=ny*grid.width+nx;
@@ -108,8 +114,8 @@ function nearbyLabels(grid:LandscapeGrid):{ ids:Int32Array;sizes:number[] } {
   }
   return {ids,sizes};
 }
-function constructSite(grid:LandscapeGrid,classes:Uint8Array,labels:Int32Array,sizes:readonly number[],
-  x:number,y:number):InterventionSite | null {
+function constructSite(grid:LandscapeGrid,classes:Uint8Array,labels:Int32Array,labels8:Int32Array,
+  sizes:readonly number[],x:number,y:number):InterventionSite | null {
   const cells=[y*grid.width+x,y*grid.width+x+1,(y+1)*grid.width+x,(y+1)*grid.width+x+1];
   if(!cells.every(i=>grid.cells[i]==="other"&&HYPOTHETICALLY_CONVERTIBLE.has(classes[i]!)))return null;
   const nearby=new Map<number,number>();
@@ -127,16 +133,38 @@ function constructSite(grid:LandscapeGrid,classes:Uint8Array,labels:Int32Array,s
   }
   const distances=[...nearby.values()].sort((a,b)=>a-b);
   const nearbyPatchCount=distances.length;
+  const orthogonal=[[x-1,y],[x-1,y+1],[x+2,y],[x+2,y+1],
+    [x,y-1],[x+1,y-1],[x,y+2],[x+1,y+2]];
+  const all8:number[][]=[];
+  for(let yy=y-1;yy<=y+2;yy++)for(let xx=x-1;xx<=x+2;xx++){
+    if(xx>=x && xx<=x+1 && yy>=y && yy<=y+1)continue;
+    all8.push([xx,yy]);
+  }
+  const adjacentLabels=(positions:readonly (readonly number[])[],map:Int32Array)=>{
+    const found=new Set<number>();
+    for(const [xx,yy] of positions){
+      if(xx!<0||yy!<0||xx!>=grid.width||yy!>=grid.height)continue;
+      const index=map[yy!*grid.width+xx!]!;
+      if(index>0)found.add(index);
+    }
+    return found.size;
+  };
+  const adjacentPatchCount4=adjacentLabels(orthogonal,labels);
+  const adjacentPatchCount8=adjacentLabels(all8,labels8);
+  const topologicalEffect=adjacentPatchCount4>=2 && adjacentPatchCount8>=2 ?
+    "joins_patches_in_both" : adjacentPatchCount4>=2 ? "joins_patches_in_4_only" :
+    adjacentPatchCount8>=2 ? "joins_patches_in_8_only" : "no_direct_patch_join";
   const role:CandidateRole=nearbyPatchCount>=2?"hypothetical_connector":"equal_area_reference";
   const second=distances.length>=2?distances[1]!:null;
   const selectionScore=role==="hypothetical_connector"
-    ? 100*nearbyPatchCount-10*(second??10)-Math.min(...distances)
+    ? 1000*(adjacentPatchCount4>=2 ? 1 : 0)+1000*(adjacentPatchCount8>=2 ? 1 : 0)+
+      100*nearbyPatchCount-10*(second??10)-Math.min(...distances)
     : (distances[0]??100);
   return {
     id:(role==="hypothetical_connector"?"connector":"reference")+"-x"+x+"-y"+y,
     role,x,y,cells,sourceClasses:cells.map(i=>classes[i]!),
     addedAreaM2:cells.length*grid.resolutionMetres**2,
-    nearbyPatchCount,
+    nearbyPatchCount,adjacentPatchCount4,adjacentPatchCount8,topologicalEffect,
     nearestSecondPatchDistanceM:second===null?null:second*grid.resolutionMetres,
     selectionScore,disclaimer:"hypothetical_land_cover_conversion_only"
   };
@@ -201,12 +229,13 @@ export function runBridgeExperiment(grid:LandscapeGrid,rawClassCodes:Uint8Array,
   const maxReferences=options?.maxReferences??CONTROL_CANDIDATES;
   require(Number.isInteger(maxConnectors)&&maxConnectors>=1&&maxConnectors<=32 &&
     Number.isInteger(maxReferences)&&maxReferences>=0&&maxReferences<=8,"invalid candidate bounds");
-  const {ids,sizes}=nearbyLabels(grid);
+  const {ids,sizes}=nearbyLabels(grid,4);
+  const {ids:ids8}=nearbyLabels(grid,8);
   const eligible:InterventionSite[]=[];
   // Even-grid anchors provide disjoint 2×2 cells and a deterministic, auditable search universe.
   for(let y=MIN_EDGE_MARGIN_CELLS;y+FOOTPRINT_SIDE_CELLS<=grid.height-MIN_EDGE_MARGIN_CELLS;y+=2)
     for(let x=MIN_EDGE_MARGIN_CELLS;x+FOOTPRINT_SIDE_CELLS<=grid.width-MIN_EDGE_MARGIN_CELLS;x+=2){
-      const site=constructSite(grid,rawClassCodes,ids,sizes,x,y);
+      const site=constructSite(grid,rawClassCodes,ids,ids8,sizes,x,y);
       if(site)eligible.push(site);
     }
   const bridges=selectTileDiverse(eligible,maxConnectors,grid.width,grid.height,"hypothetical_connector");
@@ -244,8 +273,9 @@ export function runBridgeExperiment(grid:LandscapeGrid,rawClassCodes:Uint8Array,
     selectedConnectorFootprintsCount:bridges.length,selectedReferenceFootprintsCount:references.length,
     selectionMethod:"all_even_2x2_footprints_then_tile_stratified_deterministic_shortlist",
     evaluated,rankedConnectorIds:ranked.map(x=>x.site.id),
+    rankedDirectBridgeIds:ranked.filter(x=>x.site.topologicalEffect==="joins_patches_in_both").map(x=>x.site.id),
     modelValidation:"not_validated_for_real_species_or_intervention",
     siteFeasibility:"not_assessed",ecologicalInterventionEffectsValidated:0,
-    interpretation:"These are identical 2x2-cell hypothetical land-cover conversions. Rankings cover a transparent shortlist, NOT every physically possible location. All 440 sensitivity conditions were computed for each selected site. Built-up/bare classes do not establish land access, suitability or ecological effect. Baseline has no movement buffer, and connectivity uses centroid distances."
+    interpretation:"These are identical 2x2-cell hypothetical land-cover conversions. Only sites that merge distinct source patches in BOTH 4 and 8 connectivity may be called direct topological bridges; other candidates are stepping-stones or area extensions. Rankings cover a transparent shortlist, NOT every physically possible location. All 440 sensitivity conditions were computed for each selected site. Built-up/bare classes do not establish land access, suitability or ecological effect. Baseline has no movement buffer, and connectivity uses centroid distances."
   };
 }
