@@ -24,9 +24,18 @@ jobs:
         run: python -m pip install rasterio==1.4.3 pyproj==3.7.2 numpy==2.2.6
       - name: Read official ESA COG window; fail on missing/unknown classes
         run: python scripts/landscape/ingest_worldcover.py --out /tmp/worldcover-shinjuku.json --emit-compressed-stdout
-      - name: Save audited crop as an ephemeral CI artifact
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Execute all 440 scenarios and 40 model change curves on the real crop
+        run: node --experimental-strip-types scripts/landscape/run-worldcover.ts /tmp/worldcover-shinjuku.json /tmp/worldcover-440-results.json
+      - name: Save crop, full 440-scenario report and independent SHA audit
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: worldcover-shinjuku-2021-verified-window
-          path: /tmp/worldcover-shinjuku.json
-          retention-days: 7
+          name: worldcover-shinjuku-2021-phase1-3-evidence
+          path: |
+            /tmp/worldcover-shinjuku.json
+            /tmp/worldcover-440-results.json
+          retention-days: 30
+          if-no-files-found: warn
