@@ -48,6 +48,32 @@ describe("landscape phase-1 core (synthetic data only)",()=>{
     expect(assessLandscape(g,6 as 4,10)).toMatchObject({reason:"INPUT_INVALID"});
     expect(assessLandscape(grid(2,1,["vegetation"]),4,10)).toMatchObject({reason:"INPUT_INVALID"});
   });
+  it("calculates 3541 separate patches, but refuses pathological grids beyond 4000 patches",()=>{
+    const w=200,h=200;
+    const cells:Array<"vegetation"|"other">=Array(w*h).fill("other");
+    let count=0;
+    for(let y=0;y<h && count<3541;y+=2){
+      for(let x=0;x<w && count<3541;x+=2){
+        cells[y*w+x]="vegetation";
+        count++;
+      }
+    }
+    expect(count).toBe(3541);
+    const valid=assessLandscape(grid(w,h,cells),4,40);
+    expect(valid.status).toBe("STRUCTURAL_ONLY");
+    if(valid.status==="STRUCTURAL_ONLY"){
+      expect(valid.patches).toHaveLength(3541);
+      expect(valid.pc).toBeGreaterThan(0);
+      expect(valid.pc).toBeLessThanOrEqual(1);
+    }
+    // Source grid is unchanged and the high-cardinality guard is still fail-closed.
+    const more=[...cells];
+    for(let y=0;y<h && count<4001;y+=2)
+      for(let x=0;x<w && count<4001;x+=2)
+        if(more[y*w+x]==="other"){more[y*w+x]="vegetation";count++;}
+    expect(count).toBe(4001);
+    expect(assessLandscape(grid(w,h,more),4,40)).toMatchObject({status:"NOT_ESTIMABLE",reason:"MODEL_LIMIT"});
+  });
   it("is deterministic and never calls the observation engine",()=>{
     const g=grid(2,2,["vegetation","other","other","vegetation"]);
     expect(assessLandscape(g,4,15)).toEqual(assessLandscape(g,4,15));
