@@ -109,6 +109,7 @@ def main():
         "center_lon_lat": [CENTER_LON, CENTER_LAT],
         "projected_northwest_metres": [round(left,4),round(top,4)],
         "source_class_histogram": dist,
+        "source_class_codes_b64": base64.b64encode(values.tobytes(order="C")).decode("ascii"),
         "class_mapping": {
             "vegetation": sorted(VEGETATION),
             "other": sorted(OTHER),

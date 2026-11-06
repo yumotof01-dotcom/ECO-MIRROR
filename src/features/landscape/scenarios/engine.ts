@@ -80,6 +80,17 @@ export function enumerateConditions(): readonly ScenarioSettings[] {
 function idFor(x:ScenarioSettings):string{
   return x.pattern+"-n"+x.neighbourhood+"-lambda"+x.lambdaMetres+"-loss"+x.lossPercent;
 }
+/** Shared source of truth for the EXACT Phase 2 disturbance masks.
+ * Using this for interventions prevents baseline/after scenario drift.
+ * Cache keys are pattern+"-"+lossPercent.
+ */
+export function buildScenarioGridCache(grid:LandscapeGrid):ReadonlyMap<string,LandscapeGrid> {
+  const ranks=Object.fromEntries(PATTERNS.map(pattern=>[pattern,vegetationIndices(grid,pattern)])) as Record<DisturbancePattern,number[]>;
+  const stressed=new Map<string,LandscapeGrid>();
+  for(const pattern of PATTERNS)for(const lossPercent of LOSS_PERCENT)
+    stressed.set(pattern+"-"+lossPercent,applyVegetationLoss(grid,ranks[pattern],lossPercent));
+  return stressed;
+}
 export function runExhaustiveScenarios(grid:LandscapeGrid):EnsembleResult {
   const conditions=enumerateConditions();
   const output:ScenarioRecord[]=[];
@@ -95,10 +106,7 @@ export function runExhaustiveScenarios(grid:LandscapeGrid):EnsembleResult {
   }
   const originalVegetation=grid.cells.filter(c=>c==="vegetation").length;
   // Cache vegetation rankings per pattern to avoid changing the removal ordering with q.
-  const ranks=Object.fromEntries(PATTERNS.map(pattern=>[pattern,vegetationIndices(grid,pattern)])) as Record<DisturbancePattern,number[]>;
-  const stressed=new Map<string,LandscapeGrid>();
-  for(const pattern of PATTERNS)for(const lossPercent of LOSS_PERCENT)
-    stressed.set(pattern+"-"+lossPercent,applyVegetationLoss(grid,ranks[pattern],lossPercent));
+  const stressed=buildScenarioGridCache(grid);
   for(const x of conditions){
     const altered=stressed.get(x.pattern+"-"+x.lossPercent)!;
     const result=assessLandscape(altered,x.neighbourhood,x.lambdaMetres);

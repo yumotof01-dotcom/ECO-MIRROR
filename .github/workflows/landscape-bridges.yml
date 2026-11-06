@@ -1,0 +1,46 @@
+name: Landscape phase-4 conceptual intervention audit
+
+on:
+  pull_request:
+    paths:
+      - 'src/features/landscape/**'
+      - 'scripts/landscape/**'
+      - '.github/workflows/landscape-bridges.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phase4-verified-interventions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install exact spatial dependencies
+        run: python -m pip install rasterio==1.4.3 pyproj==3.7.2 numpy==2.2.6
+      - name: Fetch 2021 ESA WorldCover 2km window with validated source classes
+        run: python scripts/landscape/ingest_worldcover.py --out /tmp/worldcover-shinjuku.json
+      - name: Independently regenerate all 440 baselines
+        run: node --experimental-strip-types scripts/landscape/run-worldcover.mjs /tmp/worldcover-shinjuku.json /tmp/worldcover-440-results.json
+      - name: Compare selected 2x2 conceptual interventions across all 440 conditions
+        run: node --experimental-strip-types scripts/landscape/run-bridges.mjs /tmp/worldcover-shinjuku.json /tmp/worldcover-440-results.json /tmp/worldcover-bridge-440-report.json
+      - name: Audit fair area, original classes, full coverage and independent PC results
+        run: python scripts/landscape/audit_bridges.py /tmp/worldcover-shinjuku.json /tmp/worldcover-440-results.json /tmp/worldcover-bridge-440-report.json
+      - name: Preserve auditable source, baseline and intervention reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eco-mirror-phase4-intervention-evidence
+          path: |
+            /tmp/worldcover-shinjuku.json
+            /tmp/worldcover-440-results.json
+            /tmp/worldcover-bridge-440-report.json
+          retention-days: 30
+          if-no-files-found: warn
