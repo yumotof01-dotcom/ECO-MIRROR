@@ -71,7 +71,7 @@ describe("hypothetical 4-cell intervention, all 440 Phase-2 conditions",()=>{
     expect(()=>runBridgeExperiment(grid,raw,base)).toThrow(/conflict/);
     raw[0]=50;
     expect(()=>runBridgeExperiment(grid,raw,{...base,status:"incomplete"})).toThrow(/baseline/);
-    expect(()=>runBridgeExperiment(grid,raw,{...base,conditions:base.conditions.slice(1)})).toThrow(/baseline/);
+    expect(()=>runBridgeExperiment(grid,raw,{...base,conditions:base.conditions.slice(1)})).toThrow(/missing or duplicated/);
   });
   it("fails explicitly rather than claiming a bridge when there are no two patches",()=>{
     const {grid,raw}=fixture();
