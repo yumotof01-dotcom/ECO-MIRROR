@@ -58,6 +58,12 @@ def main():
             if not src.crs.to_epsg() == 4326:
                 raise ValueError("Unexpected source CRS")
             window = from_bounds(w, s, e, n, transform=src.transform)
+            # Reprojection needs a halo: bounding only four target corners and
+            # rounding the source window clipped 44 target edge pixels in CI.
+            # Eight input pixels of padding are loaded, then destination nodata
+            # is still checked strictly instead of silently zero-filled.
+            window = Window(window.col_off - 8, window.row_off - 8,
+                            window.width + 16, window.height + 16)
             window = window.round_offsets().round_lengths()
             clipped = src.read(1, window=window, boundless=False)
             if clipped.size == 0:
