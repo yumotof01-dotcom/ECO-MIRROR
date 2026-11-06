@@ -1,0 +1,90 @@
+name: Landscape six-region real-data stress validation
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/landscape/**'
+      - 'src/features/landscape/**'
+      - 'docs/landscape/**'
+      - '.github/workflows/landscape-stress-regions.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-crop-regression:
+    name: Real 2021 COG (${{ matrix.site }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        site: [shinjuku, osaka, nagoya, fukuoka, sapporo, odaiba]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install bounded geospatial dependencies
+        run: python -m pip install rasterio==1.4.3 pyproj==3.7.2 numpy==2.2.6
+      - name: Ingest genuine 40,000-cell official COG crop with missing-data rejection
+        run: python scripts/landscape/ingest_worldcover.py --site "${{ matrix.site }}" --out /tmp/region-crop.json
+      - name: Calculate all 440 conditions and 40 response curves
+        run: /usr/bin/time -f 'BASELINE_WALL_SECONDS=%e BASELINE_MAX_RSS_KB=%M' node --experimental-strip-types scripts/landscape/run-worldcover.mjs /tmp/region-crop.json /tmp/region-440.json
+      - name: Independently check landcover and 440-condition coverage
+        run: python scripts/landscape/audit_real_results.py /tmp/region-crop.json /tmp/region-440.json
+      - name: Adversarial real-data corruption and 5000 synthetic property cases (Tokyo once)
+        if: matrix.site == 'shinjuku'
+        run: node --experimental-strip-types scripts/landscape/stress-adversarial.mjs /tmp/region-crop.json
+      - name: Score 16 hypothetical 400sqm sites under 440 conditions each
+        run: /usr/bin/time -f 'BRIDGES_WALL_SECONDS=%e BRIDGES_MAX_RSS_KB=%M' node --experimental-strip-types scripts/landscape/run-bridges.mjs /tmp/region-crop.json /tmp/region-440.json /tmp/region-bridges.json
+      - name: Verify all intervention deltas, raw pixel classes and independent PC comparisons
+        run: python scripts/landscape/audit_bridges.py /tmp/region-crop.json /tmp/region-440.json /tmp/region-bridges.json
+      - name: Preserve audit artifacts; 2021 only; not field-ecology validation
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: landcover-stress-${{ matrix.site }}
+          path: |
+            /tmp/region-crop.json
+            /tmp/region-440.json
+            /tmp/region-bridges.json
+          retention-days: 14
+          if-no-files-found: warn
+
+
+  real-four-kilometre-scale:
+    name: Real 160k-cell regional scale regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install fixed raster dependencies
+        run: python -m pip install rasterio==1.4.3 pyproj==3.7.2 numpy==2.2.6
+      - name: Real 4km-by-4km ESA WorldCover crop (160,000 cells)
+        run: python scripts/landscape/ingest_worldcover.py --site shinjuku --size-cells 400 --out /tmp/large-2021-crop.json
+      - name: Run all 440 sensitivity cases on the 160k-cell real crop
+        run: /usr/bin/time -f 'LARGE_440_WALL_SECONDS=%e LARGE_440_MAX_RSS_KB=%M' node --experimental-strip-types scripts/landscape/run-worldcover.mjs /tmp/large-2021-crop.json /tmp/large-2021-440.json
+      - name: Independently audit all enlarged-area experiments
+        run: python scripts/landscape/audit_real_results.py /tmp/large-2021-crop.json /tmp/large-2021-440.json
+      - name: Store input/provenance and full 440-condition output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: worldcover-stress-large-tokyo-160k
+          path: |
+            /tmp/large-2021-crop.json
+            /tmp/large-2021-440.json
+          retention-days: 14
+          if-no-files-found: warn
