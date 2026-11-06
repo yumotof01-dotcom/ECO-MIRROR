@@ -95,8 +95,7 @@ export function runExhaustiveScenarios(grid:LandscapeGrid):EnsembleResult {
   }
   const originalVegetation=grid.cells.filter(c=>c==="vegetation").length;
   // Cache vegetation rankings per pattern to avoid changing the removal ordering with q.
-  const ranks=Object.fromEntries(PATTERNS.map(pattern=>[pattern,vegetationIndices(grid,pattern)]))
-    as Record<DisturbancePattern,number[]>;
+  const ranks=Object.fromEntries(PATTERNS.map(pattern=>[pattern,vegetationIndices(grid,pattern)])) as Record<DisturbancePattern,number[]>;
   const stressed=new Map<string,LandscapeGrid>();
   for(const pattern of PATTERNS)for(const lossPercent of LOSS_PERCENT)
     stressed.set(pattern+"-"+lossPercent,applyVegetationLoss(grid,ranks[pattern],lossPercent));
