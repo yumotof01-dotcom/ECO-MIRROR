@@ -48,6 +48,8 @@ const ranked=report.rankedConnectorIds.map((id,i)=>{
     minimum_delta_pc:e.summary.minimumDeltaPc,
     negative_conditions:e.summary.negativeConditions,
     positive_conditions:e.summary.positiveConditions,
+    patch_merge_conditions:e.summary.scenariosWithPatchMerger,
+    new_island_conditions:e.summary.scenariosCreatingNewIsland,
     consistent_model_gain:e.summary.assessment==="POSITIVE_UNDER_ALL_DEFINED_CONDITIONS"};
 });
 console.log("LANDSCAPE_BRIDGE_REPORT="+JSON.stringify({
@@ -57,6 +59,7 @@ console.log("LANDSCAPE_BRIDGE_REPORT="+JSON.stringify({
   equal_area_controls:report.selectedReferenceFootprintsCount,
   conditions_per_site:report.scenarioCount,
   total_intervention_runs:report.evaluated.reduce((sum,r)=>sum+r.resultCount,0),
+  direct_bridges_in_both_neighbourhoods:report.rankedDirectBridgeIds.length,
   top_five:ranked.slice(0,5),
   reported_sha256:sha,
   output:outputPath,
