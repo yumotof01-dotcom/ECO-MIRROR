@@ -142,6 +142,7 @@ function constructSite(grid:LandscapeGrid,classes:Uint8Array,labels:Int32Array,s
   };
 }
 function selectTileDiverse(sites:readonly InterventionSite[],max:number,w:number,h:number,role:CandidateRole):InterventionSite[] {
+  if(max===0)return [];
   const eligible=sites.filter(s=>s.role===role);
   const sorted=[...eligible].sort((a,b)=>{
     const diff=role==="hypothetical_connector" ? b.selectionScore-a.selectionScore : b.selectionScore-a.selectionScore;
