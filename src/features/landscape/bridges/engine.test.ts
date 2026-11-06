@@ -40,11 +40,14 @@ describe("hypothetical 4-cell intervention, all 440 Phase-2 conditions",()=>{
       expect(result.results).toHaveLength(440);
       expect(result.summary.count).toBe(440);
       expect(result.summary.positiveConditions+result.summary.negativeConditions+result.summary.zeroConditions).toBe(440);
+      expect(result.summary.scenariosWithPatchMerger+result.summary.scenariosWithoutPatchCountChange+
+        result.summary.scenariosCreatingNewIsland).toBe(440);
       expect(result.site.cells).toHaveLength(4);
       expect(result.site.addedAreaM2).toBe(400);
       expect(result.site.sourceClasses.every(c=>c===50||c===60)).toBe(true);
       for(const condition of result.results){
         expect(condition.afterVegetationAreaM2-condition.beforeVegetationAreaM2).toBe(400);
+        expect(condition.patchesJoined).toBe(Math.max(0,condition.beforePatchCount-condition.afterPatchCount));
         expect(condition.afterPc-condition.beforePc).toBeCloseTo(condition.deltaPc,14);
       }
     }
