@@ -1,4 +1,4 @@
-import { assessLandscape } from "../core/landscape.ts";
+import { assessLandscape, extractPatches } from "../core/landscape.ts";
 import type { LandscapeGrid, Neighbourhood } from "../core/types.ts";
 import { buildScenarioGridCache, enumerateConditions } from "../scenarios/engine.ts";
 import type { EnsembleResult, ScenarioSettings } from "../scenarios/engine.ts";
@@ -42,6 +42,10 @@ export interface InterventionResult {
   readonly deltaPc: number;
   readonly beforeVegetationAreaM2: number;
   readonly afterVegetationAreaM2: number;
+  readonly beforePatchCount: number;
+  readonly afterPatchCount: number;
+  /** Positive only when formerly separate landscape patches are joined. */
+  readonly patchesJoined: number;
 }
 export interface InterventionSummary {
   readonly count: number;
@@ -52,6 +56,9 @@ export interface InterventionSummary {
   readonly positiveConditions: number;
   readonly negativeConditions: number;
   readonly zeroConditions: number;
+  readonly scenariosWithPatchMerger: number;
+  readonly scenariosWithoutPatchCountChange: number;
+  readonly scenariosCreatingNewIsland: number;
   readonly assessment: "POSITIVE_UNDER_ALL_DEFINED_CONDITIONS" | "MIXED_OR_NONPOSITIVE_MODEL_EFFECT";
 }
 export interface EvaluatedIntervention {
@@ -203,6 +210,9 @@ function summarize(results:readonly InterventionResult[]):InterventionSummary{
     medianDeltaPc:quantile(gains,0.5),
     maximumDeltaPc:Math.max(...gains),
     positiveConditions:positive,negativeConditions:negative,zeroConditions:zero,
+    scenariosWithPatchMerger:results.filter(r=>r.afterPatchCount<r.beforePatchCount).length,
+    scenariosWithoutPatchCountChange:results.filter(r=>r.afterPatchCount===r.beforePatchCount).length,
+    scenariosCreatingNewIsland:results.filter(r=>r.afterPatchCount>r.beforePatchCount).length,
     assessment:negative===0&&zero===0?"POSITIVE_UNDER_ALL_DEFINED_CONDITIONS":"MIXED_OR_NONPOSITIVE_MODEL_EFFECT"};
 }
 function key(x:ScenarioSettings):string{
@@ -242,6 +252,14 @@ export function runBridgeExperiment(grid:LandscapeGrid,rawClassCodes:Uint8Array,
   const references=selectTileDiverse(eligible,maxReferences,grid.width,grid.height,"equal_area_reference");
   require(bridges.length>0,"no structurally eligible connector candidates");
   const stressed=buildScenarioGridCache(grid);
+  // Source maps are identical for every lambda. Count patches once per pattern/loss/neighbourhood.
+  const originalPatchCounts=new Map<string,number>();
+  for(const setting of conditions){
+    const maskKey=setting.pattern+"-"+setting.lossPercent;
+    const countKey=maskKey+"-n"+setting.neighbourhood;
+    if(!originalPatchCounts.has(countKey))
+      originalPatchCounts.set(countKey,extractPatches(stressed.get(maskKey)!,setting.neighbourhood).length);
+  }
   const evaluated:EvaluatedIntervention[]=[];
   for(const site of [...bridges,...references]){
     const records:InterventionResult[]=[];
@@ -255,8 +273,12 @@ export function runBridgeExperiment(grid:LandscapeGrid,rawClassCodes:Uint8Array,
       require(after.status==="STRUCTURAL_ONLY","candidate intervention could not be calculated");
       require(Math.abs((after.vegetationAreaM2-original.vegetationAreaM2!)-site.addedAreaM2)<1e-8,
         "unequal or missing-area intervention");
+      const countBefore=originalPatchCounts.get(setting.pattern+"-"+setting.lossPercent+"-n"+setting.neighbourhood)!;
+      const countAfter=after.patches.length;
       records.push({scenarioId:id,beforePc:original.pc!,afterPc:after.pc,deltaPc:after.pc-original.pc!,
-        beforeVegetationAreaM2:original.vegetationAreaM2!,afterVegetationAreaM2:after.vegetationAreaM2});
+        beforeVegetationAreaM2:original.vegetationAreaM2!,afterVegetationAreaM2:after.vegetationAreaM2,
+        beforePatchCount:countBefore,afterPatchCount:countAfter,
+        patchesJoined:Math.max(0,countBefore-countAfter)});
     }
     evaluated.push({site,resultCount:records.length,results:records,summary:summarize(records)});
   }
@@ -276,6 +298,6 @@ export function runBridgeExperiment(grid:LandscapeGrid,rawClassCodes:Uint8Array,
     rankedDirectBridgeIds:ranked.filter(x=>x.site.topologicalEffect==="joins_patches_in_both").map(x=>x.site.id),
     modelValidation:"not_validated_for_real_species_or_intervention",
     siteFeasibility:"not_assessed",ecologicalInterventionEffectsValidated:0,
-    interpretation:"These are identical 2x2-cell hypothetical land-cover conversions. Only sites that merge distinct source patches in BOTH 4 and 8 connectivity may be called direct topological bridges; other candidates are stepping-stones or area extensions. Rankings cover a transparent shortlist, NOT every physically possible location. All 440 sensitivity conditions were computed for each selected site. Built-up/bare classes do not establish land access, suitability or ecological effect. Baseline has no movement buffer, and connectivity uses centroid distances."
+    interpretation:"These are identical 2x2-cell hypothetical land-cover conversions. Each scenario separately records whether patch components actually merge, remain unchanged, or create a new isolated patch; a positive PC score alone does not prove bridging. Only sites that merge distinct source patches in BOTH 4 and 8 connectivity may be called direct topological bridges; other candidates are stepping-stones or area extensions. Rankings cover a transparent shortlist, NOT every physically possible location. All 440 sensitivity conditions were computed for each selected site. Built-up/bare classes do not establish land access, suitability or ecological effect. Baseline has no movement buffer, and connectivity uses centroid distances."
   };
 }
