@@ -66,7 +66,7 @@ export function assessLandscape(grid: LandscapeGrid, neighbourhood: Neighbourhoo
     return {status:"NOT_ESTIMABLE",reason:"INPUT_INVALID",detail:"Neighbourhood must be 4/8 and lambda must be positive."};
   }
   const patches=extractPatches(grid,neighbourhood);
-  if(patches.length>3000) {
+  if(patches.length>4000) {
     return {status:"NOT_ESTIMABLE",reason:"MODEL_LIMIT",detail:"Too many patches for the initial pairwise calculation."};
   }
   const landscapeAreaM2=grid.width*grid.height*grid.resolutionMetres**2;
