@@ -175,6 +175,10 @@ def main():
             check(all(math.isfinite(r[k]) for k in ("afterPc","beforePc","deltaPc")),
                   "non-finite PC")
             check(0<=r["afterPc"]<=1 and 0<=r["beforePc"]<=1,"PC outside range")
+            check(isinstance(r["beforePatchCount"],int) and r["beforePatchCount"]>=0 and
+                  isinstance(r["afterPatchCount"],int) and r["afterPatchCount"]>=0,"invalid patch counts")
+            check(r["patchesJoined"]==max(0,r["beforePatchCount"]-r["afterPatchCount"]),
+                  "reported patch merger count mismatch")
             gains.append(r["deltaPc"])
         summary=item["summary"]
         check(summary["count"]==expected,"summary coverage")
@@ -186,6 +190,12 @@ def main():
         negative=sum(g < -EPS for g in gains)
         check((summary["positiveConditions"],summary["negativeConditions"],summary["zeroConditions"])
               ==(positive,negative,len(gains)-positive-negative),"sign counts")
+        reduced=sum(r["afterPatchCount"]<r["beforePatchCount"] for r in rows)
+        unchanged=sum(r["afterPatchCount"]==r["beforePatchCount"] for r in rows)
+        increased=sum(r["afterPatchCount"]>r["beforePatchCount"] for r in rows)
+        check((summary["scenariosWithPatchMerger"],
+              summary["scenariosWithoutPatchCountChange"],summary["scenariosCreatingNewIsland"])
+              ==(reduced,unchanged,increased),"topological summary mismatch")
     connector_items=[it for it in interventions if it["site"]["role"]=="hypothetical_connector"]
     control_items=[it for it in interventions if it["site"]["role"]=="equal_area_reference"]
     check(len(connector_items)==result["selectedConnectorFootprintsCount"],"connector count")
@@ -225,9 +235,14 @@ def main():
                 altered[idx]=False
             check(all(not altered[idx] for idx in item["site"]["cells"]),"site already vegetation")
             pre=patch_pc(altered,w,h,res,neighbour,lam)
+            _,before_components=patch_labels(altered,w,h,neighbour)
             for idx in item["site"]["cells"]:altered[idx]=True
             post=patch_pc(altered,w,h,res,neighbour,lam)
+            _,after_components=patch_labels(altered,w,h,neighbour)
             row=by_id[sid]
+            check(row["beforePatchCount"]==before_components and
+                  row["afterPatchCount"]==after_components,
+                  "independent per-scenario topology mismatch for "+sid)
             check(math.isclose(pre,row["beforePc"],rel_tol=0,abs_tol=1e-11),
                   "independent baseline PC mismatch for "+sid)
             check(math.isclose(post,row["afterPc"],rel_tol=0,abs_tol=1e-11),
@@ -246,6 +261,7 @@ def main():
         "ranked_first_candidate_id":top["site"]["id"],
         "ranked_first_lower_decile_delta_pc":top["summary"]["lowerDecileDeltaPc"],
         "ranked_first_negative_conditions":top["summary"]["negativeConditions"],
+        "ranked_first_patch_merge_conditions":top["summary"]["scenariosWithPatchMerger"],
         "reference_candidate_count":len(control_items),
         "genuine_both_neighbourhood_bridges_in_shortlist":len(result["rankedDirectBridgeIds"]),
         "outcome":"PASS",
